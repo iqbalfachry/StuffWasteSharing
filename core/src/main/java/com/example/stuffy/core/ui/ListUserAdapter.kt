@@ -29,7 +29,6 @@ class ListUserAdapter(private val listUser: ArrayList<User>) :
         val (username, name, avatar) = listUser[position]
         Glide.with(holder.itemView.context)
             .load(avatar)
-            .circleCrop()
             .into(holder.binding.imgItemPhoto)
         holder.binding.tvItemName.text = username
         holder.binding.tvItemDescription.text = name

@@ -1,6 +1,6 @@
 package com.example.stuffy.presentation.home
 
-import android.content.res.Configuration
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.data.User
-import com.example.stuffy.databinding.FragmentHomeBinding
+
 import com.example.stuffy.core.ui.ListUserAdapter
+import com.example.stuffy.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
@@ -35,11 +35,7 @@ class HomeFragment : Fragment() {
 
         list.addAll(listHeroes)
         showRecyclerList()
-        if (this.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            binding?.rvHeroes?.layoutManager = GridLayoutManager(activity, 2)
-        } else {
-            binding?.rvHeroes?.layoutManager = LinearLayoutManager(activity)
-        }
+
 
         return root
     }
@@ -73,7 +69,7 @@ class HomeFragment : Fragment() {
         }
 
     private fun showRecyclerList() {
-        binding?.rvHeroes?.layoutManager = LinearLayoutManager(activity)
+        binding?.rvHeroes?.layoutManager = GridLayoutManager(activity,2)
         val listHeroAdapter = ListUserAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
         listHeroAdapter.setOnItemClickCallback(object : ListUserAdapter.OnItemClickCallback {
