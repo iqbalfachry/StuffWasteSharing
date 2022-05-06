@@ -111,4 +111,5 @@
         <item>@drawable/user10</item>
     </integer-array>
     <string name="title_favorite">Favorite</string>
+    <string name="search">search</string>
 </resources>
