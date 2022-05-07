@@ -18,12 +18,14 @@
 
         <ImageView
             android:id="@+id/img_item_photo"
-            android:layout_width="176dp"
-            android:layout_height="171dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/image"
             android:foregroundGravity="center"
+            android:scaleType="fitXY"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
