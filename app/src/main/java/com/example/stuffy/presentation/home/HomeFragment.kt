@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
+import com.example.stuffy.core.data.Filter
 import com.example.stuffy.core.data.User
+import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
@@ -20,7 +22,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val list = ArrayList<User>()
-
+    private val filter = ArrayList<Filter>()
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -37,9 +39,47 @@ class HomeFragment : Fragment() {
 
         list.addAll(listHeroes)
         showRecyclerList()
+        binding?.recyclerView?.setHasFixedSize(true)
 
+        filter.addAll(listFilter)
+        showRecyclerListFilter()
 
         return root
+    }
+    private val listFilter: ArrayList<Filter>
+        get() {
+
+            val dataPhoto = resources.obtainTypedArray(R.array.image)
+
+            val dataFilter= resources.getStringArray(R.array.filterName)
+
+            val listHero = ArrayList<Filter>()
+            for (i in dataFilter.indices) {
+                val hero = Filter(
+                    dataPhoto.getResourceId(i, -1),
+                    dataFilter[i],
+                )
+                listHero.add(hero)
+            }
+            dataPhoto.recycle()
+            return listHero
+        }
+
+    private fun showRecyclerListFilter() {
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
+        val listHeroAdapter = FilterAdapter(filter)
+        binding?.recyclerView?.adapter = listHeroAdapter
+        listHeroAdapter.setOnItemClickCallback(object : FilterAdapter.OnItemClickCallback {
+
+
+            override fun onItemClicked(data: Filter) {
+                showSelectedUser(data)
+            }
+        })
+    }
+
+    private fun showSelectedUser(hero: Filter) {
+        Toast.makeText(activity, "Kamu memilih " + hero.filterName, Toast.LENGTH_SHORT).show()
     }
     private val listHeroes: ArrayList<User>
         get() {

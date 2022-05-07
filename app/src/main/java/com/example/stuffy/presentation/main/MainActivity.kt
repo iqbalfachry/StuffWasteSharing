@@ -36,46 +36,9 @@ class MainActivity : AppCompatActivity() {
 
 
         navView.setupWithNavController(navController)
-        binding.recyclerView.setHasFixedSize(true)
 
-        filter.addAll(listHeroes)
-        showRecyclerList()
 
     }
-    private val listHeroes: ArrayList<Filter>
-        get() {
 
-            val dataPhoto = resources.obtainTypedArray(R.array.image)
-
-            val dataFilter= resources.getStringArray(R.array.filterName)
-
-            val listHero = ArrayList<Filter>()
-            for (i in dataFilter.indices) {
-                val hero = Filter(
-                    dataPhoto.getResourceId(i, -1),
-                    dataFilter[i],
-                )
-                listHero.add(hero)
-            }
-            dataPhoto.recycle()
-            return listHero
-        }
-
-    private fun showRecyclerList() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        val listHeroAdapter = FilterAdapter(filter)
-        binding.recyclerView.adapter = listHeroAdapter
-        listHeroAdapter.setOnItemClickCallback(object : FilterAdapter.OnItemClickCallback {
-
-
-            override fun onItemClicked(data: Filter) {
-                showSelectedUser(data)
-            }
-        })
-    }
-
-    private fun showSelectedUser(hero: Filter) {
-        Toast.makeText(this, "Kamu memilih " + hero.filterName, Toast.LENGTH_SHORT).show()
-    }
 
         }
