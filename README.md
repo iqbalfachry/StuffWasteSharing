@@ -1,1 +1,1 @@
-# StuffWasteSharing
+# Stuffy App
