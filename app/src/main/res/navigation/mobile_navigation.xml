@@ -16,10 +16,15 @@
         android:name="com.example.stuffy.presentation.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
+    <fragment
+        android:id="@+id/navigation_share"
+        android:name="com.example.stuffy.presentation.share.ShareFragment"
+        android:label="@string/title_share"
+        tools:layout="@layout/fragment_share" />
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.stuffy.presentation.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>
