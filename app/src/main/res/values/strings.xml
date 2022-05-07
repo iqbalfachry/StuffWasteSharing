@@ -118,9 +118,9 @@
     </integer-array>
     <string-array name="filterName">
         <item>Alat Musik</item>
-        <item>Alat Musik</item>
-        <item>Alat Musik</item>
-        <item>Alat Musik</item>
+        <item>Olahraga</item>
+        <item>Plastik</item>
+        <item>Elektronik</item>
     </string-array>
     <string name="title_favorite">Favorite</string>
     <string name="search">search</string>

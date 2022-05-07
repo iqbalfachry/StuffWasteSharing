@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.data.User
 
@@ -69,7 +71,7 @@ class HomeFragment : Fragment() {
         }
 
     private fun showRecyclerList() {
-        binding?.rvHeroes?.layoutManager = GridLayoutManager(activity,2)
+        binding?.rvHeroes?.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         val listHeroAdapter = ListUserAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
         listHeroAdapter.setOnItemClickCallback(object : ListUserAdapter.OnItemClickCallback {
