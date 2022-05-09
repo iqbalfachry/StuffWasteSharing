@@ -1,6 +1,7 @@
 package com.example.stuffy.presentation.home
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
+import com.example.stuffy.presentation.menu.MenuActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,7 +34,14 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
+        binding?.imageView?.setOnClickListener {
+            Intent(activity, MenuActivity::class.java).also{
+                startActivity(it)
+            }
 
+
+
+        }
 
      binding?.rvHeroes?.setHasFixedSize(true)
 
