@@ -1,4 +1,4 @@
-package com.example.stuffy.core.data
+package com.example.stuffy.core.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

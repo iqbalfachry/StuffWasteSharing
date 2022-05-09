@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.stuffy.core.data.Filter
+import com.example.stuffy.core.domain.model.Filter
 import com.example.stuffy.core.databinding.FilterColBinding
 
 

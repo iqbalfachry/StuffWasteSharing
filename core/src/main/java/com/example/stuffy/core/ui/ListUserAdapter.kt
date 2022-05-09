@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-import com.example.stuffy.core.data.User
+import com.example.stuffy.core.domain.model.User
 import com.example.stuffy.core.databinding.ItemRowUserBinding
 
 

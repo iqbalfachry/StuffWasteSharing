@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
-import com.example.stuffy.core.data.Filter
-import com.example.stuffy.core.data.User
+import com.example.stuffy.core.domain.model.Filter
+import com.example.stuffy.core.domain.model.User
 import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
