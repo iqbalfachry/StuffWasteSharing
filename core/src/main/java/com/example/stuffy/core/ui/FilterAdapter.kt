@@ -10,11 +10,10 @@ import com.example.stuffy.core.databinding.FilterColBinding
 
 class FilterAdapter(private val filter: ArrayList<Filter>) :
 RecyclerView.Adapter<FilterAdapter.ListViewHolder>() {
-    private lateinit var onItemClickCallback: OnItemClickCallback
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
+
+    var onItemClick: ((Filter) -> Unit)? = null
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,20 +24,30 @@ RecyclerView.Adapter<FilterAdapter.ListViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val ( image,filterName) = filter[position]
-        Glide.with(holder.itemView.context)
-            .load(image)
-            .circleCrop()
-            .into(holder.binding.imageView)
-        holder.binding.textView.text = filterName
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(filter[holder.adapterPosition]) }
+        val filter = filter[position]
+holder.bind(filter)
+
     }
 
     override fun getItemCount(): Int = filter.size
-    class ListViewHolder(var binding: FilterColBinding) : RecyclerView.ViewHolder(binding.root)
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Filter)
+    inner class ListViewHolder(var binding: FilterColBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(filter:Filter) {
+            with(binding) {
+                Glide.with(itemView.context)
+                    .load(filter.image)
+                    .circleCrop()
+                    .into(imageView)
+                textView.text = filter.filterName
+
+            }
+        }
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(filter[absoluteAdapterPosition])
+            }
+        }
     }
+
 
 
 }

@@ -68,13 +68,13 @@ class HomeFragment : Fragment() {
         binding?.recyclerView?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         val listHeroAdapter = FilterAdapter(filter)
         binding?.recyclerView?.adapter = listHeroAdapter
-        listHeroAdapter.setOnItemClickCallback(object : FilterAdapter.OnItemClickCallback {
+        listHeroAdapter.onItemClick ={
+            showSelectedUser(it)
+        }
 
 
-            override fun onItemClicked(data: Filter) {
-                showSelectedUser(data)
-            }
-        })
+
+
     }
 
     private fun showSelectedUser(hero: Filter) {
@@ -113,12 +113,9 @@ class HomeFragment : Fragment() {
         binding?.rvHeroes?.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         val listHeroAdapter = ListUserAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
-        listHeroAdapter.setOnItemClickCallback(object : ListUserAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: User) {
-                showSelectedUser(data)
-
-            }
-        })
+        listHeroAdapter.onItemClick={
+            showSelectedUser(it)
+        }
     }
 
     private fun showSelectedUser(hero: User) {

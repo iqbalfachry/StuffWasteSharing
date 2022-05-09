@@ -7,15 +7,14 @@ import com.bumptech.glide.Glide
 
 import com.example.stuffy.core.domain.model.User
 import com.example.stuffy.core.databinding.ItemRowUserBinding
+import com.example.stuffy.core.domain.model.Filter
 
 
 class ListUserAdapter(private val listUser: ArrayList<User>) :
     RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
-    private lateinit var onItemClickCallback: OnItemClickCallback
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
+    var onItemClick: ((User) -> Unit)? = null
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,20 +25,30 @@ class ListUserAdapter(private val listUser: ArrayList<User>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (username, name, avatar) = listUser[position]
-        Glide.with(holder.itemView.context)
-            .load(avatar)
-            .into(holder.binding.imgItemPhoto)
-        holder.binding.tvItemName.text = username
-        holder.binding.tvItemDescription.text = name
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listUser[holder.adapterPosition]) }
+        val user = listUser[position]
+        holder.bind(user)
+
     }
 
     override fun getItemCount(): Int = listUser.size
-    class ListViewHolder(var binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root)
-    interface OnItemClickCallback {
-        fun onItemClicked(data: User)
+    inner class ListViewHolder(var binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(user:User) {
+            with(binding) {
+                Glide.with(itemView.context)
+                    .load(user.avatar)
+
+                    .into(imgItemPhoto)
+                tvItemName.text = user.username
+                tvItemDescription.text = user.name
+            }
+        }
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(listUser[absoluteAdapterPosition])
+            }
+        }
     }
+
 
 
 }
