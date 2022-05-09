@@ -1,4 +1,4 @@
-package com.example.stuffy.presentation.dashboard
+package com.example.stuffy.presentation.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.stuffy.databinding.FragmentDashboardBinding
+import com.example.stuffy.databinding.FragmentCartBinding
 
-class DashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+class CartFragment : Fragment() {
+
+    private var _binding: FragmentCartBinding? = null
 
     private val binding get() = _binding
 
@@ -21,9 +22,9 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): ConstraintLayout? {
         val dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
+            ViewModelProvider(this)[CartViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentCartBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
 
         val textView: TextView? = binding?.textDashboard

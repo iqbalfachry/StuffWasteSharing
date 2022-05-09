@@ -1,4 +1,4 @@
-package com.example.stuffy.presentation.notifications
+package com.example.stuffy.presentation.transaction
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,12 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.stuffy.databinding.FragmentTransactionBinding
 
-import com.example.stuffy.databinding.FragmentNotificationsBinding
 
+class TransactionFragment : Fragment() {
 
-class NotificationsFragment : Fragment() {
-
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentTransactionBinding? = null
 
 
     private val binding get() = _binding
@@ -24,9 +23,9 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): ConstraintLayout? {
         val notificationsViewModel =
-            ViewModelProvider(this)[NotificationsViewModel::class.java]
+            ViewModelProvider(this)[TransactionViewModel::class.java]
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
 
         val textView: TextView? = binding?.textNotifications
