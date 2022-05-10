@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_menuActivity2"
-            app:destination="@id/navigation4"
+            app:destination="@id/menuActivity4"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
@@ -34,17 +34,10 @@
         android:name="com.example.stuffy.presentation.transaction.TransactionFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_transaction" />
-    <navigation android:id="@+id/navigation4"
-        app:startDestination="@id/menuActivity2">
-        <activity
-            android:id="@+id/menuActivity2"
-            android:name="com.example.stuffy.presentation.menu.MenuActivity"
-            android:label="activity_menu"
-            tools:layout="@layout/activity_menu" />
-        <action
-            android:id="@+id/action_global_navigation_home3"
-            app:destination="@id/navigation_home"
-            app:enterAnim="@android:anim/slide_out_right" />
-    </navigation>
+    <activity
+        android:id="@+id/menuActivity4"
+        android:name="com.example.stuffy.presentation.menu.MenuActivity"
+        android:label="activity_menu"
+        tools:layout="@layout/activity_menu" />
 
 </navigation>

@@ -24,8 +24,8 @@ class MenuActivity : AppCompatActivity() {
         }
         binding.imageView2.setOnClickListener {
             Intent(this@MenuActivity, MainActivity::class.java).also{
-                startActivity(it,
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
+                startActivity(it)
+                ActivityNavigator.applyPopAnimationsToPendingTransition(this)
             }
 
 
