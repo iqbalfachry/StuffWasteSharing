@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Stuffy" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#C200EE</item>
+        <item name="colorPrimary">#156019</item>
         <item name="colorPrimaryVariant">@color/purple_200</item>
         <item name="colorOnPrimary">@color/purple_200</item>
         <!-- Secondary brand color. -->
