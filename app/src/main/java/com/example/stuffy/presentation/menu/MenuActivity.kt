@@ -3,6 +3,8 @@ package com.example.stuffy.presentation.menu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityOptionsCompat
+import androidx.navigation.ActivityNavigator
 import com.bumptech.glide.Glide
 import com.example.stuffy.R
 import com.example.stuffy.databinding.ActivityMenuBinding
@@ -22,11 +24,16 @@ class MenuActivity : AppCompatActivity() {
         }
         binding.imageView2.setOnClickListener {
             Intent(this@MenuActivity, MainActivity::class.java).also{
-                startActivity(it)
+                startActivity(it,
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
             }
 
 
 
         }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        ActivityNavigator.applyPopAnimationsToPendingTransition(this)
     }
 }

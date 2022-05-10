@@ -1,13 +1,18 @@
 package com.example.stuffy.presentation.home
 
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+
 import androidx.fragment.app.Fragment
+
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
@@ -17,7 +22,7 @@ import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
-import com.example.stuffy.presentation.menu.MenuActivity
+
 
 class HomeFragment : Fragment() {
 
@@ -35,12 +40,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
         binding?.imageView?.setOnClickListener {
-            Intent(activity, MenuActivity::class.java).also{
-                startActivity(it)
-            }
-
-
-
+               it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
 
      binding?.rvHeroes?.setHasFixedSize(true)

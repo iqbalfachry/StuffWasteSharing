@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Stuffy">
         <activity
             android:name=".presentation.menu.MenuActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="false" />
