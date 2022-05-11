@@ -16,7 +16,7 @@
         android:title="@string/title_share" />
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_baseline_list_alt_24"
+        android:icon="@drawable/ic_baseline_assignment_24"
         android:title="@string/transaction" />
 
 </menu>

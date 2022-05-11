@@ -132,6 +132,10 @@
     <string name="transaction">Transaction</string>
     <string name="home">Home</string>
     <string name="pesan">Pesan</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="almat">Almat</string>
+    <string name="transaksi">Transaksi</string>
+    <string name="wishlist">Wishlist</string>
 
 
 </resources>
