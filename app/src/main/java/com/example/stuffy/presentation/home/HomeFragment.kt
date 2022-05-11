@@ -22,6 +22,7 @@ import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
+import com.example.stuffy.presentation.detail.DetailActivity
 
 
 class HomeFragment : Fragment() {
@@ -123,13 +124,14 @@ class HomeFragment : Fragment() {
         val listHeroAdapter = ListUserAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
         listHeroAdapter.onItemClick={
-            showSelectedUser(it)
+                movie ->
+            Intent(activity, DetailActivity::class.java).also {
+                it.putExtra(DetailActivity.DATA, movie)
+                startActivity(it)
+            }
         }
     }
 
-    private fun showSelectedUser(hero: User) {
-        Toast.makeText(activity, "Kamu memilih " + hero.name, Toast.LENGTH_SHORT).show()
-    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
