@@ -137,6 +137,14 @@
     <string name="transaksi">Transaksi</string>
     <string name="wishlist">Wishlist</string>
     <string name="share">Share</string>
+    <string name="lainnya_di_pengguna_ini">Lainnya di pengguna ini</string>
+    <string name="detail_barang">Detail Barang</string>
+    <string name="tab_text_1">Confirmation</string>
+    <string name="tab_text_2">Share</string>
+    <string name="tab_text_3">Take</string>
+    <string name="content_tab_confirmation">Welcome Home</string>
+    <string name="content_tab_share">Change your Profile here</string>
+    <string name="content_tab_take">This is Tab %1$d</string>
 
 
 </resources>
