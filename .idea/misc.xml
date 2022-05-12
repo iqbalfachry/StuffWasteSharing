@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/arch_left.xml" value="0.162" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/arch_right.xml" value="0.162" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/bg_search.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1095" />
@@ -14,6 +16,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1095" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_confirmation.xml" value="0.15260416666666668" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_detail.xml" value="0.152" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_menu.xml" value="0.22916666666666666" />
@@ -23,7 +26,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_dashboard.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_notifications.xml" value="0.10989583333333333" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_share.xml" value="0.1" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_share.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction.xml" value="0.22916666666666666" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/item_row_user.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/menu/bottom_nav_menu.xml" value="0.10989583333333333" />

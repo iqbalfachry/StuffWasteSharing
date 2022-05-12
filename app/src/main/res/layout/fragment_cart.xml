@@ -42,9 +42,9 @@
         android:layout_width="0dp"
         android:layout_height="508dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/cart_list"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider2" />
+        app:layout_constraintTop_toTopOf="@+id/divider2"
+        tools:listitem="@layout/cart_list" />
 
     <Button
         android:id="@+id/button"

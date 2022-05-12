@@ -36,8 +36,7 @@
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/constraintLayout2"
        android:layout_width="0dp"
-       android:layout_height="201dp"
-       android:layout_marginTop="4dp"
+       android:layout_height="198dp"
        android:background="@color/purple_200"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.0"

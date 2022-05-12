@@ -29,10 +29,7 @@ class ShareFragment :  Fragment() {
         _binding = FragmentShareBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
 
-        val textView: TextView? = binding?.textShare
-        shareViewModel.text.observe(viewLifecycleOwner) {
-            textView?.text = it
-        }
+
         return root
     }
 
