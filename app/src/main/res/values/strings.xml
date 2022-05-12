@@ -145,6 +145,8 @@
     <string name="content_tab_confirmation">Welcome Home</string>
     <string name="content_tab_share">Change your Profile here</string>
     <string name="content_tab_take">This is Tab %1$d</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="ambil">Ambil</string>
 
 
 </resources>
