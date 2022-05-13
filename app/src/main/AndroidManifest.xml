@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stuffy">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".presentation.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.settings.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.confirmation.ConfirmationActivity"
@@ -26,8 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.splash.SplashActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

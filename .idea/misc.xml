@@ -19,6 +19,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_confirmation.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_detail.xml" value="0.2" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_login.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_menu.xml" value="0.22916666666666666" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_settings.xml" value="0.264" />
@@ -30,7 +31,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_notifications.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_share.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction.xml" value="0.22916666666666666" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation.xml" value="0.10989583333333333" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation.xml" value="0.136" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_share.xml" value="0.1" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_take.xml" value="0.1" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/item_row_user.xml" value="0.10989583333333333" />
