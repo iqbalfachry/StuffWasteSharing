@@ -133,7 +133,7 @@
     <string name="home">Home</string>
     <string name="pesan">Pesan</string>
     <string name="pengaturan">Pengaturan</string>
-    <string name="almat">Almat</string>
+    <string name="almat">Alamat</string>
     <string name="transaksi">Transaksi</string>
     <string name="wishlist">Wishlist</string>
     <string name="share">Share</string>
@@ -147,6 +147,7 @@
     <string name="content_tab_take">This is Tab %1$d</string>
     <string name="confirmation">Confirmation</string>
     <string name="ambil">Ambil</string>
+    <string name="keluar">Keluar</string>
 
 
 </resources>
