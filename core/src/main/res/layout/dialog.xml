@@ -30,17 +30,17 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:autofillHints="Name"
             android:ems="10"
+            android:hint="@string/nama"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/textModal"
-            android:autofillHints="" />
+            card_view:layout_constraintTop_toBottomOf="@+id/textModal" />
 
         <Button
             android:id="@+id/button"
