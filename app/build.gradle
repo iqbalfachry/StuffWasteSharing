@@ -6,12 +6,12 @@ plugins {
 }
 apply from: '../shared_dependencies.gradle'
 android {
-    compileSdkVersion 32
-
+    compileSdkVersion  32
+    buildToolsVersion "32.0.0"
     defaultConfig {
         applicationId "com.example.stuffy"
-        minSdkVersion 21
-        targetSdkVersion 32
+        minSdkVersion  21
+        targetSdkVersion  32
         versionCode 1
         versionName "1.0"
 

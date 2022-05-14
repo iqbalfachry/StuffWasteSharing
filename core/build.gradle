@@ -6,11 +6,11 @@ plugins {
 }
 apply from: '../shared_dependencies.gradle'
 android {
-    compileSdk 32
-
+    compileSdkVersion  32
+    buildToolsVersion "32.0.0"
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdkVersion  21
+        targetSdkVersion  32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
