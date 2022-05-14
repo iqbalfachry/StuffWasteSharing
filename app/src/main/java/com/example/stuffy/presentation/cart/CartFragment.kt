@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.domain.model.Cart
-import com.example.stuffy.core.domain.model.Filter
 import com.example.stuffy.core.ui.CartAdapter
-import com.example.stuffy.core.ui.FilterAdapter
 import com.example.stuffy.databinding.FragmentCartBinding
 
 

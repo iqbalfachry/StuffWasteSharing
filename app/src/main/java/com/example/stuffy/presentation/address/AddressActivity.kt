@@ -1,9 +1,8 @@
 package com.example.stuffy.presentation.address
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.stuffy.databinding.ActivityAddressBinding
-import com.example.stuffy.databinding.ActivityConfirmationBinding
 
 class AddressActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddressBinding
