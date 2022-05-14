@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
         with(binding) {
             Glide.with(this@MenuActivity)
-                .load(R.drawable.user1)
+                .load(R.drawable.user7)
                 .circleCrop()
                 .into(imageView3)
         }
