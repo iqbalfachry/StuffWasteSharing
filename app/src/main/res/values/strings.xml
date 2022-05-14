@@ -148,6 +148,12 @@
     <string name="confirmation">Confirmation</string>
     <string name="ambil">Ambil</string>
     <string name="keluar">Keluar</string>
+    <string name="informasi_profil">Informasi Profil</string>
+    <string name="nama">Nama</string>
+    <string name="no_hp">No HP</string>
+    <string name="e_mail">E-mail</string>
+    <string name="alamat">Alamat</string>
+    <string name="ubah_foto_profil">Ubah Foto Profil</string>
 
 
 </resources>

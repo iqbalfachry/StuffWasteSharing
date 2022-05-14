@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.stuffy.R
 import com.example.stuffy.databinding.ActivityMenuBinding
 import com.example.stuffy.presentation.main.MainActivity
+import com.example.stuffy.presentation.settings.SettingsActivity
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
@@ -23,15 +24,20 @@ class MenuActivity : AppCompatActivity() {
                 .into(imageView3)
         }
         binding.imageView2.setOnClickListener {
-            Intent(this@MenuActivity, MainActivity::class.java).also{
+            Intent(this@MenuActivity, MainActivity::class.java).also {
                 startActivity(it)
                 ActivityNavigator.applyPopAnimationsToPendingTransition(this)
             }
 
 
-
+        }
+        binding.pengaturan.setOnClickListener {
+            Intent(this@MenuActivity, SettingsActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
         ActivityNavigator.applyPopAnimationsToPendingTransition(this)

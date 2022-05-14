@@ -7,7 +7,7 @@
     tools:context=".presentation.settings.SettingsActivity">
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        android:text="@string/pengaturan"
+        app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/ubah_foto_profil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,19 +62,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:text="@string/informasi_profil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider14" />
 
     <TextView
-        android:id="@+id/textView46"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:text="@string/nama"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
@@ -84,9 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/no_hp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/textView48"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/e_mail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:text="@string/alamat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
@@ -115,7 +115,7 @@
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textView46"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/divider14" />
 
     <TextView
@@ -142,10 +142,10 @@
         android:id="@+id/textView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textView49"
+        app:layout_constraintEnd_toEndOf="@+id/textView52"
+        app:layout_constraintStart_toStartOf="@+id/textView52"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
     <ImageView
@@ -155,7 +155,7 @@
         android:layout_marginStart="93dp"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toEndOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/divider14"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
@@ -165,9 +165,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
         app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toEndOf="@+id/textView51"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
         app:layout_constraintTop_toBottomOf="@+id/imageView24"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
@@ -175,11 +175,10 @@
         android:id="@+id/imageView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView25"
         app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toEndOf="@+id/textView52"
+        app:layout_constraintStart_toStartOf="@+id/imageView25"
         app:layout_constraintTop_toBottomOf="@+id/imageView25"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
@@ -188,9 +187,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
-        app:layout_constraintStart_toEndOf="@+id/textView53"
+        app:layout_constraintEnd_toEndOf="@+id/imageView26"
+        app:layout_constraintStart_toStartOf="@+id/imageView26"
         app:layout_constraintTop_toBottomOf="@+id/imageView26"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
