@@ -10,7 +10,7 @@
 
     <string-array name="username">
 
-        <item>romainguy</item>
+
 
         <item>jasoet</item>
         <item>budioktaviyan</item>
@@ -19,7 +19,7 @@
 
     <string-array name="name">
 
-        <item>Romain Guy</item>
+
 
         <item>Deny Prasetyo</item>
         <item>Budi Oktaviyan</item>
@@ -28,7 +28,7 @@
 
     <string-array name="location">
 
-        <item>California</item>
+
 
         <item>Kotagede, Yogyakarta, Indonesia</item>
         <item>Jakarta, Indonesia</item>
@@ -37,7 +37,7 @@
 
     <string-array name="repository">
 
-        <item>9</item>
+
 
         <item>44</item>
         <item>110</item>
@@ -46,7 +46,7 @@
 
     <string-array name="company">
 
-        <item>Google</item>
+
 
         <item>gojek-engineering</item>
         <item>KotlinID</item>
@@ -55,7 +55,6 @@
 
     <string-array name="followers">
 
-        <item>7972</item>
 
         <item>277</item>
         <item>178</item>
@@ -64,7 +63,7 @@
 
     <string-array name="following">
 
-        <item>0</item>
+
 
         <item>39</item>
         <item>23</item>
@@ -73,7 +72,7 @@
 
     <integer-array name="avatar">
 
-        <item>@drawable/user3</item>
+
 
 
         <item>@drawable/user7</item>
@@ -82,7 +81,7 @@
     </integer-array>
     <integer-array name="image">
 
-        <item>@drawable/user3</item>
+
         <item>@drawable/user7</item>
         <item>@drawable/user8</item>
         <item>@drawable/user10</item>
