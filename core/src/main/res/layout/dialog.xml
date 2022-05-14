@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
@@ -37,10 +36,10 @@
             android:layout_marginTop="40dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/textModal"
-            tools:ignore="TouchTargetSizeCheck" />
+            card_view:layout_constraintTop_toBottomOf="@+id/textModal" />
 
         <Button
             android:id="@+id/button"
