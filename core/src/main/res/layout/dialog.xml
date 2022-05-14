@@ -39,7 +39,8 @@
             android:minHeight="48dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/textModal" />
+            card_view:layout_constraintTop_toBottomOf="@+id/textModal"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/button"
