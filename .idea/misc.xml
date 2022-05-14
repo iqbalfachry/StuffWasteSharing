@@ -8,6 +8,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/bg_search.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1095" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" value="0.1095" />
@@ -19,6 +20,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1095" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_address.xml" value="0.16799999999999998" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_confirmation.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_login.xml" value="0.10989583333333333" />
@@ -34,15 +36,21 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_share.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction.xml" value="0.22916666666666666" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation.xml" value="0.136" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_share.xml" value="0.1" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_take.xml" value="0.1" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation_detail.xml" value="0.16799999999999998" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_share.xml" value="0.16" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_take.xml" value="0.16" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/item_row_user.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/menu/bottom_nav_menu.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/cart_list.xml" value="0.264" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/confirmation_list.xml" value="0.16799999999999998" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/confirmation_taker_list.xml" value="0.264" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/dialog.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/filter_col.xml" value="0.16799999999999998" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/item_row_user.xml" value="0.25" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/modal.xml" value="0.2" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/share_take_list.xml" value="0.264" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/wishlist_list.xml" value="0.4" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/favorite/src/main/res/layout/activity_favorite.xml" value="0.2" />
       </map>
     </option>

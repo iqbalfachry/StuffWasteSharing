@@ -21,9 +21,7 @@ class SettingsActivity : AppCompatActivity() {
             alert.showDialog(this,"Masukkan nama baru anda")
         }
 binding.back.setOnClickListener{
-    Intent(this@SettingsActivity, MenuActivity::class.java).also {
-        startActivity(it)
-    }
+    finish()
 }
     }
 }

@@ -2,4 +2,6 @@
 <resources>
     <string name="image">image</string>
     <string name="simpan">Simpan</string>
+    <string name="berikan_ulasan">Berikan ulasan</string>
+    <string name="masukkan_nama_baru_anda">Masukkan nama baru anda</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.stuffy.presentation.menu
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityOptionsCompat
@@ -24,13 +25,17 @@ class MenuActivity : AppCompatActivity() {
                 .into(imageView3)
         }
         binding.imageView2.setOnClickListener {
-            Intent(this@MenuActivity, MainActivity::class.java).also {
-                startActivity(it)
+            finish()
                 ActivityNavigator.applyPopAnimationsToPendingTransition(this)
-            }
 
 
         }
+        val uri = Uri.parse("stuffy://favorite")
+
+        binding.wishlist.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
+        }
+
         binding.pengaturan.setOnClickListener {
             Intent(this@MenuActivity, SettingsActivity::class.java).also {
                 startActivity(it)
