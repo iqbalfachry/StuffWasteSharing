@@ -10,7 +10,7 @@ android {
     buildToolsVersion "32.0.0"
     defaultConfig {
         minSdkVersion  21
-        targetSdkVersion  32
+        targetSdkVersion  30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
