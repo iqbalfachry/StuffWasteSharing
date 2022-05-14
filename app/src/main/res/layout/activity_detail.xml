@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="233dp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/user7" />
+                    app:srcCompat="@drawable/produk1" />
 
             </RelativeLayout>
 
