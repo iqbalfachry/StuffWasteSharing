@@ -20,7 +20,7 @@ import com.example.stuffy.core.domain.model.Filter
 import com.example.stuffy.core.domain.model.Product
 import com.example.stuffy.core.ui.FilterAdapter
 
-import com.example.stuffy.core.ui.ListUserAdapter
+import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
 import com.example.stuffy.presentation.detail.DetailActivity
 
@@ -92,26 +92,22 @@ class HomeFragment : Fragment() {
     }
     private val listHeroes: ArrayList<Product>
         get() {
-            val dataName = resources.getStringArray(R.array.username)
-            val dataDescription = resources.getStringArray(R.array.name)
+
+            val dataName = resources.getStringArray(R.array.name)
             val dataPhoto = resources.obtainTypedArray(R.array.avatar)
 
-            val dataFollower = resources.getStringArray(R.array.followers)
-            val dataFollowing = resources.getStringArray(R.array.following)
-            val dataCompany = resources.getStringArray(R.array.company)
+
             val dataLocation = resources.getStringArray(R.array.location)
-            val dataRepository = resources.getStringArray(R.array.repository)
+
             val listHero = ArrayList<Product>()
             for (i in dataName.indices) {
                 val hero = Product(
+
                     dataName[i],
-                    dataDescription[i],
                     dataPhoto.getResourceId(i, -1),
-                    dataFollower[i],
-                    dataFollowing[i],
-                    dataCompany[i],
-                    dataLocation[i],
-                    dataRepository[i]
+dataLocation[i],
+
+
                 )
                 listHero.add(hero)
             }
@@ -121,7 +117,7 @@ class HomeFragment : Fragment() {
 
     private fun showRecyclerList() {
         binding?.rvHeroes?.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-        val listHeroAdapter = ListUserAdapter(list)
+        val listHeroAdapter = ListProductAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
         listHeroAdapter.onItemClick={
                 movie ->

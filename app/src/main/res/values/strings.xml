@@ -8,14 +8,6 @@
     <string name="image">image</string>
     <string name="_7350">7350</string>
 
-    <string-array name="username">
-
-
-        <item>nikerevolution</item>
-        <item>jasoet</item>
-        <item>budioktaviyan</item>
-        <item>sidiqpermana</item>
-    </string-array>
 
     <string-array name="name">
 
@@ -35,40 +27,6 @@
         <item>Jakarta Indonesia</item>
     </string-array>
 
-    <string-array name="repository">
-
-
-        <item>44</item>
-        <item>44</item>
-        <item>110</item>
-        <item>65</item>
-    </string-array>
-
-    <string-array name="company">
-
-
-        <item>gojek-engineering</item>
-        <item>gojek-engineering</item>
-        <item>KotlinID</item>
-        <item>Nusantara Beta Studio</item>
-    </string-array>
-
-    <string-array name="followers">
-
-        <item>277</item>
-        <item>277</item>
-        <item>178</item>
-        <item>465</item>
-    </string-array>
-
-    <string-array name="following">
-
-
-        <item>40</item>
-        <item>39</item>
-        <item>23</item>
-        <item>10</item>
-    </string-array>
 
     <integer-array name="avatar">
 

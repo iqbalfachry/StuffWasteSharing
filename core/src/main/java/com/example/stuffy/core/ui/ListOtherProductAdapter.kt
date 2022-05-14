@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.stuffy.core.databinding.ItemOtherUserBinding
 
 import com.example.stuffy.core.domain.model.Product
 import com.example.stuffy.core.databinding.ItemRowUserBinding
 
 
-class ListUserAdapter(private val listUser: ArrayList<Product>) :
-    RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+class ListOtherProductAdapter(private val listUser: ArrayList<Product>) :
+    RecyclerView.Adapter<ListOtherProductAdapter.ListViewHolder>() {
 
     var onItemClick: ((Product) -> Unit)? = null
 
@@ -19,7 +20,7 @@ class ListUserAdapter(private val listUser: ArrayList<Product>) :
         parent: ViewGroup,
         viewType: Int
     ): ListViewHolder {
-        val binding = ItemRowUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemOtherUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -30,15 +31,15 @@ class ListUserAdapter(private val listUser: ArrayList<Product>) :
     }
 
     override fun getItemCount(): Int = listUser.size
-    inner class ListViewHolder(var binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ListViewHolder(var binding: ItemOtherUserBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(user:Product) {
             with(binding) {
                 Glide.with(itemView.context)
                     .load(user.avatar)
 
                     .into(imgItemPhoto)
-                tvItemName.text = user.username
-                tvItemDescription.text = user.name
+                tvItemName.text = user.name
+                tvItemDescription.text = user.location
             }
         }
         init {
