@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
 
-import com.example.stuffy.core.domain.model.User
+import com.example.stuffy.core.domain.model.Product
 
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.ActivityDetailBinding
@@ -16,7 +16,7 @@ import com.example.stuffy.presentation.main.MainActivity
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private val list = ArrayList<User>()
+    private val list = ArrayList<Product>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -40,10 +40,10 @@ class DetailActivity : AppCompatActivity() {
             showSelectedUser(it)
         }
 }
-        private fun showSelectedUser(hero: User) {
+        private fun showSelectedUser(hero: Product) {
             Toast.makeText(this, "Kamu memilih " + hero.username, Toast.LENGTH_SHORT).show()
         }
-        private val listHeroes: ArrayList<User>
+        private val listHeroes: ArrayList<Product>
         get() {
             val dataName = resources.getStringArray(R.array.username)
             val dataDescription = resources.getStringArray(R.array.name)
@@ -54,9 +54,9 @@ class DetailActivity : AppCompatActivity() {
             val dataCompany = resources.getStringArray(R.array.company)
             val dataLocation = resources.getStringArray(R.array.location)
             val dataRepository = resources.getStringArray(R.array.repository)
-            val listHero = ArrayList<User>()
+            val listHero = ArrayList<Product>()
             for (i in dataName.indices) {
-                val hero = User(
+                val hero = Product(
                     dataName[i],
                     dataDescription[i],
                     dataPhoto.getResourceId(i, -1),

@@ -11,7 +11,7 @@
     <string-array name="username">
 
 
-
+        <item>nikerevolution</item>
         <item>jasoet</item>
         <item>budioktaviyan</item>
         <item>sidiqpermana</item>
@@ -20,7 +20,7 @@
     <string-array name="name">
 
 
-
+        <item>Nike Revolution</item>
         <item>Deny Prasetyo</item>
         <item>Budi Oktaviyan</item>
         <item>Sidiq Permana</item>
@@ -29,7 +29,7 @@
     <string-array name="location">
 
 
-
+        <item>Kotagede, Yogyakarta, Indonesia</item>
         <item>Kotagede, Yogyakarta, Indonesia</item>
         <item>Jakarta, Indonesia</item>
         <item>Jakarta Indonesia</item>
@@ -38,7 +38,7 @@
     <string-array name="repository">
 
 
-
+        <item>44</item>
         <item>44</item>
         <item>110</item>
         <item>65</item>
@@ -47,7 +47,7 @@
     <string-array name="company">
 
 
-
+        <item>gojek-engineering</item>
         <item>gojek-engineering</item>
         <item>KotlinID</item>
         <item>Nusantara Beta Studio</item>
@@ -64,7 +64,7 @@
     <string-array name="following">
 
 
-
+        <item>40</item>
         <item>39</item>
         <item>23</item>
         <item>10</item>
@@ -74,14 +74,14 @@
 
 
 
-
+        <item>@drawable/produk1</item>
         <item>@drawable/user7</item>
         <item>@drawable/user8</item>
         <item>@drawable/user10</item>
     </integer-array>
     <integer-array name="image">
 
-
+        <item>@drawable/produk1</item>
         <item>@drawable/user7</item>
         <item>@drawable/user8</item>
         <item>@drawable/user10</item>

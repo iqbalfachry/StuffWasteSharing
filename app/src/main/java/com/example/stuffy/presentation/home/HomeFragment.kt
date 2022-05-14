@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.domain.model.Filter
-import com.example.stuffy.core.domain.model.User
+import com.example.stuffy.core.domain.model.Product
 import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListUserAdapter
@@ -28,7 +28,7 @@ import com.example.stuffy.presentation.detail.DetailActivity
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val list = ArrayList<User>()
+    private val list = ArrayList<Product>()
     private val filter = ArrayList<Filter>()
     private val binding get() = _binding
 
@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
     private fun showSelectedUser(hero: Filter) {
         Toast.makeText(activity, "Kamu memilih " + hero.filterName, Toast.LENGTH_SHORT).show()
     }
-    private val listHeroes: ArrayList<User>
+    private val listHeroes: ArrayList<Product>
         get() {
             val dataName = resources.getStringArray(R.array.username)
             val dataDescription = resources.getStringArray(R.array.name)
@@ -101,9 +101,9 @@ class HomeFragment : Fragment() {
             val dataCompany = resources.getStringArray(R.array.company)
             val dataLocation = resources.getStringArray(R.array.location)
             val dataRepository = resources.getStringArray(R.array.repository)
-            val listHero = ArrayList<User>()
+            val listHero = ArrayList<Product>()
             for (i in dataName.indices) {
-                val hero = User(
+                val hero = Product(
                     dataName[i],
                     dataDescription[i],
                     dataPhoto.getResourceId(i, -1),
