@@ -17,7 +17,7 @@
     <application>
         <activity
             android:name=".FavoriteActivity"
-            android:exported="true"
+            android:exported="false"
             tools:ignore="AppLinkUrlError">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
