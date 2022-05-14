@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stuffy">
         <activity
-            android:name="presentation.address.AdressActivity"
+            android:name=".presentation.address.AddressActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.login.LoginActivity"
