@@ -3,7 +3,6 @@ package com.example.stuffy.presentation.transaction
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -11,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.stuffy.R
-import com.example.stuffy.core.ui.SectionsPagerAdapter
+import com.example.stuffy.presentation.adapter.SectionsPagerAdapter
 import com.example.stuffy.databinding.FragmentTransactionBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

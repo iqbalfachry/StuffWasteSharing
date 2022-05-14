@@ -1,4 +1,4 @@
-package com.example.stuffy.core.ui
+package com.example.stuffy.presentation.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
