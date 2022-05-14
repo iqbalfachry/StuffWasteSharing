@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 
 import com.example.stuffy.core.domain.model.User
 import com.example.stuffy.core.databinding.ItemRowUserBinding
-import com.example.stuffy.core.domain.model.Filter
 
 
 class ListUserAdapter(private val listUser: ArrayList<User>) :

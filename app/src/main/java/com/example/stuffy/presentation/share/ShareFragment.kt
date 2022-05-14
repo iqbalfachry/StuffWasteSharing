@@ -27,10 +27,9 @@ class ShareFragment :  Fragment() {
             ViewModelProvider(this)[ShareViewModel::class.java]
 
         _binding = FragmentShareBinding.inflate(inflater, container, false)
-        val root: ConstraintLayout? = binding?.root
 
 
-        return root
+        return binding?.root
     }
 
     override fun onDestroyView() {
