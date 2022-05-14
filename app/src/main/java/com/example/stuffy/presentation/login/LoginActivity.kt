@@ -3,7 +3,7 @@ package com.example.stuffy.presentation.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.stuffy.databinding.ActivityLoginBinding
-import com.example.stuffy.databinding.ActivitySettingsBinding
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

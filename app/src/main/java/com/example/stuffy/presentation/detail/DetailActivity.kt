@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
-import com.example.stuffy.core.domain.model.Filter
+
 import com.example.stuffy.core.domain.model.User
-import com.example.stuffy.core.ui.FilterAdapter
+
 import com.example.stuffy.core.ui.ListUserAdapter
 import com.example.stuffy.databinding.ActivityDetailBinding
-import com.example.stuffy.databinding.ActivityMainBinding
+
 import com.example.stuffy.presentation.main.MainActivity
 
 class DetailActivity : AppCompatActivity() {

@@ -4,12 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.ActivityOptionsCompat
+
 import androidx.navigation.ActivityNavigator
 import com.bumptech.glide.Glide
 import com.example.stuffy.R
 import com.example.stuffy.databinding.ActivityMenuBinding
-import com.example.stuffy.presentation.main.MainActivity
+
 import com.example.stuffy.presentation.settings.SettingsActivity
 
 class MenuActivity : AppCompatActivity() {

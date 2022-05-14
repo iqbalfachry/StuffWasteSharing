@@ -3,7 +3,7 @@ package com.example.stuffy.presentation.main
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavOptions
+
 
 
 import androidx.navigation.findNavController

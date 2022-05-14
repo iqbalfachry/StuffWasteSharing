@@ -25,7 +25,7 @@
             android:name=".presentation.menu.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name="com.example.stuffy.presentation.main.MainActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.detail.DetailActivity"
