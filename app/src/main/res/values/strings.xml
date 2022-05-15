@@ -100,6 +100,13 @@
     <string name="rating">Rating</string>
     <string name="kondisi">Kondisi</string>
     <string name="_2_hari_yang_lalu">2 hari yang lalu</string>
+    <string name="foto_barang">Foto Barang</string>
+    <string name="tambahkan_foto_barang">Tambahkan foto barang ...</string>
+    <string name="nama_barang">Nama Barang</string>
+    <string name="tambahkan_nama_barang">Tambahkan nama barang ...</string>
+    <string name="tambahkan_detail_barang">Tambahkan detail barang ...</string>
+    <string name="jumlah_barang">Jumlah Barang</string>
+    <string name="tambahkan_jumlah_barang">Tambahkan jumlah barang ...</string>
 
 
 </resources>

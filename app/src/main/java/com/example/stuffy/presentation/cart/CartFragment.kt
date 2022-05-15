@@ -38,13 +38,13 @@ class CartFragment : Fragment() {
 
             val dataPhoto = resources.obtainTypedArray(R.array.image)
 
-            val dataFilter= resources.getStringArray(R.array.filterName)
+            val dataName= resources.getStringArray(R.array.name)
             val dataDescription= resources.getStringArray(R.array.location)
             val listHero = ArrayList<Cart>()
-            for (i in dataFilter.indices) {
+            for (i in dataName.indices) {
                 val hero = Cart(
                     dataPhoto.getResourceId(i, -1),
-                    dataFilter[i],
+                    dataName[i],
                     dataDescription[i],
                 )
                 listHero.add(hero)
