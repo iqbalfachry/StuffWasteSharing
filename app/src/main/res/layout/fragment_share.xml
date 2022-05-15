@@ -181,7 +181,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button5"
+        android:id="@+id/reject"
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_marginStart="32dp"
@@ -213,6 +213,6 @@
         android:text="1"
         android:gravity="center"
         android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/reject"
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

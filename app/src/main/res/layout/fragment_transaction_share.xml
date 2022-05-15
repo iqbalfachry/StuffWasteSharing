@@ -6,7 +6,8 @@
     tools:context=".presentation.transaction.TransactionShareFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        tools:listitem="@layout/share_take_list"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/take_list" />
 </FrameLayout>

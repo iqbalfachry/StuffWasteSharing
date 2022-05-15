@@ -49,6 +49,13 @@
         <item>asd</item>
         <item>asd</item>
     </string-array>
+    <string-array name="status">
+
+        <item>Menunggu</item>
+        <item>Menunggu</item>
+        <item>Selesai</item>
+        <item>Selesai</item>
+    </string-array>
     <string-array name="location">
 
 

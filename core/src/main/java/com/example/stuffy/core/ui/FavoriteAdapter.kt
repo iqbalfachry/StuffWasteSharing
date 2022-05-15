@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.example.stuffy.core.databinding.WishlistListBinding
-
 import com.example.stuffy.core.domain.model.Favorite
+
+import com.example.stuffy.core.domain.model.Share
 
 class FavoriteAdapter(private val favorite: ArrayList<Favorite>) :
     RecyclerView.Adapter<FavoriteAdapter.ListViewHolder>() {

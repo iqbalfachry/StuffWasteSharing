@@ -13,7 +13,7 @@ class ConfirmationDetailAdapter (private val filter: ArrayList<ConfirmationTaker
 
 
     var onItemClick: ((ConfirmationTaker) -> Unit)? = null
-    var onButtonClick: ((ConfirmationTaker) -> Unit)? = null
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -44,9 +44,7 @@ class ConfirmationDetailAdapter (private val filter: ArrayList<ConfirmationTaker
             binding.root.setOnClickListener {
                 onItemClick?.invoke(filter[absoluteAdapterPosition])
             }
-            binding.more.setOnClickListener {
-                onButtonClick?.invoke(filter[absoluteAdapterPosition])
-            }
+
         }
     }
 

@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
-import com.example.stuffy.core.domain.model.Cart
 import com.example.stuffy.core.domain.model.Favorite
-import com.example.stuffy.core.ui.CartAdapter
+import com.example.stuffy.core.domain.model.Share
 import com.example.stuffy.core.ui.FavoriteAdapter
 import com.example.stuffy.favorite.databinding.ActivityFavoriteBinding
 
