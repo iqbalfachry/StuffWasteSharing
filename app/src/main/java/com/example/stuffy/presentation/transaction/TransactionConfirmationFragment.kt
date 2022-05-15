@@ -79,7 +79,7 @@ class TransactionConfirmationFragment : Fragment() {
             mCategoryFragment.description = description
                     mFragmentManager.beginTransaction().apply {
                         replace(R.id.frame, mCategoryFragment,  TransactionConfirmationDetailFragment::class.java.simpleName)
-                        addToBackStack(null)
+
                         commit()
                     }
 
@@ -98,5 +98,6 @@ class TransactionConfirmationFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

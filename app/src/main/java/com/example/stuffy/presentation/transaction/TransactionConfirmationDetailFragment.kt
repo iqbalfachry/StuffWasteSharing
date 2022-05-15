@@ -84,10 +84,15 @@ class TransactionConfirmationDetailFragment : Fragment() {
         binding?.recyclerview?.adapter = listHeroAdapter
 
         }
+
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
     companion object {
         var EXTRA_NAME = "extra_name"
         var EXTRA_DESCRIPTION = "extra_description"
     }
-
-
 }
