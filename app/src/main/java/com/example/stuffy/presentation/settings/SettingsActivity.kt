@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.stuffy.R
 
-import com.example.stuffy.core.ui.ViewDialog
+import com.example.stuffy.core.ui.SettingsDialog
 
 import com.example.stuffy.databinding.ActivitySettingsBinding
 
@@ -24,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
                 .into(imageView23)
         }
         binding.name.setOnClickListener {
-            val alert = ViewDialog()
+            val alert = SettingsDialog()
             alert.showDialog(this,"Masukkan nama baru anda")
         }
 binding.back.setOnClickListener{

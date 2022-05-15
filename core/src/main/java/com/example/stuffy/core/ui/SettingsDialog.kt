@@ -12,12 +12,12 @@ import android.widget.TextView
 import com.example.stuffy.core.R
 
 
-class ViewDialog {
+class SettingsDialog {
     fun showDialog(activity: Activity?, msg: String?) {
         val dialog = activity?.let { Dialog(it) }
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.setCancelable(false)
-        dialog?.setContentView(R.layout.dialog)
+        dialog?.setContentView(R.layout.settings_dialog)
         val text = dialog?.findViewById(R.id.textModal) as TextView
         text.text = msg
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
