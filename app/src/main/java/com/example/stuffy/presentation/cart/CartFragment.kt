@@ -1,5 +1,6 @@
 package com.example.stuffy.presentation.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.example.stuffy.R
 import com.example.stuffy.core.domain.model.Cart
 import com.example.stuffy.core.ui.CartAdapter
 import com.example.stuffy.databinding.FragmentCartBinding
+import com.example.stuffy.presentation.confirmation.ConfirmationActivity
+import com.example.stuffy.presentation.settings.SettingsActivity
 
 
 class CartFragment : Fragment() {
@@ -31,6 +34,11 @@ class CartFragment : Fragment() {
         binding?.recyclerView2?.setHasFixedSize(true)
         cart.addAll(listCart)
         showRecyclerList()
+        binding?.pesan?.setOnClickListener {
+            Intent(activity, ConfirmationActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         return binding?.root
     }
     private val listCart: ArrayList<Cart>

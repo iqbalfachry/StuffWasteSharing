@@ -130,6 +130,13 @@
     <string name="tambahkan_detail_barang">Tambahkan detail barang ...</string>
     <string name="jumlah_barang">Jumlah Barang</string>
     <string name="tambahkan_jumlah_barang">Tambahkan jumlah barang ...</string>
+    <string name="barang_yang_dipesan">Barang yang dipesan</string>
+    <string name="_4_6">4.6</string>
+    <string name="anita_bahari">Anita bahari</string>
+    <string name="lokasi_barang">Lokasi barang</string>
+    <string name="catatan">Catatan</string>
+    <string name="tambahakan_alamat_anda">Tambahakan alamat anda ...</string>
+    <string name="pilih_lokasi_anda">Pilih lokasi anda</string>
 
 
 </resources>

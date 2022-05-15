@@ -21,7 +21,7 @@ class SettingsDialog {
         val text = dialog?.findViewById(R.id.textModal) as TextView
         text.text = msg
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val dialogButton: Button = dialog.findViewById(R.id.button) as Button
+        val dialogButton: Button = dialog.findViewById(R.id.pesan) as Button
         dialogButton.setOnClickListener {
 
                 dialog.dismiss()

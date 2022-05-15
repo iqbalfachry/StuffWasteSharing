@@ -47,7 +47,7 @@
         tools:listitem="@layout/cart_list" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/pesan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"

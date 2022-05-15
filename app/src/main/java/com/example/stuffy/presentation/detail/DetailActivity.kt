@@ -16,6 +16,7 @@ import com.example.stuffy.core.ui.ListOtherProductAdapter
 
 import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.ActivityDetailBinding
+import com.example.stuffy.presentation.confirmation.ConfirmationActivity
 
 import com.example.stuffy.presentation.main.MainActivity
 
@@ -37,6 +38,11 @@ class DetailActivity : AppCompatActivity() {
         binding.recyclerView3.setHasFixedSize(true)
         val detailProduct = intent.getParcelableExtra<Product>(DATA)
         showDetailMovie(detailProduct)
+        binding.button3.setOnClickListener {
+            Intent(this, ConfirmationActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showDetailMovie(detailMovie: Product?) {

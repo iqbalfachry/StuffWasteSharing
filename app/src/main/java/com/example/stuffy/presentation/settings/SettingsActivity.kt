@@ -1,6 +1,7 @@
 package com.example.stuffy.presentation.settings
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -9,6 +10,7 @@ import com.example.stuffy.R
 import com.example.stuffy.core.ui.SettingsDialog
 
 import com.example.stuffy.databinding.ActivitySettingsBinding
+import com.example.stuffy.presentation.address.AddressActivity
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -26,6 +28,23 @@ class SettingsActivity : AppCompatActivity() {
         binding.name.setOnClickListener {
             val alert = SettingsDialog()
             alert.showDialog(this,"Masukkan nama baru anda")
+        }
+        binding.email.setOnClickListener {
+            val alert = SettingsDialog()
+            alert.showDialog(this,"Masukkan email baru anda")
+        }
+        binding.username.setOnClickListener {
+            val alert = SettingsDialog()
+            alert.showDialog(this,"Masukkan username baru anda")
+        }
+        binding.no.setOnClickListener {
+            val alert = SettingsDialog()
+            alert.showDialog(this,"Masukkan no hp baru anda")
+        }
+        binding.alamat.setOnClickListener{
+            Intent(this@SettingsActivity, AddressActivity::class.java).also {
+                startActivity(it)
+            }
         }
 binding.back.setOnClickListener{
     finish()
