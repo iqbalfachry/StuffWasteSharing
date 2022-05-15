@@ -1,35 +1,30 @@
 package com.example.stuffy.presentation.transaction
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
-import com.example.stuffy.core.domain.model.Cart
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
-import com.example.stuffy.core.domain.model.Product
-import com.example.stuffy.core.ui.CartAdapter
 import com.example.stuffy.core.ui.ConfirmationAdapter
-import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
+import com.example.stuffy.core.ui.ConfirmationDetailAdapter
+import com.example.stuffy.databinding.FragmentTransactionConfirmationDetailBinding
 
-
-class TransactionConfirmationFragment : Fragment() {
-
-    private var _binding: FragmentTransactionConfirmationBinding? = null
+class TransactionConfirmationDetailFragment : Fragment() {
+    private var _binding: FragmentTransactionConfirmationDetailBinding? = null
     private val list = ArrayList<ConfirmationTransaction>()
 
     private val binding get() = _binding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FrameLayout? {
+    ): ConstraintLayout? {
         // Inflate the layout for this fragment
-        _binding = FragmentTransactionConfirmationBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionConfirmationDetailBinding.inflate(inflater, container, false)
 
         return binding?.root
 
@@ -39,6 +34,15 @@ class TransactionConfirmationFragment : Fragment() {
         binding?.recyclerview?.setHasFixedSize(true)
         list.addAll(listConfirmation)
         showRecyclerList()
+        if (savedInstanceState != null) {
+            val descFromBundle = savedInstanceState.getString(EXTRA_DESCRIPTION)
+
+        }
+        if (arguments != null) {
+            val categoryName = arguments?.getString(EXTRA_NAME)
+
+        }
+
     }
     private val listConfirmation: ArrayList<ConfirmationTransaction>
         get() {
@@ -63,35 +67,14 @@ class TransactionConfirmationFragment : Fragment() {
     private fun showRecyclerList() {
         binding?.recyclerview?.layoutManager = LinearLayoutManager(activity,
             LinearLayoutManager.VERTICAL,false)
-        val listHeroAdapter = ConfirmationAdapter(list)
+        val listHeroAdapter = ConfirmationDetailAdapter(list)
         binding?.recyclerview?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick ={
-            showSelectedUser(it)
-        }
-        listHeroAdapter.onButtonClick={
-
-                    val mCategoryFragment = TransactionConfirmationDetailFragment()
-                    val mFragmentManager = parentFragmentManager
-                    mFragmentManager.beginTransaction().apply {
-                        replace(R.id.frame, mCategoryFragment,  TransactionConfirmationDetailFragment::class.java.simpleName)
-                        addToBackStack(null)
-                        commit()
-                    }
-
 
         }
-
-
-
-
+    companion object {
+        var EXTRA_NAME = "extra_name"
+        var EXTRA_DESCRIPTION = "extra_description"
     }
 
-    private fun showSelectedUser(hero: ConfirmationTransaction) {
-        Toast.makeText(activity, "Kamu memilih " + hero.name, Toast.LENGTH_SHORT).show()
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
 }
