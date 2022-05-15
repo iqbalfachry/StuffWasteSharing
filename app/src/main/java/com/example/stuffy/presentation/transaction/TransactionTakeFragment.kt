@@ -70,7 +70,6 @@ class TransactionTakeFragment : Fragment() {
             showSelectedUser(it)
         }
         listHeroAdapter.onButtonClick = {
-            Log.d("buttonr",it.toString())
             val alert = RatingDialog()
             alert.showDialog(activity,"Berikan ulasan dan rating anda")
         }
