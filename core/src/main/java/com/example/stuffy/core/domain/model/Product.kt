@@ -8,5 +8,5 @@ data class Product(
     var name: String,
     var avatar: Int,
     var location: String,
-
+    var description: String,
 ) : Parcelable

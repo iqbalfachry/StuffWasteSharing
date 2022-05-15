@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: ConstraintLayout? = binding?.root
-        binding?.imageView?.setOnClickListener {
+        binding?.imageView?.setOnClickListener {it->
                it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
 
@@ -96,7 +96,7 @@ class HomeFragment : Fragment() {
             val dataName = resources.getStringArray(R.array.name)
             val dataPhoto = resources.obtainTypedArray(R.array.avatar)
 
-
+            val dataDescription = resources.getStringArray(R.array.description)
             val dataLocation = resources.getStringArray(R.array.location)
 
             val listHero = ArrayList<Product>()
@@ -106,7 +106,7 @@ class HomeFragment : Fragment() {
                     dataName[i],
                     dataPhoto.getResourceId(i, -1),
 dataLocation[i],
-
+                    dataDescription[i],
 
                 )
                 listHero.add(hero)
@@ -120,9 +120,9 @@ dataLocation[i],
         val listHeroAdapter = ListProductAdapter(list)
         binding?.rvHeroes?.adapter = listHeroAdapter
         listHeroAdapter.onItemClick={
-                movie ->
+                product ->
             Intent(activity, DetailActivity::class.java).also {
-                it.putExtra(DetailActivity.DATA, movie)
+                it.putExtra(DetailActivity.DATA, product)
                 startActivity(it)
             }
         }

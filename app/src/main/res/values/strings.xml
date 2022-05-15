@@ -17,7 +17,22 @@
         <item>Budi Oktaviyan</item>
         <item>Sidiq Permana</item>
     </string-array>
+    <string-array name="description">
 
+
+        <item>Nike is shoe</item>
+        <item>Deny is human</item>
+        <item>Budi is human</item>
+        <item>Sidiq is human</item>
+    </string-array>
+    <string-array name="rating">
+
+
+        <item>4.5</item>
+        <item>5</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
     <string-array name="location">
 
 
@@ -82,6 +97,9 @@
     <string name="alamat">Alamat</string>
     <string name="ubah_foto_profil">Ubah Foto Profil</string>
     <string name="bagikan">Bagikan</string>
+    <string name="rating">Rating</string>
+    <string name="kondisi">Kondisi</string>
+    <string name="_2_hari_yang_lalu">2 hari yang lalu</string>
 
 
 </resources>
