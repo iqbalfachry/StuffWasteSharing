@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:text="@string/share"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toTopOf="parent" />
@@ -184,7 +184,7 @@
         android:id="@+id/button5"
         android:layout_width="50dp"
         android:layout_height="45dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/arch_left"
         android:text="-"
