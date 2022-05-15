@@ -33,6 +33,7 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
     <string-array name="rating">
 
 
@@ -40,6 +41,13 @@
         <item>5</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="note">
+
+        <item>asd</item>
+        <item>asd</item>
+        <item>asd</item>
+        <item>asd</item>
     </string-array>
     <string-array name="location">
 

@@ -8,7 +8,10 @@ import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.stuffy.R
+import com.example.stuffy.core.domain.model.ConfirmationTaker
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
 import com.example.stuffy.core.ui.ConfirmationAdapter
 import com.example.stuffy.core.ui.ConfirmationDetailAdapter
@@ -16,8 +19,8 @@ import com.example.stuffy.databinding.FragmentTransactionConfirmationDetailBindi
 
 class TransactionConfirmationDetailFragment : Fragment() {
     private var _binding: FragmentTransactionConfirmationDetailBinding? = null
-    private val list = ArrayList<ConfirmationTransaction>()
-
+    private val list = ArrayList<ConfirmationTaker>()
+    var description: String? = null
     private val binding get() = _binding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,18 +45,28 @@ class TransactionConfirmationDetailFragment : Fragment() {
             val categoryName = arguments?.getString(EXTRA_NAME)
 
         }
+        with(binding) {
+            activity?.let {
+                this?.imageView5?.let { it1 ->
+                    Glide.with(it)
+                        .load(R.drawable.produk1)
+                        .transform(RoundedCorners(20))
+                        .into(it1)
+                }
+            }
+        }
 
-    }
-    private val listConfirmation: ArrayList<ConfirmationTransaction>
+        }
+    private val listConfirmation: ArrayList<ConfirmationTaker>
         get() {
 
             val dataPhoto = resources.obtainTypedArray(R.array.image)
 
             val dataName= resources.getStringArray(R.array.name)
-            val dataDescription= resources.getStringArray(R.array.size)
-            val listHero = ArrayList<ConfirmationTransaction>()
+            val dataDescription= resources.getStringArray(R.array.note)
+            val listHero = ArrayList<ConfirmationTaker>()
             for (i in dataName.indices) {
-                val hero = ConfirmationTransaction(
+                val hero = ConfirmationTaker(
                     dataPhoto.getResourceId(i, -1),
                     dataName[i],
                     dataDescription[i],
