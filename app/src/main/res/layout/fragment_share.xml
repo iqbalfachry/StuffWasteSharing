@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Detail Barang"
+        android:text="@string/detail_barang"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +181,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/reject"
+        android:id="@+id/dec"
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_marginStart="32dp"
@@ -192,7 +192,7 @@
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button6"
+        android:id="@+id/inc"
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
@@ -200,19 +200,19 @@
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/count"
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
+    <TextView
+        android:id="@+id/count"
         android:layout_width="62dp"
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/bg_text_counter"
         android:ems="10"
-        android:text="1"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         android:gravity="center"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/reject"
+        app:layout_constraintStart_toEndOf="@+id/dec"
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

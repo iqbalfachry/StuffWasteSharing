@@ -43,7 +43,7 @@ class TakeAdapter  (private val favorite: ArrayList<Take>) :
                 textView3.text = filter.location
                 textView4.text = filter.status
                 if(filter.status.equals("Selesai")) {
-                    button6.visibility = View.VISIBLE
+                  rating.visibility = View.VISIBLE
                     }
             }
         }
@@ -51,7 +51,7 @@ class TakeAdapter  (private val favorite: ArrayList<Take>) :
             binding.root.setOnClickListener {
                 onItemClick?.invoke(favorite[absoluteAdapterPosition])
             }
-            binding.button6.setOnClickListener {
+            binding.rating.setOnClickListener {
                 onButtonClick?.invoke(favorite[absoluteAdapterPosition])
             }
         }

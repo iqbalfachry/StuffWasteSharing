@@ -28,7 +28,15 @@ class ShareFragment :  Fragment() {
 
         _binding = FragmentShareBinding.inflate(inflater, container, false)
 
-
+binding?.count?.setText(shareViewModel.count.value.toString())
+        binding?.inc?.setOnClickListener{
+            shareViewModel.inc()
+            binding?.count?.setText(shareViewModel.count.value.toString())
+        }
+        binding?.dec?.setOnClickListener{
+            shareViewModel.dec()
+            binding?.count?.setText(shareViewModel.count.value.toString())
+        }
         return binding?.root
     }
 
