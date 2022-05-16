@@ -26,7 +26,7 @@ class TransactionConfirmationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FrameLayout? {
+    ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentTransactionConfirmationBinding.inflate(inflater, container, false)
 
@@ -73,15 +73,23 @@ class TransactionConfirmationFragment : Fragment() {
                     val mCategoryFragment = TransactionConfirmationDetailFragment()
                     val mFragmentManager = parentFragmentManager
             val mBundle = Bundle()
-            mBundle.putString(TransactionConfirmationDetailFragment.EXTRA_NAME, "Lifestyle")
-            val description = "Kategori ini akan berisi produk-produk lifestyle"
-            mCategoryFragment.arguments = mBundle
-            mCategoryFragment.description = description
-                    mFragmentManager.beginTransaction().apply {
-                        replace(R.id.frame, mCategoryFragment,  TransactionConfirmationDetailFragment::class.java.simpleName)
 
-                        commit()
-                    }
+                mBundle.putParcelable(
+                    TransactionConfirmationDetailFragment.EXTRA_NAME,
+                    it
+                )
+
+                mCategoryFragment.arguments = mBundle
+
+                mFragmentManager.beginTransaction().apply {
+                    replace(
+                        R.id.frame,
+                        mCategoryFragment,
+                        TransactionConfirmationDetailFragment::class.java.simpleName
+                    )
+                    addToBackStack(null)
+                    commit()
+                }
 
 
         }

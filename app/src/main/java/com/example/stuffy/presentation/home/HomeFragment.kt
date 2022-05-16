@@ -5,6 +5,7 @@ package com.example.stuffy.presentation.home
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -39,12 +40,18 @@ class HomeFragment : Fragment() {
     ): ConstraintLayout? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: ConstraintLayout? = binding?.root
+
+
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding?.imageView?.setOnClickListener {it->
-               it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
+            it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
 
-     binding?.rvHeroes?.setHasFixedSize(true)
+        binding?.rvHeroes?.setHasFixedSize(true)
 
         list.addAll(listHeroes)
         showRecyclerList()
@@ -52,8 +59,6 @@ class HomeFragment : Fragment() {
 
         filter.addAll(listFilter)
         showRecyclerListFilter()
-
-        return root
     }
     private val listFilter: ArrayList<Filter>
         get() {

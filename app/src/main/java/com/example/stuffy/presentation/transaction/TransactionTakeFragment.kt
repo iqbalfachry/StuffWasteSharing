@@ -32,10 +32,15 @@ class TransactionTakeFragment : Fragment() {
         // Inflate the layout for this fragment
 
         _binding = FragmentTransactionTakeBinding.inflate(inflater, container, false)
+
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
         list.addAll(listConfirmation)
         showRecyclerList()
-        return binding?.root
     }
     private val listConfirmation: ArrayList<Take>
         get() {

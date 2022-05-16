@@ -2,12 +2,12 @@ package com.example.stuffy.presentation.transaction
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.stuffy.R
 import com.example.stuffy.presentation.adapter.SectionsPagerAdapter
@@ -27,13 +27,18 @@ class TransactionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): ConstraintLayout? {
-        val notificationsViewModel =
-            ViewModelProvider(this)[TransactionViewModel::class.java]
+    ): View? {
+
 
         _binding = FragmentTransactionBinding.inflate(inflater, container, false)
-        val root: ConstraintLayout? = binding?.root
 
+
+
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val sectionsPagerAdapter = SectionsPagerAdapter(activity as AppCompatActivity)
         val viewPager: ViewPager2? = binding?.viewPager
         viewPager?.adapter = sectionsPagerAdapter
@@ -45,8 +50,6 @@ class TransactionFragment : Fragment() {
                 }.attach()
             }
         }
-
-        return root
     }
     companion object {
         @StringRes

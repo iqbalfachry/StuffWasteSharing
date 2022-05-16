@@ -3,6 +3,7 @@ package com.example.stuffy.presentation.cart
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +32,12 @@ class CartFragment : Fragment() {
 
         _binding = FragmentCartBinding.inflate(inflater, container, false)
 
+
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding?.recyclerView2?.setHasFixedSize(true)
         cart.addAll(listCart)
         showRecyclerList()
@@ -39,7 +46,6 @@ class CartFragment : Fragment() {
                 startActivity(it)
             }
         }
-        return binding?.root
     }
     private val listCart: ArrayList<Cart>
         get() {

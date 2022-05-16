@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
+
 import com.example.stuffy.core.domain.model.Share
-import com.example.stuffy.core.ui.ConfirmationAdapter
+
 import com.example.stuffy.core.ui.ShareAdapter
-import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
+
 import com.example.stuffy.databinding.FragmentTransactionShareBinding
 
 
@@ -28,10 +28,15 @@ class TransactionShareFragment : Fragment() {
         // Inflate the layout for this fragment
 
         _binding = FragmentTransactionShareBinding.inflate(inflater, container, false)
+
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
         list.addAll(listConfirmation)
         showRecyclerList()
-        return binding?.root
     }
     private val listConfirmation: ArrayList<Share>
         get() {
