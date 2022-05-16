@@ -136,5 +136,7 @@ dataLocation[i],
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        filter.clear()
+        list.clear()
     }
 }
