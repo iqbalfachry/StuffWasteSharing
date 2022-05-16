@@ -43,6 +43,8 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="116dp"
         android:text="@string/selengkapnya"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.358"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
