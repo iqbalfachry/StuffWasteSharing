@@ -11,9 +11,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 
 import com.example.stuffy.R
+import com.example.stuffy.core.utils.EXTRA_CREDENTIAL
 
 import com.example.stuffy.databinding.ActivityMainBinding
-
+import com.google.android.gms.auth.api.identity.Identity
+import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.android.gms.auth.api.identity.SignInCredential
 
 
 class MainActivity : AppCompatActivity() {
