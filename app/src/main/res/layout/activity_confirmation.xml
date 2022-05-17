@@ -7,6 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".presentation.confirmation.ConfirmationActivity">
 
+  <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/dec2"
+      android:layout_width="50dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="76dp"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/arch_left"
+      android:text="-"
+      app:layout_constraintStart_toEndOf="@+id/imageView20"
+      app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+  <TextView
+      android:id="@+id/count2"
+      android:layout_width="62dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/bg_text_counter"
+      android:ems="10"
+      android:gravity="center"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintStart_toEndOf="@+id/dec2"
+      app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+  <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/inc2"
+      android:layout_width="50dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/arch_right"
+      android:text="+"
+      app:layout_constraintStart_toEndOf="@+id/count2"
+      app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
   <TextView
       android:id="@+id/textView33"
       android:layout_width="wrap_content"
@@ -55,7 +89,8 @@
       android:layout_marginTop="16dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView34"
-      app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+      app:srcCompat="@drawable/ic_baseline_star_rate_24"
+      android:contentDescription="TODO" />
 
   <TextView
       android:id="@+id/textView35"
@@ -79,13 +114,13 @@
 
   <ImageView
       android:id="@+id/imageView20"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="129dp"
+      android:layout_height="100dp"
       android:layout_marginStart="24dp"
       android:layout_marginTop="12dp"
+      android:src="@drawable/produk1"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView36"
-      tools:srcCompat="@tools:sample/avatars" />
+      app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
   <TextView
       android:id="@+id/textView37"
@@ -93,7 +128,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="40dp"
       android:layout_marginTop="116dp"
-      android:text="TextView"
+      android:text="Nike Revolution"
       app:layout_constraintStart_toEndOf="@+id/imageView20"
       app:layout_constraintTop_toBottomOf="@+id/divider11" />
 
@@ -102,7 +137,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="22dp"
-      android:text="TextView"
+      android:text="Jl RA Kartini"
       app:layout_constraintEnd_toEndOf="@+id/textView37"
       app:layout_constraintStart_toStartOf="@+id/textView37"
       app:layout_constraintTop_toBottomOf="@+id/textView37" />
@@ -133,7 +168,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="8dp"
       android:layout_marginTop="12dp"
-      android:text="TextView"
+      android:text="Jl RA Kartini"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
@@ -163,6 +198,7 @@
       android:layout_width="280dp"
       android:layout_height="109dp"
       android:layout_marginTop="12dp"
+      android:contentDescription="@string/alamat"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.353"
       app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +211,7 @@
       android:layout_marginTop="12dp"
       android:ems="10"
       android:inputType="textPersonName"
-      android:text="Name"
+      android:text="Seperti: tolong cepat"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.36"
       app:layout_constraintStart_toStartOf="parent"
