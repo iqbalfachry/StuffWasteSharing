@@ -83,10 +83,12 @@ class DetailActivity : AppCompatActivity() {
             val listHero = ArrayList<Product>()
             for (i in dataName.indices) {
                 val hero = Product(
+                    (0..10).random(),
                     dataName[i],
                     dataPhoto.getResourceId(i, -1),
                     dataLocation[i],
 dataDescription[i],
+                    false
                 )
                 listHero.add(hero)
             }

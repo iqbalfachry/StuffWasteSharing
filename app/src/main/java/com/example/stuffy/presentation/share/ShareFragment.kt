@@ -14,10 +14,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+
 import com.example.stuffy.core.utils.createTempFile
 import com.example.stuffy.core.utils.uriToFile
 import com.example.stuffy.databinding.FragmentShareBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import java.io.File
 
@@ -25,7 +26,7 @@ import java.io.File
 class ShareFragment :  Fragment() {
 
     private var _binding: FragmentShareBinding? = null
-    private val shareViewModel : ShareViewModel by viewModels()
+    private val shareViewModel : ShareViewModel by viewModel()
     private var getFile: File? = null
 
     private val binding get() = _binding

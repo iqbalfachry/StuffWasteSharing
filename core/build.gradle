@@ -11,7 +11,7 @@ android {
     defaultConfig {
         minSdkVersion  21
         targetSdkVersion  30
-
+        buildConfigField("String", "API_KEY", '"5d59d72460d5d2caed164d6d7c31cf35"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
