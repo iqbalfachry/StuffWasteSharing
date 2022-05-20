@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stuffy.core.domain.useCase.StuffyUseCase
 
-class ShareViewModel(private val movieUseCase: StuffyUseCase) : ViewModel() {
+class ShareViewModel() : ViewModel() {
     private val _count = MutableLiveData<Int>().apply {
         value = 1
     }

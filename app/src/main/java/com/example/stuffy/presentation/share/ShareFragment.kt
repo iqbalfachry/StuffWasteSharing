@@ -57,6 +57,10 @@ class ShareFragment :  Fragment() {
         binding?.camera?.setOnClickListener{
             startGallery()
         }
+        binding?.camera?.setOnLongClickListener{
+            startTakePhoto()
+            true
+        }
 
     }
     private val launcherIntentGallery = registerForActivityResult(
@@ -83,7 +87,7 @@ class ShareFragment :  Fragment() {
     private fun startTakePhoto() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         activity?.let { intent.resolveActivity(it.packageManager) }
-        activity?.application?.let {
+        activity?.application?.let { it ->
             createTempFile(it).also {
                 val photoURI: Uri? = activity?.let { it1 ->
                     FileProvider.getUriForFile(

@@ -2,6 +2,7 @@ package com.example.stuffy
 
 import android.app.Application
 import com.example.stuffy.di.useCaseModule
+import com.example.stuffy.di.viewModelModule
 
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,6 +18,7 @@ class StuffyApp : Application() {
             modules(
                 listOf(
                     useCaseModule,
+                    viewModelModule
                 )
             )
         }
