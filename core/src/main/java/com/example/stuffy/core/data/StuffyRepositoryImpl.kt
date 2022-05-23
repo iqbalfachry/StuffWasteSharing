@@ -44,7 +44,7 @@ class StuffyRepositoryImpl(
     override fun setFavoriteMovie(movie: Product, state: Boolean) {
         val moviesEntity = DataMapper.mapDomainToEntity(movie)
         appExecutors.diskIO().execute {
-            localDataSource.setFavMovie(moviesEntity, state)
+            moviesEntity?.let { localDataSource.setFavMovie(it, state) }
         }
     }
 

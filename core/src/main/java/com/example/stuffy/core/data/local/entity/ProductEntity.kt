@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "product")
-data class ProductEntity (
+data class ProductEntity(
     @PrimaryKey
     @NonNull
-    val id: Int,
+    val id: String,
     var name: String,
-    var avatar: Int,
+    var avatar: String,
     var location: String,
     var description: String,
 

@@ -5,9 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Product(
-    val id: Int,
+    val id: String,
     var name: String,
-    var avatar: Int,
+    var avatar: String?=null,
     var location: String,
     var description: String,
     val isFav: Boolean

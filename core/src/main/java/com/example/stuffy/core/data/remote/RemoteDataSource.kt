@@ -14,10 +14,10 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getListMovie(): Flow<ApiResponse<List<ProductResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovies()
-                val dataArray = response.results
+                val response = apiService.getProduct()
+                val dataArray = response
                 if (dataArray.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.results))
+                    emit(ApiResponse.Success(response))
                 } else {
                     emit(ApiResponse.Empty)
                 }

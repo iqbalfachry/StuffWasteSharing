@@ -1,6 +1,9 @@
 package com.example.stuffy
 
 import android.app.Application
+import com.example.stuffy.core.di.databaseModule
+import com.example.stuffy.core.di.networkModule
+import com.example.stuffy.core.di.repositoryModule
 import com.example.stuffy.di.useCaseModule
 import com.example.stuffy.di.viewModelModule
 
@@ -18,7 +21,10 @@ class StuffyApp : Application() {
             modules(
                 listOf(
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    databaseModule,
+                    networkModule,
+                    repositoryModule,
                 )
             )
         }

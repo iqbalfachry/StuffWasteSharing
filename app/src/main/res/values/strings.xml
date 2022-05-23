@@ -66,15 +66,15 @@
     </string-array>
 
 
-    <integer-array name="avatar">
+    <string-array name="avatar">
 
 
 
-        <item>@drawable/produk1</item>
-        <item>@drawable/user7</item>
-        <item>@drawable/user8</item>
-        <item>@drawable/user10</item>
-    </integer-array>
+        <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
+        <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
+        <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
+        <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
+    </string-array>
     <integer-array name="image">
 
         <item>@drawable/produk1</item>

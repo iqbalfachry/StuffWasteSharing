@@ -2,18 +2,28 @@ package com.example.stuffy.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.example.stuffy.core.domain.model.Product
 import com.example.stuffy.core.databinding.ItemRowUserBinding
+import com.example.stuffy.core.utils.ListProductDiffCallback
 
 
-class ListProductAdapter(private val listUser: ArrayList<Product>) :
+class ListProductAdapter() :
     RecyclerView.Adapter<ListProductAdapter.ListViewHolder>() {
 
     var onItemClick: ((Product) -> Unit)? = null
+    private var listUser = ArrayList<Product>()
 
+    fun setData(newListData: List<Product>) {
+        val diffCallback = ListProductDiffCallback(listUser, newListData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        listUser.clear()
+        listUser.addAll(newListData)
+        diffResult.dispatchUpdatesTo(this)
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

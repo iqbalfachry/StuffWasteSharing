@@ -2,6 +2,7 @@ package com.example.stuffy.di
 
 import com.example.stuffy.core.domain.useCase.StuffyInteractor
 import com.example.stuffy.core.domain.useCase.StuffyUseCase
+import com.example.stuffy.presentation.home.HomeViewModel
 
 import com.example.stuffy.presentation.share.ShareViewModel
 
@@ -15,5 +16,5 @@ val useCaseModule = module {
 
 val viewModelModule = module {
     viewModel { ShareViewModel() }
-
+    viewModel { HomeViewModel(get()) }
 }
