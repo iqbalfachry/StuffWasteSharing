@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.domain.model.Cart
 import com.example.stuffy.core.ui.CartAdapter
+import com.example.stuffy.databinding.ComingsoonBinding
 import com.example.stuffy.databinding.FragmentCartBinding
 import com.example.stuffy.presentation.confirmation.ConfirmationActivity
 import com.example.stuffy.presentation.settings.SettingsActivity
@@ -20,20 +21,26 @@ import com.example.stuffy.presentation.settings.SettingsActivity
 class CartFragment : Fragment() {
 
     private var _binding: FragmentCartBinding? = null
+    private var _binding1: ComingsoonBinding? = null
     private val cart = ArrayList<Cart>()
     private val binding get() = _binding
-
+    private val binding1 get() = _binding1
+    private var comingSoon = true
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): ConstraintLayout? {
 
+        return if (comingSoon) {
+            _binding1 = ComingsoonBinding.inflate(inflater, container, false)
+            binding1?.root
+        } else {
+            _binding = FragmentCartBinding.inflate(inflater, container, false)
+            binding?.root
+        }
 
-        _binding = FragmentCartBinding.inflate(inflater, container, false)
 
-
-        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,14 +53,17 @@ class CartFragment : Fragment() {
                 startActivity(it)
             }
         }
+
+
     }
+
     private val listCart: ArrayList<Cart>
         get() {
 
             val dataPhoto = resources.obtainTypedArray(R.array.image)
 
-            val dataName= resources.getStringArray(R.array.name)
-            val dataDescription= resources.getStringArray(R.array.location)
+            val dataName = resources.getStringArray(R.array.name)
+            val dataDescription = resources.getStringArray(R.array.location)
             val listHero = ArrayList<Cart>()
             for (i in dataName.indices) {
                 val hero = Cart(
@@ -68,24 +78,26 @@ class CartFragment : Fragment() {
         }
 
     private fun showRecyclerList() {
-        binding?.recyclerView2?.layoutManager = LinearLayoutManager(activity,
-            LinearLayoutManager.VERTICAL,false)
+        binding?.recyclerView2?.layoutManager = LinearLayoutManager(
+            activity,
+            LinearLayoutManager.VERTICAL, false
+        )
         val listHeroAdapter = CartAdapter(cart)
         binding?.recyclerView2?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick ={
+        listHeroAdapter.onItemClick = {
             showSelectedUser(it)
         }
 
 
-
-
     }
 
-    private fun showSelectedUser(hero:Cart) {
+    private fun showSelectedUser(hero: Cart) {
         Toast.makeText(activity, "Kamu memilih " + hero.name, Toast.LENGTH_SHORT).show()
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        _binding1 = null
     }
 }
