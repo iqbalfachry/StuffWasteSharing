@@ -12,19 +12,38 @@ import com.example.stuffy.R
 import com.example.stuffy.core.utils.EXTRA_CREDENTIAL
 import com.example.stuffy.core.utils.TAG
 import com.example.stuffy.databinding.ActivityMenuBinding
+import com.example.stuffy.presentation.login.LoginActivity
+import com.example.stuffy.presentation.main.MainActivity
 
 import com.example.stuffy.presentation.settings.SettingsActivity
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.identity.SignInCredential
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
     private lateinit var oneTapClient: SignInClient
+    private lateinit var auth: FirebaseAuth
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser== null) {
+            val intent = Intent(this, LoginActivity::class.java)
+
+            startActivity(intent)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         oneTapClient = Identity.getSignInClient(this)
-        val credential = intent.extras?.get(EXTRA_CREDENTIAL) as SignInCredential
+        auth = Firebase.auth
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
         with(binding) {
@@ -54,16 +73,15 @@ class MenuActivity : AppCompatActivity() {
             }
         }
     }
+
+
     private fun signOut() {
-        oneTapClient
-            .signOut()
-            .addOnSuccessListener {
-                Log.d(TAG, "Success sign out")
-                finish()
-            }
-            .addOnFailureListener { e ->
-                Log.d(TAG, e.localizedMessage ?: "null")
-            }
+        Firebase.auth.signOut()
+                Intent(this@MenuActivity, LoginActivity::class.java).also {
+                    startActivity(it)
+
+                }
+
 
     }
     override fun onBackPressed() {

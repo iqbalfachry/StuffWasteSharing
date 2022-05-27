@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.example.stuffy.databinding.ActivitySplashBinding
+import com.example.stuffy.presentation.login.LoginActivity
 import com.example.stuffy.presentation.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -20,10 +21,10 @@ class SplashActivity : AppCompatActivity() {
         )
 
         Handler(mainLooper).postDelayed({
-            Intent(this, MainActivity::class.java).also {
+            Intent(this, LoginActivity::class.java).also {
                 startActivity(it)
             }
             finish()
-        }, 2000)
+        }, 200)
     }
 }

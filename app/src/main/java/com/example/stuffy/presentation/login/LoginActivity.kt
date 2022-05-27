@@ -21,6 +21,10 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class LoginActivity : AppCompatActivity() {
@@ -30,15 +34,25 @@ class LoginActivity : AppCompatActivity() {
 
 
     private var showOneTapUI = true
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        auth = Firebase.auth
         oneTapClient = Identity.getSignInClient(this)
         binding.button.setOnClickListener {
             signIn()
+        }
+    }
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser!= null) {
+            val intent = Intent(this, MainActivity::class.java)
+
+            startActivity(intent)
         }
     }
     private fun createSignInRequest(onlyAuthorizedAccounts: Boolean): BeginSignInRequest =
@@ -127,11 +141,28 @@ class LoginActivity : AppCompatActivity() {
                                 Log.d(TAG, "No ID token or password!")
                             }
                         }
-                        val intent = Intent(this, MainActivity::class.java)
-                            .apply {
-                                putExtra(EXTRA_CREDENTIAL, credential)
+                        val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
+                        auth.signInWithCredential(firebaseCredential)
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithCredential:success")
+                                    val user = auth.currentUser
+                                    if(user!= null) {
+                                        val intent = Intent(this, MainActivity::class.java)
+                                            .apply {
+                                                putExtra(EXTRA_CREDENTIAL, credential)
+                                            }
+                                        startActivity(intent)
+                                    }
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+
+                                }
                             }
-                        startActivity(intent)
+
+
                     } catch (e: ApiException) {
                         when (e.statusCode) {
                             CommonStatusCodes.CANCELED -> {
