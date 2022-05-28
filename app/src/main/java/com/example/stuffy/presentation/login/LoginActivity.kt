@@ -22,6 +22,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -49,7 +50,10 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if(currentUser!= null) {
+ updateUI(currentUser)
+    }
+    private fun updateUI(firebaseAuth: FirebaseUser?){
+        if(firebaseAuth != null) {
             val intent = Intent(this, MainActivity::class.java)
 
             startActivity(intent)
@@ -129,11 +133,13 @@ class LoginActivity : AppCompatActivity() {
                             idToken != null -> {
                                 // Got an ID token from Google. Use it to authenticate
                                 // with your backend.
+
                                 Log.d(TAG, "Got ID token.")
                             }
                             password != null -> {
                                 // Got a saved username and password. Use them to authenticate
                                 // with your backend.
+
                                 Log.d(TAG, "Got password.")
                             }
                             else -> {
@@ -148,17 +154,11 @@ class LoginActivity : AppCompatActivity() {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithCredential:success")
                                     val user = auth.currentUser
-                                    if(user!= null) {
-                                        val intent = Intent(this, MainActivity::class.java)
-                                            .apply {
-                                                putExtra(EXTRA_CREDENTIAL, credential)
-                                            }
-                                        startActivity(intent)
-                                    }
+                                  updateUI(user)
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-
+                                    updateUI(null)
                                 }
                             }
 

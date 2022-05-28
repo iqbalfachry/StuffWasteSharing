@@ -32,7 +32,10 @@ class MenuActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if(currentUser== null) {
+        updateUI(currentUser)
+    }
+    private fun updateUI(firebaseAuth: FirebaseUser?){
+        if(firebaseAuth== null) {
             val intent = Intent(this, LoginActivity::class.java)
 
             startActivity(intent)
