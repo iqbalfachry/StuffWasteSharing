@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stuffy">
         <activity
-            android:name=".PrivacyPolicyActivity"
+            android:name=".presentation.privacypolicy.PrivacyPolicyActivity"
             android:exported="false" />
         <activity
             android:name="com.example.stuffy.presentation.register.RegisterActivity"
