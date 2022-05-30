@@ -69,7 +69,6 @@
     <string-array name="avatar">
 
 
-
         <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
         <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
         <item>https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png</item>
@@ -138,5 +137,5 @@
     <string name="tambahakan_alamat_anda">Tambahakan alamat anda ...</string>
     <string name="pilih_lokasi_anda">Pilih lokasi anda</string>
 
-<string name="web_client_id">123229511294-0b1qbgtdq2qor9bfehoa2pfbe3mci46r.apps.googleusercontent.com</string>
+    <string name="web_client_id">123229511294-0b1qbgtdq2qor9bfehoa2pfbe3mci46r.apps.googleusercontent.com</string>
 </resources>

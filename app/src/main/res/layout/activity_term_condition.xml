@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.termcondition.TermConditionActivity">
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bgup" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Terms and Conditions"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="333dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="By agreeing to this Terms and Conditions, You are deemed competent under Indonesian law and the laws of the applicable jurisdiction. If You act as an employee, agent, or proxy and act for and on behalf of another individual, organization, business entity, legal entity, or other agency, You hereby represent and warrant that You are the authorized party to represent that party, in which this Terms and Conditions will bind the party You represent. If You are incompetent (including but not limited to minors, those under guardianship, or unauthorized representatives), then You may not use the Flip Service (as defined below) available on the Platform without assistance and consent from Your guardian, and You are solely responsible for everything You do on the Platform."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

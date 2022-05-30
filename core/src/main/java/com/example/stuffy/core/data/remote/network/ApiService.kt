@@ -6,7 +6,7 @@ import com.example.stuffy.core.utils.API_KEY
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("api/getProduct")
+    @GET("api/products")
     suspend fun getProduct(): List<ProductResponse>
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.termcondition.TermConditionActivity">
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bgup" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Privacy Policy"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="This Privacy Policy (“Policy”) constitutes a set of rules that are integral parts of the Terms and Conditions, which are made as the basis of Our activities in obtainment and collection, processing, storing, displaying, distribution and removal of Personal Data on the Platform. The terms and definitions started in capital letters contained under the page of the Terms and Conditions shall have the same meaning and interpretation as the terms used in this Policy, unless otherwise specified under this Policy. By accessing and/or using the Platform, You have read, understood, and given approval to Stuffy to obtain, collect, store, process, and use Personal Data as set forth under this Policy and are bound to all the terms set forth in this Policy. If You do not approve this Policy, You will not be granted the permission to access and/or use the Platform. "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
