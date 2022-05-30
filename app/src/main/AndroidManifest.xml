@@ -21,6 +21,9 @@
             android:name=".presentation.privacypolicy.PrivacyPolicyActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.termcondition.TermConditionActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.stuffy.presentation.register.RegisterActivity"
             android:exported="false" />
         <activity

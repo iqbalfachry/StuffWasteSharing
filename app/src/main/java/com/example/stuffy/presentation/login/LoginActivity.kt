@@ -4,8 +4,15 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.IntentSender
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Log
+import android.view.View
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +20,7 @@ import com.example.stuffy.R
 import com.example.stuffy.core.utils.EXTRA_CREDENTIAL
 import com.example.stuffy.databinding.ActivityLoginBinding
 import com.example.stuffy.presentation.main.MainActivity
+import com.example.stuffy.presentation.register.RegisterActivity
 
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.BeginSignInResult
@@ -45,6 +53,26 @@ class LoginActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             signIn()
         }
+        val string = SpannableString("Don’t have account? Create now")
+        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+                startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.isUnderlineText=false
+                ds.color = Color.parseColor("#0C6B29")
+            }
+
+
+        }
+        string.setSpan(clickableSpan, 20, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        binding.textView55.text= string
+        binding.textView55.movementMethod = LinkMovementMethod.getInstance()
+        binding.textView55.highlightColor = Color.TRANSPARENT
+
     }
     override fun onStart() {
         super.onStart()
