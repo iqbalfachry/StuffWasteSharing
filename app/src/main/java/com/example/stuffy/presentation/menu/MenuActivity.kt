@@ -51,9 +51,12 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
         with(binding) {
             Glide.with(this@MenuActivity)
-                .load(R.drawable.user7)
+                .load(auth.currentUser?.photoUrl)
                 .circleCrop()
                 .into(imageView3)
+
+         textModal.text = auth.currentUser?.displayName
+            textView9.text= auth.currentUser?.email
         }
         binding.imageView2.setOnClickListener {
             finish()
