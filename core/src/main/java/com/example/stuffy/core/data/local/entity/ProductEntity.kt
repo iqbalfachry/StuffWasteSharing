@@ -1,13 +1,13 @@
 package com.example.stuffy.core.data.local.entity
 
-import androidx.annotation.NonNull
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "product")
 data class ProductEntity(
     @PrimaryKey
-    @NonNull
     val id: String,
     var name: String,
     var avatar: String,

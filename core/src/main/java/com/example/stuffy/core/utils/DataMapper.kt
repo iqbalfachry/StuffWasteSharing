@@ -1,7 +1,10 @@
 package com.example.stuffy.core.utils
 
+import android.util.Log
 import com.example.stuffy.core.data.local.entity.ProductEntity
+import com.example.stuffy.core.data.remote.response.CategoryResponse
 import com.example.stuffy.core.data.remote.response.ProductResponse
+import com.example.stuffy.core.domain.model.Filter
 import com.example.stuffy.core.domain.model.Product
 
 object DataMapper {
@@ -9,6 +12,7 @@ object DataMapper {
         val movieList = ArrayList<ProductEntity>()
         input.map {
             val movie = it.avatar?.let { it1 ->
+
                 ProductEntity(
                     id = it.id,
                     name = it.name,
@@ -48,4 +52,12 @@ object DataMapper {
         isFav = input.isFav
     )
     }
+    fun mapCategoryResponseToDomain(
+        input: CategoryResponse?,
+
+    ) = Filter(
+        id = input?.id ?: "Unknown",
+     image =input?.image ?: "Unknown",
+        filterName = input?.name?:"Unknown",
+    )
 }

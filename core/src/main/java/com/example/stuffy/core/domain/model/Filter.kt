@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Filter(
-var image:Int,
+    var id:String,
+var image:String,
 var filterName:String,
 ) : Parcelable

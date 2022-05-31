@@ -1,12 +1,13 @@
 package com.example.stuffy.core.data.remote.network
 
-import com.example.stuffy.core.data.remote.response.ListProductResponse
+import com.example.stuffy.core.data.remote.response.CategoryResponse
 import com.example.stuffy.core.data.remote.response.ProductResponse
-import com.example.stuffy.core.utils.API_KEY
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("api/products")
+    @GET("products")
     suspend fun getProduct(): List<ProductResponse>
+    @GET("categories")
+    suspend fun getCategory(): List<CategoryResponse>
 
 }

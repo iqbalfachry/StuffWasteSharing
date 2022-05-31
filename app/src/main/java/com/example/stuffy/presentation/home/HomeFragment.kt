@@ -34,7 +34,10 @@ class HomeFragment : Fragment() {
     private val filter = ArrayList<Filter>()
     private val binding get() = _binding
     private val movieViewModel: HomeViewModel by viewModel()
+
     private lateinit var movieAdapter: ListProductAdapter
+
+    private lateinit var categoryAdapter: FilterAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,7 +56,7 @@ class HomeFragment : Fragment() {
             it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
         movieAdapter = ListProductAdapter()
-
+     categoryAdapter = FilterAdapter()
         activity?.let { it ->
             movieViewModel.movie.observe(it) {
                 if (it != null) {
@@ -75,34 +78,33 @@ class HomeFragment : Fragment() {
         showRecyclerList()
 
 
-        filter.addAll(listFilter)
+        activity?.let { it ->
+            movieViewModel.category.observe(it) {
+                if (it != null) {
+                    when (it) {
+                        is Resource.Loading -> {
+
+                        }
+                        is Resource.Success -> {
+                            it.data?.let { it1 -> categoryAdapter.setData(it1) }
+                        }
+                        is Resource.Error -> {
+
+
+                        }
+                    }
+                }
+            }
+        }
         showRecyclerListFilter()
     }
-    private val listFilter: ArrayList<Filter>
-        get() {
 
-            val dataPhoto = resources.obtainTypedArray(R.array.image)
-
-            val dataFilter= resources.getStringArray(R.array.filterName)
-
-            val listHero = ArrayList<Filter>()
-            for (i in dataFilter.indices) {
-                val hero = Filter(
-                    dataPhoto.getResourceId(i, -1),
-                    dataFilter[i],
-                )
-                listHero.add(hero)
-            }
-            dataPhoto.recycle()
-            return listHero
-        }
 
     private fun showRecyclerListFilter() {
         binding?.recyclerView?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         binding?.recyclerView?.setHasFixedSize(true)
-        val listHeroAdapter = FilterAdapter(filter)
-        binding?.recyclerView?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick ={
+        binding?.recyclerView?.adapter =categoryAdapter
+        categoryAdapter.onItemClick={
             showSelectedUser(it)
         }
 

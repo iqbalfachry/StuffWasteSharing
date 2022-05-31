@@ -13,4 +13,5 @@ class HomeViewModel(stuffyUseCase: StuffyUseCase) : ViewModel() {
     }
     val text: LiveData<String> = _text
     val movie = stuffyUseCase.getListMovie().asLiveData()
+    val category = stuffyUseCase.getCategory().asLiveData()
 }
