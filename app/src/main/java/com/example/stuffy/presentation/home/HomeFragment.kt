@@ -1,7 +1,6 @@
 package com.example.stuffy.presentation.home
 
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -52,19 +51,20 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.imageView?.setOnClickListener {it->
+        binding?.imageView?.setOnClickListener { it ->
             it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
         movieAdapter = ListProductAdapter()
-     categoryAdapter = FilterAdapter()
+        categoryAdapter = FilterAdapter()
         activity?.let { it ->
             movieViewModel.movie.observe(it) {
                 if (it != null) {
                     when (it) {
                         is Resource.Loading -> {
-
+                            binding?.progressBar?.visibility = View.VISIBLE
                         }
                         is Resource.Success -> {
+                            binding?.progressBar?.visibility = View.GONE
                             it.data?.let { it1 -> movieAdapter.setData(it1) }
                         }
                         is Resource.Error -> {
@@ -83,9 +83,10 @@ class HomeFragment : Fragment() {
                 if (it != null) {
                     when (it) {
                         is Resource.Loading -> {
-
+                            binding?.progressBar?.visibility = View.VISIBLE
                         }
                         is Resource.Success -> {
+                            binding?.progressBar?.visibility = View.GONE
                             it.data?.let { it1 -> categoryAdapter.setData(it1) }
                         }
                         is Resource.Error -> {
@@ -101,14 +102,13 @@ class HomeFragment : Fragment() {
 
 
     private fun showRecyclerListFilter() {
-        binding?.recyclerView?.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
+        binding?.recyclerView?.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding?.recyclerView?.setHasFixedSize(true)
-        binding?.recyclerView?.adapter =categoryAdapter
-        categoryAdapter.onItemClick={
+        binding?.recyclerView?.adapter = categoryAdapter
+        categoryAdapter.onItemClick = {
             showSelectedUser(it)
         }
-
-
 
 
     }
@@ -119,11 +119,11 @@ class HomeFragment : Fragment() {
 
 
     private fun showRecyclerList() {
-        binding?.rvHeroes?.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        binding?.rvHeroes?.layoutManager =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         binding?.rvHeroes?.setHasFixedSize(true)
         binding?.rvHeroes?.adapter = movieAdapter
-        movieAdapter.onItemClick={
-                product ->
+        movieAdapter.onItemClick = { product ->
             Intent(activity, DetailActivity::class.java).also {
                 it.putExtra(DetailActivity.DATA, product)
                 startActivity(it)

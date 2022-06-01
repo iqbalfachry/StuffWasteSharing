@@ -56,7 +56,7 @@ class StuffyRepositoryImpl(
             }
 
             override fun emptyResult(): Flow<List<Filter>> {
-                return flow { emit(emptyList<Filter>()) }
+                return flow { emit(emptyList()) }
             }
         }.asFlow()
 

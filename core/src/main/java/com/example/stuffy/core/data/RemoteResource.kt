@@ -18,7 +18,7 @@ abstract class RemoteResource<ResultType, RequestType> {
                 emitAll(data.map { Resource.Success(it) })
             }
             is ApiResponse.Error -> {
-                emit(Resource.Error<ResultType>(apiResponse.errorMessage))
+                emit(Resource.Error(apiResponse.errorMessage))
             }
         }
     }
