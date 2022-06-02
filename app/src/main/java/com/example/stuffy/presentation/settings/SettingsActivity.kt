@@ -10,7 +10,6 @@ import com.example.stuffy.R
 import com.example.stuffy.core.ui.SettingsDialog
 
 import com.example.stuffy.databinding.ActivitySettingsBinding
-import com.example.stuffy.presentation.address.AddressActivity
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -42,9 +41,8 @@ class SettingsActivity : AppCompatActivity() {
             alert.showDialog(this,"Masukkan no hp baru anda")
         }
         binding.alamat.setOnClickListener{
-            Intent(this@SettingsActivity, AddressActivity::class.java).also {
-                startActivity(it)
-            }
+            val alert = SettingsDialog()
+            alert.showDialog(this,"Masukkan alamat baru anda")
         }
 binding.back.setOnClickListener{
     finish()

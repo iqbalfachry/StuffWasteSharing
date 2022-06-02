@@ -155,7 +155,6 @@ class LoginActivity : AppCompatActivity() {
                     try {
                         val credential = oneTapClient.getSignInCredentialFromIntent(result.data)
                         val idToken = credential.googleIdToken
-                        val username = credential.id
                         val password = credential.password
                         when {
                             idToken != null -> {

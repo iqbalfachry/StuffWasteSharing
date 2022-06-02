@@ -27,9 +27,6 @@
             android:name="com.example.stuffy.presentation.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.address.AddressActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="false" />
         <activity
