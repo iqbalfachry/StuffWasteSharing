@@ -13,10 +13,12 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.162" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.183" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_local_activity_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.121" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.183" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_shield_24.xml" value="0.162" />
@@ -27,13 +29,14 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_place_holder.xml" value="0.161" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/textbox.xml" value="0.183" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout-hdpi/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout-hdpi/fragment_home.xml" value="0.16" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_address.xml" value="0.16799999999999998" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_confirmation.xml" value="0.264" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_detail.xml" value="0.2" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_detail.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_main.xml" value="0.536" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_menu.xml" value="0.136" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_privacy_policy.xml" value="0.22418478260869565" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/activity_register.xml" value="0.2" />

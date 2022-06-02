@@ -41,6 +41,7 @@ class DetailActivity : AppCompatActivity() {
         showDetailMovie(detailProduct)
         binding.button3.setOnClickListener {
             Intent(this, ConfirmationActivity::class.java).also {
+                it.putExtra(ConfirmationActivity.DATA, detailProduct)
                 startActivity(it)
             }
         }

@@ -24,6 +24,9 @@ import com.example.stuffy.core.ui.FilterAdapter
 import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
 import com.example.stuffy.presentation.detail.DetailActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -35,6 +38,7 @@ class HomeFragment : Fragment() {
     private val movieViewModel: HomeViewModel by viewModel()
 
     private lateinit var movieAdapter: ListProductAdapter
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var categoryAdapter: FilterAdapter
     override fun onCreateView(
@@ -51,6 +55,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = Firebase.auth
+        binding?.textView?.text = StringBuilder().append("Halo ").append(auth.currentUser?.displayName)
         binding?.imageView?.setOnClickListener { it ->
             it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
