@@ -15,6 +15,6 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { ShareViewModel() }
+    viewModel { ShareViewModel(get()) }
     viewModel { HomeViewModel(get()) }
 }

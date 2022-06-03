@@ -21,12 +21,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.example.stuffy.core.data.Resource
 
 import com.example.stuffy.core.utils.createTempFile
 import com.example.stuffy.core.utils.uriToFile
 import com.example.stuffy.databinding.FragmentShareBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import java.io.File
@@ -73,6 +79,24 @@ class ShareFragment :  Fragment() {
         binding?.camera?.setOnLongClickListener{
             startTakePhoto()
             true
+        }
+        binding?.more?.setOnClickListener {
+
+            if (getFile != null) {
+                val file = getFile as File
+                val name =
+                    binding?.textView27?.text.toString().toRequestBody("text/plain".toMediaType())
+                val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val files: MultipartBody.Part = MultipartBody.Part.createFormData(
+                    "photo",
+                    file.name,
+                    requestImageFile
+                )
+                val description = binding?.textView29?.text.toString().toRequestBody("text/plain".toMediaType())
+
+                val location = binding?.textView62?.text.toString().toRequestBody("text/plain".toMediaType())
+                shareViewModel.createProduct(files, description, name, location)
+            }
         }
 
     }

@@ -1,5 +1,6 @@
 package com.example.stuffy.core.data
 
+import android.util.Log
 import com.example.stuffy.core.data.local.LocalDataSource
 import com.example.stuffy.core.data.remote.RemoteDataSource
 import com.example.stuffy.core.data.remote.network.ApiResponse
@@ -13,6 +14,8 @@ import com.example.stuffy.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class StuffyRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
@@ -29,7 +32,7 @@ class StuffyRepositoryImpl(
                 }
             }
 
-            override fun shouldFetch(data: List<Product>?): Boolean = data == null || data.isEmpty()
+            override fun shouldFetch(data: List<Product>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
                 remoteDataSource.getProduct()
@@ -39,6 +42,31 @@ class StuffyRepositoryImpl(
                 localDataSource.insertMovie(movieList)
             }
         }.asFlow()
+
+    override fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody): Flow<Resource<Product>> =
+        object : RemoteResource<Product, ProductResponse>() {
+
+            override suspend fun createCall(): Flow<ApiResponse<ProductResponse>> =
+
+               remoteDataSource.createProduct(files,description,name,location)
+
+
+
+            override fun convertCallResult(data: ProductResponse): Flow<Product> {
+                val result =
+                    DataMapper.mapProductResponseToDomain(data)
+
+                return flow { emit(result) }
+            }
+
+            override fun emptyResult(): Flow<Product> {
+
+                return flow { emit(Product("","","","","",false)) }
+            }
+
+
+        }.asFlow()
+
     override fun getCategory(): Flow<Resource<List<Filter>>> =
         object : RemoteResource<List<Filter>, List<CategoryResponse>>() {
 

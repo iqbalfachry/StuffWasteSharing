@@ -1,11 +1,15 @@
 package com.example.stuffy.presentation.share
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.stuffy.core.domain.useCase.StuffyUseCase
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
-class ShareViewModel() : ViewModel() {
+class ShareViewModel(private val stuffyUseCase: StuffyUseCase) : ViewModel() {
     private val _count = MutableLiveData<Int>().apply {
         value = 1
     }
@@ -26,5 +30,7 @@ class ShareViewModel() : ViewModel() {
 
         }
     }
-
+    fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody) {
+        stuffyUseCase.createProduct(files,description,name,location)
+    }
 }

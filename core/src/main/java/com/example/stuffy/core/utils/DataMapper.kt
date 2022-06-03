@@ -60,4 +60,16 @@ object DataMapper {
      image =input?.image ?: "Unknown",
         filterName = input?.name?:"Unknown",
     )
+    fun mapProductResponseToDomain(
+        input: ProductResponse,
+
+        ) = Product(
+        id = input.id,
+        name = input.name,
+        avatar = input.avatar,
+        location = input.location,
+        description = input.description,
+
+        isFav = false
+    )
 }
