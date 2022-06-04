@@ -30,7 +30,7 @@ class ShareViewModel(private val stuffyUseCase: StuffyUseCase) : ViewModel() {
 
         }
     }
-    fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody) {
-        stuffyUseCase.createProduct(files,description,name,location)
-    }
+    fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody) =
+        stuffyUseCase.createProduct(files,description,name,location).asLiveData()
+
 }

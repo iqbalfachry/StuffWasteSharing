@@ -5,6 +5,7 @@ import com.example.stuffy.core.data.remote.response.ProductResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 
@@ -13,6 +14,7 @@ interface ApiService {
     suspend fun getProduct(): List<ProductResponse>
     @GET("categories")
     suspend fun getCategory(): List<CategoryResponse>
+    @Multipart
     @POST("products")
     suspend fun createProduct(
         @Part files: MultipartBody.Part,

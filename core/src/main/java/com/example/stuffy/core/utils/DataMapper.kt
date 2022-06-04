@@ -60,16 +60,32 @@ object DataMapper {
      image =input?.image ?: "Unknown",
         filterName = input?.name?:"Unknown",
     )
-    fun mapProductResponseToDomain(
-        input: ProductResponse,
+    fun mapListProductResponseToDomain(
+        input:  List<ProductResponse>
 
-        ) = Product(
-        id = input.id,
-        name = input.name,
-        avatar = input.avatar,
-        location = input.location,
-        description = input.description,
+        ) : List<Product> = input.map {
+        Product(
+            id = it.id,
+            name = it.name,
+            avatar = it.avatar,
+            location = it.location,
+            description = it.description,
 
-        isFav = false
-    )
+            isFav = false
+        )
+
+    }
+        fun mapProductResponseToDomain(
+            input: ProductResponse,
+
+            ) = Product(
+            id = input.id,
+            name = input.name,
+            avatar = input.avatar,
+            location = input.location,
+            description = input.description,
+
+            isFav = false
+        )
+
 }

@@ -62,8 +62,8 @@ class HomeFragment : Fragment() {
         }
         movieAdapter = ListProductAdapter()
         categoryAdapter = FilterAdapter()
-        activity?.let { it ->
-            movieViewModel.movie.observe(it) {
+
+            movieViewModel.movie.observe(viewLifecycleOwner) {
                 if (it != null) {
                     when (it) {
                         is Resource.Loading -> {
@@ -80,12 +80,12 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
-        }
+
         showRecyclerList()
 
 
-        activity?.let { it ->
-            movieViewModel.category.observe(it) {
+
+            movieViewModel.category.observe(viewLifecycleOwner) {
                 if (it != null) {
                     when (it) {
                         is Resource.Loading -> {
@@ -102,7 +102,7 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
-        }
+
         showRecyclerListFilter()
     }
 

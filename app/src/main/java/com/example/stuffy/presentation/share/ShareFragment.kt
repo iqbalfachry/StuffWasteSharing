@@ -88,14 +88,32 @@ class ShareFragment :  Fragment() {
                     binding?.textView27?.text.toString().toRequestBody("text/plain".toMediaType())
                 val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
                 val files: MultipartBody.Part = MultipartBody.Part.createFormData(
-                    "photo",
+                    "files",
                     file.name,
                     requestImageFile
                 )
                 val description = binding?.textView29?.text.toString().toRequestBody("text/plain".toMediaType())
 
                 val location = binding?.textView62?.text.toString().toRequestBody("text/plain".toMediaType())
-                shareViewModel.createProduct(files, description, name, location)
+
+                    shareViewModel.createProduct(files, description, name, location).observe(viewLifecycleOwner) {
+                        if (it != null) {
+                            when (it) {
+                                is Resource.Loading -> {
+
+                                }
+                                is Resource.Success -> {
+
+                                    it.data?.let { Toast.makeText(activity,"file successfully uploaded",Toast.LENGTH_SHORT).show() }
+                                }
+                                is Resource.Error -> {
+
+
+                                }
+                            }
+                        }
+                    }
+
             }
         }
 

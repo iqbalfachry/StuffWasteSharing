@@ -25,21 +25,22 @@ class StuffyRepositoryImpl(
 
 
     override fun getListMovie(): Flow<Resource<List<Product>>> =
-        object : NetworkBoundResource<List<Product>, List<ProductResponse>>() {
-            override fun loadFromDB(): Flow<List<Product>> {
-                return localDataSource.getListMovie().map {
-                    DataMapper.mapEntitiesToDomain(it)
-                }
-            }
+        object : RemoteResource<List<Product>, List<ProductResponse>>() {
 
-            override fun shouldFetch(data: List<Product>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
                 remoteDataSource.getProduct()
 
-            override suspend fun saveCallResult(data: List<ProductResponse>) {
-                val movieList = DataMapper.mapResponseToEntities(data)
-                localDataSource.insertMovie(movieList)
+
+            override fun convertCallResult(data: List<ProductResponse>): Flow<List<Product>> {
+                val result =
+                    DataMapper.mapListProductResponseToDomain(data)
+
+                return flow { emit(result) }
+            }
+
+            override fun emptyResult(): Flow<List<Product>> {
+                return flow { emit(emptyList()) }
             }
         }.asFlow()
 
