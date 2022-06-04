@@ -24,6 +24,8 @@ import com.example.stuffy.core.ui.FilterAdapter
 import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
 import com.example.stuffy.presentation.detail.DetailActivity
+import com.example.stuffy.presentation.main.MainActivity
+import com.example.stuffy.presentation.termcondition.TermConditionActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -61,7 +63,9 @@ class HomeFragment : Fragment() {
         binding?.imageView?.setOnClickListener { it ->
             it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
-
+binding?.refresh?.setOnRefreshListener {
+    startActivity(Intent(activity, MainActivity::class.java))
+}
 
         showRecyclerList()
         showRecyclerListFilter()

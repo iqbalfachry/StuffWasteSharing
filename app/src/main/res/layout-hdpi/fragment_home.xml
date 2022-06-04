@@ -19,19 +19,33 @@
        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
        tools:listitem="@layout/filter_col" />
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/rv_heroes"
-       android:layout_width="398dp"
-       android:layout_height="396dp"
-       android:layout_marginStart="10dp"
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       android:id="@+id/refresh"
+       android:layout_width="wrap_content"
+       android:layout_height="364dp"
        android:layout_marginTop="2dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-       tools:listitem="@layout/item_row_user">
+       app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+       app:layout_constraintVertical_bias="1.0">
 
-   </androidx.recyclerview.widget.RecyclerView>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rv_heroes"
+          android:layout_width="398dp"
+          android:layout_height="396dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginTop="2dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+          tools:listitem="@layout/item_row_user">
+
+      </androidx.recyclerview.widget.RecyclerView>
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/constraintLayout2"
@@ -70,8 +84,8 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
-          android:textColor="@color/white"
           android:text="Halo sidiq satria"
+          android:textColor="@color/white"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.092"
           app:layout_constraintStart_toStartOf="parent"
@@ -81,9 +95,9 @@
           android:id="@+id/textView2"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:textColor="@color/white"
           android:layout_marginTop="12dp"
           android:text="Jl. Rungkut Madya No.1, Gn. Anyar ..."
+          android:textColor="@color/white"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.16"
           app:layout_constraintStart_toStartOf="parent"
