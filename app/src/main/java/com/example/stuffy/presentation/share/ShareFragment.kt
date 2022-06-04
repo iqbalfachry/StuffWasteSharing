@@ -26,6 +26,7 @@ import com.example.stuffy.core.data.Resource
 import com.example.stuffy.core.utils.createTempFile
 import com.example.stuffy.core.utils.uriToFile
 import com.example.stuffy.databinding.FragmentShareBinding
+import com.example.stuffy.presentation.main.MainActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import okhttp3.MediaType.Companion.toMediaType
@@ -103,8 +104,10 @@ class ShareFragment :  Fragment() {
 
                                 }
                                 is Resource.Success -> {
-
                                     it.data?.let { Toast.makeText(activity,"file successfully uploaded",Toast.LENGTH_SHORT).show() }
+                                    Intent(activity, MainActivity::class.java).also {intent->
+                                        startActivity(intent)
+                                    }
                                 }
                                 is Resource.Error -> {
 

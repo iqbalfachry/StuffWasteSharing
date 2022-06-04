@@ -53,6 +53,7 @@ class HomeFragment : Fragment() {
         return binding?.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
@@ -60,28 +61,33 @@ class HomeFragment : Fragment() {
         binding?.imageView?.setOnClickListener { it ->
             it.findNavController().navigate(R.id.action_navigation_home_to_menuActivity2)
         }
-        movieAdapter = ListProductAdapter()
-        categoryAdapter = FilterAdapter()
 
+
+        showRecyclerList()
+        showRecyclerListFilter()
             movieViewModel.movie.observe(viewLifecycleOwner) {
                 if (it != null) {
                     when (it) {
                         is Resource.Loading -> {
                             binding?.progressBar?.visibility = View.VISIBLE
+                            binding?.recyclerView?.visibility = View.GONE
                         }
                         is Resource.Success -> {
+                            binding?.recyclerView?.visibility = View.VISIBLE
                             binding?.progressBar?.visibility = View.GONE
                             it.data?.let { it1 -> movieAdapter.setData(it1) }
+
                         }
                         is Resource.Error -> {
-
-
+                            binding?.recyclerView?.visibility = View.VISIBLE
+                            binding?.progressBar?.visibility = View.GONE
+                            Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
 
-        showRecyclerList()
+
 
 
 
@@ -90,20 +96,25 @@ class HomeFragment : Fragment() {
                     when (it) {
                         is Resource.Loading -> {
                             binding?.progressBar?.visibility = View.VISIBLE
+                            binding?.recyclerView?.visibility = View.GONE
                         }
                         is Resource.Success -> {
+                            binding?.recyclerView?.visibility = View.VISIBLE
                             binding?.progressBar?.visibility = View.GONE
                             it.data?.let { it1 -> categoryAdapter.setData(it1) }
+
                         }
                         is Resource.Error -> {
-
+                            binding?.recyclerView?.visibility = View.VISIBLE
+                            binding?.progressBar?.visibility = View.GONE
+                            Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
 
                         }
                     }
                 }
             }
 
-        showRecyclerListFilter()
+
     }
 
 
@@ -111,6 +122,7 @@ class HomeFragment : Fragment() {
         binding?.recyclerView?.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding?.recyclerView?.setHasFixedSize(true)
+        categoryAdapter = FilterAdapter()
         binding?.recyclerView?.adapter = categoryAdapter
         categoryAdapter.onItemClick = {
             showSelectedUser(it)
@@ -128,6 +140,7 @@ class HomeFragment : Fragment() {
         binding?.rvHeroes?.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         binding?.rvHeroes?.setHasFixedSize(true)
+        movieAdapter = ListProductAdapter()
         binding?.rvHeroes?.adapter = movieAdapter
         movieAdapter.onItemClick = { product ->
             Intent(activity, DetailActivity::class.java).also {
