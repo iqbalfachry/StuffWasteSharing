@@ -34,7 +34,7 @@ android {
     }
     buildFeatures {
         viewBinding true
-
+mlModelBinding true
     }
     dynamicFeatures = [':favorite']
 
@@ -53,5 +53,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+    implementation 'org.tensorflow:tensorflow-lite:2.5.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.5.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
+
 
 }

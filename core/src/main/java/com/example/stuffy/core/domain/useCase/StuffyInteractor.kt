@@ -1,30 +1,57 @@
 package com.example.stuffy.core.domain.useCase
 
 import com.example.stuffy.core.data.Resource
-import com.example.stuffy.core.domain.model.Filter
-import com.example.stuffy.core.domain.model.Product
+import com.example.stuffy.core.domain.model.*
 import com.example.stuffy.core.domain.repository.StuffyRepository
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
-class StuffyInteractor(private val movieRepository: StuffyRepository) : StuffyUseCase {
-    override fun getListMovie() = movieRepository.getListMovie()
+class StuffyInteractor(private val stuffyRepository: StuffyRepository) : StuffyUseCase {
+    override fun getListMovie() = stuffyRepository.getListMovie()
     override fun getCategory() =
-        movieRepository.getCategory()
+        stuffyRepository.getCategory()
 
 
-    override fun getFavMovie() = movieRepository.getFavoriteMovie()
+    override fun getFavMovie() = stuffyRepository.getFavoriteMovie()
     override fun createProduct(
         files: MultipartBody.Part,
         description: RequestBody,
         name: RequestBody,
         location: RequestBody
     ) =
-        movieRepository.createProduct(files, description, name, location)
+        stuffyRepository.createProduct(files, description, name, location)
 
+    override fun getTransactions() =
+        stuffyRepository.getTransactions()
+
+   override fun getTransactionsTake(email:String): Flow<Resource<List<Take>>> = stuffyRepository.getTransactionsTake(email)
 
     override fun setFavMovie(movie: Product, state: Boolean) =
-        movieRepository.setFavoriteMovie(movie, state)
+        stuffyRepository.setFavoriteMovie(movie, state)
 
+    override fun createTransaction(
+        productId: String,
+        email: String,
+        status: String
+    ) =stuffyRepository.createTransaction(productId,email, status)
+
+    override fun createConfirmation(
+        productId: String,
+        email: String,
+        status: String,
+        note: String
+    ): Flow<Resource<ConfirmationTaker>> =stuffyRepository.createConfirmation(productId,email, status,note)
+
+    override fun updateConfirmationStatus(
+        id: String,
+        status: String
+    ): Flow<Resource<ConfirmationTaker>> =stuffyRepository.updateConfirmationStatus(id, status)
+
+    override fun updateTransactionStatus(
+        id: String,
+        status: String
+    ): Flow<Resource<ConfirmationTransaction>> =stuffyRepository.updateTransactionStatus(id, status)
+
+    override fun getTransactionsShare(): Flow<Resource<List<Share>>> =  stuffyRepository.getTransactionsShare()
 }

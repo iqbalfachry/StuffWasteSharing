@@ -3,8 +3,11 @@ package com.example.stuffy.presentation.confirmation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.example.stuffy.core.domain.useCase.StuffyUseCase
 
-class ConfirmationViewModel:  ViewModel() {
+class ConfirmationViewModel(private val stuffyUseCase: StuffyUseCase):  ViewModel() {
+
     private val _count = MutableLiveData<Int>().apply {
         value = 1
     }
@@ -25,5 +28,8 @@ class ConfirmationViewModel:  ViewModel() {
 
         }
     }
-
+    fun createConfirmation(productId: String,
+                           email: String,
+                           status: String,note:String) =
+        stuffyUseCase.createConfirmation(productId,email, status,note).asLiveData()
 }

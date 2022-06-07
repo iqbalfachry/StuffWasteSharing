@@ -5,8 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Take(
-    var image:Int,
+    var id:String,
+    var image:String,
     var name:String,
     var location:String,
-    var status:String,
+    var status:List<ConfirmationTaker>?,
+
 ) : Parcelable

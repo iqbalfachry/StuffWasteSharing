@@ -2,18 +2,29 @@ package com.example.stuffy.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.stuffy.core.R
 import com.example.stuffy.core.databinding.ShareListBinding
-import com.example.stuffy.core.databinding.WishlistListBinding
-import com.example.stuffy.core.domain.model.Share
+import com.example.stuffy.core.domain.model.ConfirmationTransaction
 
-class ShareAdapter (private val favorite: ArrayList<Share>) :
+import com.example.stuffy.core.domain.model.Share
+import com.example.stuffy.core.utils.ConfirmationDiffCallback
+import com.example.stuffy.core.utils.ShareDiffCallback
+
+class ShareAdapter () :
     RecyclerView.Adapter<ShareAdapter.ListViewHolder>() {
 
-
+    private var favorite= ArrayList<Share>()
     var onItemClick: ((Share) -> Unit)? = null
-
+    fun setData(newListData: List<Share>) {
+        val diffCallback = ShareDiffCallback(favorite, newListData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        favorite.clear()
+        favorite.addAll(newListData)
+        diffResult.dispatchUpdatesTo(this)
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,9 +48,19 @@ class ShareAdapter (private val favorite: ArrayList<Share>) :
                     .load(filter.image)
                     .into(imageView2)
                 textView2.text = filter.name
-                textView3.text = StringBuilder().append("Diberikan kepada ").append(filter.taker)
+                textView3.text =if(filter.taker?.filter {
+                        it.status == "Diterima"
+                    }?.joinToString { it.name }.equals(""))  "" else StringBuilder().append("Diberikan kepada ").append(filter.taker?.filter {
+                    it.status == "Diterima"
+                }?.joinToString { it.name })
                 textView4.text = filter.status
                 textView5.text = filter.location
+                if(filter.status == "Menunggu"){
+                   textView4.setBackgroundResource(R.drawable.bg_status_warning)
+                } else if(filter.status == "Selesai"){
+                    textView4.setBackgroundResource(R.drawable.bg_status_success)
+                }
+
             }
         }
         init {

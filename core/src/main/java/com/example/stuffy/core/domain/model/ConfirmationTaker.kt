@@ -5,7 +5,11 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ConfirmationTaker(
-    var image:Int,
+    var id: String,
+    var image: String?,
     var name:String,
     var note:String,
+    var status:String,
+    var email:String,
+    var confirmationId:String,
 ): Parcelable

@@ -8,18 +8,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
+import com.example.stuffy.core.data.Resource
 
 import com.example.stuffy.core.domain.model.Share
+import com.example.stuffy.core.ui.ConfirmationAdapter
 
 import com.example.stuffy.core.ui.ShareAdapter
 
 import com.example.stuffy.databinding.FragmentTransactionShareBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class TransactionShareFragment : Fragment() {
     private var _binding: FragmentTransactionShareBinding? = null
-    private val list = ArrayList<Share>()
-
+    private val transactionShareViewModel : TransactionShareViewModel by viewModel()
+    private lateinit var shareAdapter: ShareAdapter
     private val binding get() = _binding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,41 +38,38 @@ class TransactionShareFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
-        list.addAll(listConfirmation)
+        transactionShareViewModel.transaction.observe(viewLifecycleOwner){
+            if (it != null) {
+                when (it) {
+                    is Resource.Loading -> {
+
+                        binding?.recyclerview?.visibility = View.GONE
+                    }
+                    is Resource.Success -> {
+                        binding?.recyclerview?.visibility = View.VISIBLE
+
+                        it.data?.let { it1 -> shareAdapter.setData(it1) }
+
+                    }
+                    is Resource.Error -> {
+                        binding?.recyclerview?.visibility = View.VISIBLE
+                        Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
         showRecyclerList()
     }
-    private val listConfirmation: ArrayList<Share>
-        get() {
-
-            val dataPhoto = resources.obtainTypedArray(R.array.image)
-
-            val dataName= resources.getStringArray(R.array.name)
-            val dataTaker= resources.getStringArray(R.array.name)
-            val dataStatus= resources.getStringArray(R.array.status)
-            val dataDescription= resources.getStringArray(R.array.location)
-            val listHero = ArrayList<Share>()
-            for (i in dataName.indices) {
-                val hero = Share(
-                    dataPhoto.getResourceId(i, -1),
-                    dataName[i],
-                    dataDescription[i],
-                    dataStatus[i],
-                    dataTaker[i],
-                )
-                listHero.add(hero)
-            }
-            dataPhoto.recycle()
-            return listHero
-        }
 
     private fun showRecyclerList() {
         binding?.recyclerview?.layoutManager = LinearLayoutManager(
             activity,
             LinearLayoutManager.VERTICAL, false
         )
-        val listHeroAdapter = ShareAdapter(list)
-        binding?.recyclerview?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick = {
+       shareAdapter = ShareAdapter()
+        binding?.recyclerview?.adapter = shareAdapter
+        shareAdapter.onItemClick = {
             showSelectedUser(it)
         }
     }

@@ -2,19 +2,29 @@ package com.example.stuffy.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.databinding.ConfirmationTakerListBinding
 import com.example.stuffy.core.domain.model.ConfirmationTaker
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
+import com.example.stuffy.core.utils.ConfirmationDetailDiffCallback
+import com.example.stuffy.core.utils.ConfirmationDiffCallback
 
-class ConfirmationDetailAdapter (private val filter: ArrayList<ConfirmationTaker>) :
+class ConfirmationDetailAdapter () :
     RecyclerView.Adapter<ConfirmationDetailAdapter.ListViewHolder>() {
 
-
+    private var filter= ArrayList<ConfirmationTaker>()
     var onItemClick: ((ConfirmationTaker) -> Unit)? = null
-
-
+    var onButtonRejectClick: ((ConfirmationTaker) -> Unit)? = null
+    var onButtonAcceptClick: ((ConfirmationTaker) -> Unit)? = null
+    fun setData(newListData: List<ConfirmationTaker>) {
+        val diffCallback = ConfirmationDetailDiffCallback(filter, newListData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        filter.clear()
+        filter.addAll(newListData)
+        diffResult.dispatchUpdatesTo(this)
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -35,6 +45,7 @@ class ConfirmationDetailAdapter (private val filter: ArrayList<ConfirmationTaker
             with(binding) {
                 Glide.with(itemView.context)
                     .load(filter.image)
+                    .circleCrop()
                     .into(imageView5)
                 textView10.text = filter.name
                 textView11.text = filter.note
@@ -44,7 +55,12 @@ class ConfirmationDetailAdapter (private val filter: ArrayList<ConfirmationTaker
             binding.root.setOnClickListener {
                 onItemClick?.invoke(filter[absoluteAdapterPosition])
             }
-
+            binding.reject.setOnClickListener {
+                onButtonRejectClick?.invoke(filter[absoluteAdapterPosition])
+            }
+            binding.more.setOnClickListener {
+                onButtonAcceptClick?.invoke(filter[absoluteAdapterPosition])
+            }
         }
     }
 

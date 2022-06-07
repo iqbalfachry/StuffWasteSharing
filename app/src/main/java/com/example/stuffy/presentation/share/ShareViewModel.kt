@@ -32,5 +32,10 @@ class ShareViewModel(private val stuffyUseCase: StuffyUseCase) : ViewModel() {
     }
     fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody) =
         stuffyUseCase.createProduct(files,description,name,location).asLiveData()
+    fun createTransaction(    productId: String,
+                          email: String,
+                          status: String) =
+        stuffyUseCase.createTransaction(productId,email, status).asLiveData()
+
 
 }

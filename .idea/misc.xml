@@ -7,6 +7,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/arch_right.xml" value="0.162" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/bg_search.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/bg_text_counter.xml" value="0.264" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/bg_warning.xml" value="0.2545" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1095" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.121" />
@@ -53,11 +54,18 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction.xml" value="0.22916666666666666" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation.xml" value="0.136" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_confirmation_detail.xml" value="0.16799999999999998" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_share.xml" value="0.16" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_share.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/fragment_transaction_take.xml" value="0.16" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/layout/item_row_user.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/menu/bottom_nav_menu.xml" value="0.10989583333333333" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/app/src/main/res/xml/file_paths.xml" value="0.13020833333333334" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_green.xml" value="0.2545" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_red.xml" value="0.2395" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_status_danger.xml" value="0.2395" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_status_success.xml" value="0.2555" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_status_warning.xml" value="0.2545" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_warning.xml" value="0.2555" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_yellow.xml" value="0.2545" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.121" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/cart_list.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/comingsoon.xml" value="0.22418478260869565" />

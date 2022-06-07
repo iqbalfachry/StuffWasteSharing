@@ -9,22 +9,25 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
+import com.example.stuffy.core.data.Resource
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
 import com.example.stuffy.core.domain.model.Take
-import com.example.stuffy.core.ui.ConfirmationAdapter
-import com.example.stuffy.core.ui.RatingDialog
-import com.example.stuffy.core.ui.SettingsDialog
-import com.example.stuffy.core.ui.TakeAdapter
+import com.example.stuffy.core.ui.*
 import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
 import com.example.stuffy.databinding.FragmentTransactionShareBinding
 import com.example.stuffy.databinding.FragmentTransactionTakeBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class TransactionTakeFragment : Fragment() {
     private var _binding: FragmentTransactionTakeBinding? = null
-    private val list = ArrayList<Take>()
-
+    private val transactionTakeViewModel : TransactionTakeViewModel by viewModel()
+    private lateinit var takeAdapter: TakeAdapter
     private val binding get() = _binding
+    private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,42 +42,43 @@ class TransactionTakeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
-        list.addAll(listConfirmation)
+        auth = Firebase.auth
+        auth.currentUser?.email?.let {
+            transactionTakeViewModel.transaction(it).observe(viewLifecycleOwner){
+                if (it != null) {
+                    when (it) {
+                        is Resource.Loading -> {
+
+                            binding?.recyclerview?.visibility = View.GONE
+                        }
+                        is Resource.Success -> {
+                            binding?.recyclerview?.visibility = View.VISIBLE
+
+                            it.data?.let { it1 -> takeAdapter.setData(it1) }
+
+                        }
+                        is Resource.Error -> {
+                            binding?.recyclerview?.visibility = View.VISIBLE
+                            Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+        }
         showRecyclerList()
     }
-    private val listConfirmation: ArrayList<Take>
-        get() {
-
-            val dataPhoto = resources.obtainTypedArray(R.array.image)
-
-            val dataName= resources.getStringArray(R.array.name)
-            val dataDescription= resources.getStringArray(R.array.location)
-            val dataStatus= resources.getStringArray(R.array.status)
-            val listHero = ArrayList<Take>()
-            for (i in dataName.indices) {
-                val hero = Take(
-                    dataPhoto.getResourceId(i, -1),
-                    dataName[i],
-                    dataDescription[i],
-                    dataStatus[i],
-                )
-                listHero.add(hero)
-            }
-            dataPhoto.recycle()
-            return listHero
-        }
 
     private fun showRecyclerList() {
         binding?.recyclerview?.layoutManager = LinearLayoutManager(
             activity,
             LinearLayoutManager.VERTICAL, false
         )
-        val listHeroAdapter = TakeAdapter(list)
-        binding?.recyclerview?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick = {
+        takeAdapter = TakeAdapter()
+        binding?.recyclerview?.adapter = takeAdapter
+        takeAdapter.onItemClick = {
             showSelectedUser(it)
         }
-        listHeroAdapter.onButtonClick = {
+        takeAdapter.onButtonClick = {
             val alert = RatingDialog()
             alert.showDialog(activity,"Berikan ulasan dan rating anda")
         }

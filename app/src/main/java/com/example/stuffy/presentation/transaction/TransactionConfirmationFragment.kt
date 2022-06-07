@@ -10,19 +10,23 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stuffy.R
+import com.example.stuffy.core.data.Resource
 
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
 
 import com.example.stuffy.core.ui.ConfirmationAdapter
+import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
+import com.example.stuffy.presentation.share.ShareViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class TransactionConfirmationFragment : Fragment() {
 
     private var _binding: FragmentTransactionConfirmationBinding? = null
-    private val list = ArrayList<ConfirmationTransaction>()
-
+    private val transactionConfirmationViewModel : TransactionConfirmationViewModel by viewModel()
     private val binding get() = _binding
+    private lateinit var confirmationAdapter: ConfirmationAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,38 +40,40 @@ class TransactionConfirmationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
-        list.addAll(listConfirmation)
+        transactionConfirmationViewModel.transaction.observe(viewLifecycleOwner){
+            if (it != null) {
+                when (it) {
+                    is Resource.Loading -> {
+
+                        binding?.recyclerview?.visibility = View.GONE
+                    }
+                    is Resource.Success -> {
+                        binding?.recyclerview?.visibility = View.VISIBLE
+
+                        it.data?.let { it1 -> confirmationAdapter.setData(it1) }
+
+                    }
+                    is Resource.Error -> {
+                        binding?.recyclerview?.visibility = View.VISIBLE
+                        Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
         showRecyclerList()
     }
-    private val listConfirmation: ArrayList<ConfirmationTransaction>
-        get() {
 
-            val dataPhoto = resources.obtainTypedArray(R.array.image)
-
-            val dataName= resources.getStringArray(R.array.name)
-            val dataDescription= resources.getStringArray(R.array.size)
-            val listHero = ArrayList<ConfirmationTransaction>()
-            for (i in dataName.indices) {
-                val hero = ConfirmationTransaction(
-                    dataPhoto.getResourceId(i, -1),
-                    dataName[i],
-                    dataDescription[i],
-                )
-                listHero.add(hero)
-            }
-            dataPhoto.recycle()
-            return listHero
-        }
 
     private fun showRecyclerList() {
         binding?.recyclerview?.layoutManager = LinearLayoutManager(activity,
             LinearLayoutManager.VERTICAL,false)
-        val listHeroAdapter = ConfirmationAdapter(list)
-        binding?.recyclerview?.adapter = listHeroAdapter
-        listHeroAdapter.onItemClick ={
+        confirmationAdapter = ConfirmationAdapter()
+        binding?.recyclerview?.adapter = confirmationAdapter
+        confirmationAdapter.onItemClick ={
             showSelectedUser(it)
         }
-        listHeroAdapter.onButtonClick={
+        confirmationAdapter.onButtonClick={
 
 
                     val mCategoryFragment = TransactionConfirmationDetailFragment()
@@ -87,7 +93,7 @@ class TransactionConfirmationFragment : Fragment() {
                         mCategoryFragment,
                         TransactionConfirmationDetailFragment::class.java.simpleName
                     )
-                    addToBackStack(null)
+                    addToBackStack("home")
                     commit()
                 }
 

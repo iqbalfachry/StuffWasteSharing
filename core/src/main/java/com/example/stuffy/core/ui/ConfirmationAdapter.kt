@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.R
@@ -13,14 +14,23 @@ import com.example.stuffy.core.databinding.CartListBinding
 import com.example.stuffy.core.databinding.ConfirmationListBinding
 import com.example.stuffy.core.domain.model.Cart
 import com.example.stuffy.core.domain.model.ConfirmationTransaction
+import com.example.stuffy.core.domain.model.Product
+import com.example.stuffy.core.utils.ConfirmationDiffCallback
+import com.example.stuffy.core.utils.ListProductDiffCallback
 
-class ConfirmationAdapter(private val filter: ArrayList<ConfirmationTransaction>) :
+class ConfirmationAdapter() :
     RecyclerView.Adapter<ConfirmationAdapter.ListViewHolder>() {
 
-
+    private var filter = ArrayList<ConfirmationTransaction>()
     var onItemClick: ((ConfirmationTransaction) -> Unit)? = null
     var onButtonClick: ((ConfirmationTransaction) -> Unit)? = null
-
+    fun setData(newListData: List<ConfirmationTransaction>) {
+        val diffCallback = ConfirmationDiffCallback(filter, newListData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        filter.clear()
+        filter.addAll(newListData)
+        diffResult.dispatchUpdatesTo(this)
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -44,7 +54,8 @@ class ConfirmationAdapter(private val filter: ArrayList<ConfirmationTransaction>
                     .into(imageView5)
                 textView10.text = filter.name
                 textView11.text = StringBuilder().append(filter.size).append(" orang ingin ambil barang ini")
-                    filter.size
+
+                more.visibility= if(      filter.size.toInt()==0) View.GONE else View.VISIBLE
 
             }
         }

@@ -6,9 +6,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Share(
-    var image:Int,
+    var id:String,
+    var image:String,
     var name:String,
     var location:String,
     var status:String,
-    var taker:String,
+    var taker: List<ConfirmationTaker>?,
 ) : Parcelable
