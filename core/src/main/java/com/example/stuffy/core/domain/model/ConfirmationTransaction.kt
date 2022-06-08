@@ -1,7 +1,6 @@
 package com.example.stuffy.core.domain.model
 
 import android.os.Parcelable
-import com.example.stuffy.core.data.remote.response.ConfirmationResponse
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
