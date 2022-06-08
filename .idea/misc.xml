@@ -67,6 +67,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_warning.xml" value="0.2555" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/bg_yellow.xml" value="0.2545" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.121" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/drawable/textbox.xml" value="0.1575" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/cart_list.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/comingsoon.xml" value="0.22418478260869565" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/confirmation_list.xml" value="0.16799999999999998" />
@@ -76,7 +77,7 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/item_other_user.xml" value="0.15260416666666668" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/item_row_user.xml" value="0.25" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/modal.xml" value="0.2" />
-        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/rating_dialog.xml" value="0.1515625" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/rating_dialog.xml" value="0.16117216117216118" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/settings_dialog.xml" value="0.15260416666666668" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/share_list.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/share_take_list.xml" value="0.264" />

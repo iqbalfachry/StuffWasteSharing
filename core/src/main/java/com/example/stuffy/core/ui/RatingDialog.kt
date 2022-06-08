@@ -4,9 +4,12 @@ import android.app.Activity
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.stuffy.core.R
 
 class RatingDialog {
@@ -16,11 +19,14 @@ class RatingDialog {
         dialog?.setCancelable(false)
         dialog?.setContentView(R.layout.rating_dialog)
         val text = dialog?.findViewById(R.id.textModal) as TextView
+
+        dialog.setCanceledOnTouchOutside(true)
         text.text = msg
+
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val dialogButton: Button = dialog.findViewById(R.id.pesan) as Button
         dialogButton.setOnClickListener {
-
+            Toast.makeText(activity,"Berhasil dikirim",Toast.LENGTH_SHORT).show()
             dialog.dismiss()
 
         }

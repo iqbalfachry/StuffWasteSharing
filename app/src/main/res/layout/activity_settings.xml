@@ -266,11 +266,13 @@
 
         <TextView
             android:id="@+id/textView53"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="169dp"
+            android:layout_height="20dp"
             android:layout_marginStart="192dp"
             android:layout_marginTop="8dp"
             android:text="satria@gmail.com"
+            app:layout_constraintEnd_toStartOf="@+id/imageView28"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView25"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -19,6 +19,7 @@ class SettingsDialog {
         dialog?.setCancelable(false)
         dialog?.setContentView(R.layout.settings_dialog)
         val text = dialog?.findViewById(R.id.textModal) as TextView
+        dialog.setCanceledOnTouchOutside(true)
         text.text = msg
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val dialogButton: Button = dialog.findViewById(R.id.pesan) as Button

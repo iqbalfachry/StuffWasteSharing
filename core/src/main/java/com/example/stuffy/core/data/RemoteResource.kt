@@ -23,7 +23,7 @@ abstract class RemoteResource<ResultType, RequestType> {
         }
     }
 
-    protected abstract suspend fun createCall(): Flow<ApiResponse<RequestType>>
+    protected abstract fun createCall(): Flow<ApiResponse<RequestType>>
 
     protected abstract fun convertCallResult(data: RequestType): Flow<ResultType>
 

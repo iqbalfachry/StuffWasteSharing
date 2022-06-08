@@ -19,7 +19,7 @@ import retrofit2.http.Multipart
 class RemoteDataSource(private val apiService: ApiService) {
 
 
-    suspend fun getProduct(): Flow<ApiResponse<List<ProductResponse>>> {
+    fun getProduct(): Flow<ApiResponse<List<ProductResponse>>> {
         return flow {
             try {
                 val response = apiService.getProduct()
@@ -34,7 +34,8 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun getTransactions(): Flow<ApiResponse<List<TransactionResponse>>> {
+
+    fun getTransactions(): Flow<ApiResponse<List<TransactionResponse>>> {
         return flow {
             try {
                 val response = apiService.getTransactions()
@@ -49,7 +50,8 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun getTransactionsById(email:String): Flow<ApiResponse<List<TransactionResponse>>> {
+
+    fun getTransactionsById(email: String): Flow<ApiResponse<List<TransactionResponse>>> {
         return flow {
             try {
                 val response = apiService.getTransactionsById(email)
@@ -64,7 +66,8 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun getCategory(): Flow<ApiResponse<List<CategoryResponse>>> {
+
+    fun getCategory(): Flow<ApiResponse<List<CategoryResponse>>> {
         return flow {
             try {
                 val response = apiService.getCategory()
@@ -79,15 +82,19 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun createProduct(files:MultipartBody.Part,description:RequestBody,name:RequestBody,location:RequestBody): Flow<ApiResponse<ProductResponse>> {
+
+    fun createProduct(
+        files: MultipartBody.Part,
+        description: RequestBody,
+        name: RequestBody,
+        location: RequestBody
+    ): Flow<ApiResponse<ProductResponse>> {
         return flow {
             try {
-                val response = apiService.createProduct(files,description,name,location)
-                if (response.description.isNotEmpty()&&response.name.isNotEmpty()&&response.location.isNotEmpty()) {
-                    emit(ApiResponse.Success(response))
-                }else {
-                    emit(ApiResponse.Empty)
-                }
+                val response = apiService.createProduct(files, description, name, location)
+
+                emit(ApiResponse.Success(response))
+
 
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
@@ -95,17 +102,18 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun createTransaction( productId: String,
-                                   email: String,
-                                  status: String,): Flow<ApiResponse<TransactionResponse>> {
+
+    fun createTransaction(
+        productId: String,
+        email: String,
+        status: String,
+    ): Flow<ApiResponse<TransactionResponse>> {
         return flow {
             try {
-                val response = apiService.createTransaction(productId,email, status)
-                if (response.product.id.isNotEmpty()&&response.sharer.id.isNotEmpty()&&response.status.isNotEmpty()) {
-                    emit(ApiResponse.Success(response))
-                }else {
-                    emit(ApiResponse.Empty)
-                }
+                val response = apiService.createTransaction(productId, email, status)
+
+                emit(ApiResponse.Success(response))
+
 
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
@@ -113,17 +121,18 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun updateTransactionStatus( id: String,
 
-                                   status: String,): Flow<ApiResponse<TransactionResponse>> {
+    fun updateTransactionStatus(
+        id: String,
+
+        status: String,
+    ): Flow<ApiResponse<TransactionResponse>> {
         return flow {
             try {
                 val response = apiService.updateTransactionStatus(id, status)
-                if (response.product.id.isNotEmpty()&&response.sharer.id.isNotEmpty()&&response.status.isNotEmpty()) {
-                    emit(ApiResponse.Success(response))
-                }else {
-                    emit(ApiResponse.Empty)
-                }
+
+                emit(ApiResponse.Success(response))
+
 
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
@@ -131,17 +140,18 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun updateConfirmationStatus( id: String,
 
-                                   status: String,): Flow<ApiResponse<ConfirmationResponse>> {
+    fun updateConfirmationStatus(
+        id: String,
+
+        status: String,
+    ): Flow<ApiResponse<ConfirmationResponse>> {
         return flow {
             try {
-                val response = apiService.updateConfirmationStatus(id,status)
-                if (response.id.isNotEmpty()&&response.note.isNotEmpty()&&response.status.isNotEmpty()) {
-                    emit(ApiResponse.Success(response))
-                } else {
-                    emit(ApiResponse.Empty)
-                }
+                val response = apiService.updateConfirmationStatus(id, status)
+
+                emit(ApiResponse.Success(response))
+
 
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
@@ -149,18 +159,19 @@ class RemoteDataSource(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-    suspend fun createConfirmation(        productId: String,
-                                            email: String,
-                                         status: String,
-                                            note: String,): Flow<ApiResponse<ConfirmationResponse>> {
+
+    fun createConfirmation(
+        productId: String,
+        email: String,
+        status: String,
+        note: String,
+    ): Flow<ApiResponse<ConfirmationResponse>> {
         return flow {
             try {
-                val response = apiService.createConfirmation(productId,email, status,note)
-                if (response.id.isNotEmpty()&&response.note.isNotEmpty()&&response.status.isNotEmpty()) {
-                    emit(ApiResponse.Success(response))
-                }else {
-                    emit(ApiResponse.Empty)
-                }
+                val response = apiService.createConfirmation(productId, email, status, note)
+
+                emit(ApiResponse.Success(response))
+
 
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

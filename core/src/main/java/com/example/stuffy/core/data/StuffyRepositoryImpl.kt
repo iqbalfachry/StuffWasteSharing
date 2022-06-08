@@ -1,6 +1,6 @@
 package com.example.stuffy.core.data
 
-import android.util.Log
+
 import com.example.stuffy.core.data.local.LocalDataSource
 import com.example.stuffy.core.data.remote.RemoteDataSource
 import com.example.stuffy.core.data.remote.network.ApiResponse
@@ -29,7 +29,7 @@ class StuffyRepositoryImpl(
         object : RemoteResource<List<Product>, List<ProductResponse>>() {
 
 
-            override suspend fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
+            override  fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
                 remoteDataSource.getProduct()
 
 
@@ -53,7 +53,7 @@ class StuffyRepositoryImpl(
     ): Flow<Resource<Product>> =
         object : RemoteResource<Product, ProductResponse>() {
 
-            override suspend fun createCall(): Flow<ApiResponse<ProductResponse>> =
+            override  fun createCall(): Flow<ApiResponse<ProductResponse>> =
 
                 remoteDataSource.createProduct(files, description, name, location)
 
@@ -80,7 +80,7 @@ class StuffyRepositoryImpl(
     ): Flow<Resource<ConfirmationTransaction>> =
         object : RemoteResource<ConfirmationTransaction, TransactionResponse>() {
 
-            override suspend fun createCall(): Flow<ApiResponse<TransactionResponse>> =
+            override  fun createCall(): Flow<ApiResponse<TransactionResponse>> =
 
                 remoteDataSource.createTransaction(productId, email, status)
 
@@ -89,7 +89,7 @@ class StuffyRepositoryImpl(
                 val result =
                     DataMapper.mapTransactionResponseToDomain(data)
 
-                return flow { result?.let { emit(it) } }
+                return flow { emit(result) }
             }
 
             override fun emptyResult(): Flow<ConfirmationTransaction> {
@@ -105,7 +105,7 @@ class StuffyRepositoryImpl(
     ): Flow<Resource<ConfirmationTransaction>> =
         object : RemoteResource<ConfirmationTransaction, TransactionResponse>() {
 
-            override suspend fun createCall(): Flow<ApiResponse<TransactionResponse>> =
+            override fun createCall(): Flow<ApiResponse<TransactionResponse>> =
 
                 remoteDataSource.updateTransactionStatus(id, status)
 
@@ -114,7 +114,7 @@ class StuffyRepositoryImpl(
                 val result =
                     DataMapper.mapTransactionResponseToDomain(data)
 
-                return flow { result?.let { emit(it) } }
+                return flow { emit(result) }
             }
 
             override fun emptyResult(): Flow<ConfirmationTransaction> {
@@ -132,7 +132,7 @@ class StuffyRepositoryImpl(
     ): Flow<Resource<ConfirmationTaker>> =
         object : RemoteResource<ConfirmationTaker, ConfirmationResponse>() {
 
-            override suspend fun createCall(): Flow<ApiResponse<ConfirmationResponse>> =
+            override  fun createCall(): Flow<ApiResponse<ConfirmationResponse>> =
 
                 remoteDataSource.createConfirmation(productId, email, status, note)
 
@@ -159,7 +159,7 @@ class StuffyRepositoryImpl(
     ): Flow<Resource<ConfirmationTaker>> =
         object : RemoteResource<ConfirmationTaker, ConfirmationResponse>() {
 
-            override suspend fun createCall(): Flow<ApiResponse<ConfirmationResponse>> =
+            override  fun createCall(): Flow<ApiResponse<ConfirmationResponse>> =
 
                 remoteDataSource.updateConfirmationStatus(id, status)
 
@@ -184,7 +184,7 @@ class StuffyRepositoryImpl(
         object : RemoteResource<List<Filter>, List<CategoryResponse>>() {
 
 
-            override suspend fun createCall(): Flow<ApiResponse<List<CategoryResponse>>> =
+            override  fun createCall(): Flow<ApiResponse<List<CategoryResponse>>> =
                 remoteDataSource.getCategory()
 
 
@@ -204,7 +204,7 @@ class StuffyRepositoryImpl(
         object : RemoteResource<List<ConfirmationTransaction>, List<TransactionResponse>>() {
 
 
-            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+            override  fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
                 remoteDataSource.getTransactions()
 
 
@@ -224,7 +224,7 @@ class StuffyRepositoryImpl(
         object : RemoteResource<List<Share>, List<TransactionResponse>>() {
 
 
-            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+            override  fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
                 remoteDataSource.getTransactions()
 
 
@@ -255,7 +255,7 @@ class StuffyRepositoryImpl(
         object : RemoteResource<List<Take>, List<TransactionResponse>>() {
 
 
-            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+            override fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
                 remoteDataSource.getTransactionsById(email)
 
 
