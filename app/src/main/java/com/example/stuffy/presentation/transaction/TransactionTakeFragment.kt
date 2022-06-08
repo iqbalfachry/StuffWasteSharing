@@ -1,5 +1,6 @@
 package com.example.stuffy.presentation.transaction
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import com.example.stuffy.core.ui.*
 import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
 import com.example.stuffy.databinding.FragmentTransactionShareBinding
 import com.example.stuffy.databinding.FragmentTransactionTakeBinding
+import com.example.stuffy.presentation.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -78,9 +80,35 @@ class TransactionTakeFragment : Fragment() {
         takeAdapter.onItemClick = {
             showSelectedUser(it)
         }
-        takeAdapter.onButtonClick = {
+        takeAdapter.onButtonRatingClick = {
             val alert = RatingDialog()
             alert.showDialog(activity,"Berikan ulasan dan rating anda")
+        }
+        takeAdapter.onButtonAmbilClick = {
+            transactionTakeViewModel.updateTransactionStatus(it.id,"Akan diambil").observe(viewLifecycleOwner){
+                if (it != null) {
+                    when (it) {
+                        is Resource.Loading -> {
+
+                        }
+                        is Resource.Success -> {
+
+
+                        }
+                        is Resource.Error -> {
+
+                        }
+                    }
+                    Toast.makeText(activity, "sedang diambil", Toast.LENGTH_SHORT).show()
+                    Intent(
+                        activity,
+                        MainActivity::class.java
+                    ).also { intent ->
+                        startActivity(intent)
+                    }
+                    activity?.overridePendingTransition(0, 0)
+                }
+            }
         }
     }
     private fun showSelectedUser(hero: Take) {

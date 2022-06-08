@@ -82,7 +82,7 @@ class TransactionConfirmationDetailFragment : Fragment() {
         confirmationAdapter = ConfirmationDetailAdapter()
         binding?.recyclerview?.adapter = confirmationAdapter
         confirmationAdapter.onButtonAcceptClick = { it ->
-            transactionConfirmationDetailViewModel.updateConfirmationStatus(it.confirmationId, "Diterima")
+            transactionConfirmationDetailViewModel.updateConfirmationStatus(it.confirmationId, "Terkonfirmasi")
                 .observe(viewLifecycleOwner) {
                     if (it != null) {
                         when (it) {
@@ -91,35 +91,7 @@ class TransactionConfirmationDetailFragment : Fragment() {
 
                             }
                             is Resource.Success -> {
-                                transactionConfirmationDetailViewModel.updateTransactionStatus(data.id,"Selesai").observe(
-                                    viewLifecycleOwner
-                                ){
-                                    if (it != null) {
-                                        when (it) {
-                                            is Resource.Loading -> {
 
-
-                                            }
-                                            is Resource.Success -> {
-
-
-
-
-                                            }
-                                            is Resource.Error -> {
-
-                                            }
-                                        }
-                                    }
-                                }
-                                Toast.makeText(activity, "Accepted", Toast.LENGTH_SHORT).show()
-                                Intent(
-                                    activity,
-                                    MainActivity::class.java
-                                ).also { intent ->
-                                    startActivity(intent)
-                                }
-                                activity?.overridePendingTransition(0, 0);
 
                             }
                             is Resource.Error -> {
@@ -128,6 +100,36 @@ class TransactionConfirmationDetailFragment : Fragment() {
 
                             }
                         }
+                        transactionConfirmationDetailViewModel.updateTransactionStatus(data.id,"Menunggu").observe(
+                            viewLifecycleOwner
+                        ){ it1 ->
+                            if (it1 != null) {
+                                when (it1) {
+                                    is Resource.Loading -> {
+
+
+                                    }
+                                    is Resource.Success -> {
+
+
+
+
+                                    }
+                                    is Resource.Error -> {
+
+                                    }
+                                }
+                            }
+                        }
+
+                        Toast.makeText(activity, "Accepted", Toast.LENGTH_SHORT).show()
+                        Intent(
+                            activity,
+                            MainActivity::class.java
+                        ).also { intent ->
+                            startActivity(intent)
+                        }
+                        activity?.overridePendingTransition(0, 0)
                     }
                 }
         }
@@ -143,21 +145,23 @@ class TransactionConfirmationDetailFragment : Fragment() {
                             }
                             is Resource.Success -> {
 
-                                Toast.makeText(activity, "rejected", Toast.LENGTH_SHORT).show()
-                                Intent(
-                                    activity,
-                                    MainActivity::class.java
-                                ).also { intent ->
-                                    startActivity(intent)
-                                }
-                                activity?.overridePendingTransition(0, 0);
+
 
                             }
                             is Resource.Error -> {
                                 binding?.recyclerview?.visibility = View.VISIBLE
                                 Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
                             }
+
                         }
+                        Toast.makeText(activity, "rejected", Toast.LENGTH_SHORT).show()
+                        Intent(
+                            activity,
+                            MainActivity::class.java
+                        ).also { intent ->
+                            startActivity(intent)
+                        }
+                        activity?.overridePendingTransition(0, 0)
                     }
                 }
         }

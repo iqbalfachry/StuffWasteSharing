@@ -1,6 +1,7 @@
 package com.example.stuffy.core.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import com.example.stuffy.core.databinding.ShareListBinding
 
 
 import com.example.stuffy.core.domain.model.Share
+import com.example.stuffy.core.domain.model.Take
 
 import com.example.stuffy.core.utils.ShareDiffCallback
 
@@ -18,6 +20,7 @@ class ShareAdapter :
 
     private var favorite= ArrayList<Share>()
     var onItemClick: ((Share) -> Unit)? = null
+    var onButtonAmbilClick: ((Share) -> Unit)? = null
     fun setData(newListData: List<Share>) {
         val diffCallback = ShareDiffCallback(favorite, newListData)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
@@ -49,16 +52,28 @@ class ShareAdapter :
                     .into(imageView2)
                 textView2.text = filter.name
                 textView3.text =if(filter.taker?.filter {
-                        it.status == "Diterima"
+                        it.status == "Selesai"
                     }?.joinToString { it.name }.equals(""))  "" else StringBuilder().append("Diberikan kepada ").append(filter.taker?.filter {
-                    it.status == "Diterima"
+                    it.status == "Selesai"
                 }?.joinToString { it.name })
                 textView4.text = filter.status
                 textView5.text = filter.location
-                if(filter.status == "Menunggu"){
-                   textView4.setBackgroundResource(R.drawable.bg_status_warning)
-                } else if(filter.status == "Selesai"){
-                    textView4.setBackgroundResource(R.drawable.bg_status_success)
+                if (filter.status == "Akan diambil"){
+                  ambil.visibility = View.VISIBLE
+                }
+                when (filter.status) {
+                    "Menunggu" -> {
+                        textView4.setBackgroundResource(R.drawable.bg_status_warning)
+                    }
+                    "Selesai" -> {
+                        textView4.setBackgroundResource(R.drawable.bg_status_success)
+                    }
+                    "Ditolak" -> {
+                        textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                    }
+                    "Akan diambil" -> {
+                        textView4.setBackgroundResource(R.drawable.bg_status_info)
+                    }
                 }
 
             }
@@ -66,6 +81,9 @@ class ShareAdapter :
         init {
             binding.root.setOnClickListener {
                 onItemClick?.invoke(favorite[absoluteAdapterPosition])
+            }
+            binding.ambil.setOnClickListener {
+                onButtonAmbilClick?.invoke(favorite[absoluteAdapterPosition])
             }
         }
     }

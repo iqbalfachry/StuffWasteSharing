@@ -23,7 +23,8 @@ class TakeAdapter :
     private var favorite= ArrayList<Take>()
 
     var onItemClick: ((Take) -> Unit)? = null
-    var onButtonClick: ((Take) -> Unit)? = null
+    var onButtonRatingClick: ((Take) -> Unit)? = null
+    var onButtonAmbilClick: ((Take) -> Unit)? = null
     fun setData(newListData: List<Take>) {
         val diffCallback = TakeDiffCallback(favorite, newListData)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
@@ -61,18 +62,27 @@ class TakeAdapter :
                     it.status
                 }
                 filter.status?.map {
-                    if (it.status == "Diterima") {
+                    if (it.status == "Selesai") {
+                        ambil.visibility = View.GONE
                     rating.visibility = View.VISIBLE
-                }
+
+                } else if(it.status == "Terkonfirmasi"){
+                        rating.visibility = View.GONE
+                        ambil.visibility = View.VISIBLE
+
+                    }
                     when (it.status) {
                         "Menunggu" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_warning)
                         }
-                        "Diterima" -> {
+                        "Selesai" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_success)
                         }
                         "Ditolak" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                        }
+                        "Terkonfirmasi" -> {
+                            textView4.setBackgroundResource(R.drawable.bg_status_info)
                         }
                     }
                 }
@@ -83,7 +93,10 @@ class TakeAdapter :
                 onItemClick?.invoke(favorite[absoluteAdapterPosition])
             }
             binding.rating.setOnClickListener {
-                onButtonClick?.invoke(favorite[absoluteAdapterPosition])
+                onButtonRatingClick?.invoke(favorite[absoluteAdapterPosition])
+            }
+            binding.ambil.setOnClickListener {
+                onButtonAmbilClick?.invoke(favorite[absoluteAdapterPosition])
             }
         }
     }

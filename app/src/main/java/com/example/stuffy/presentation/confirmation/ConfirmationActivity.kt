@@ -91,7 +91,7 @@ class ConfirmationActivity : AppCompatActivity() {
                         ).also { intent ->
                             startActivity(intent)
                         }
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(0, 0)
                     }
 
                 }

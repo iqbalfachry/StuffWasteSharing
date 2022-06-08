@@ -84,6 +84,12 @@
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/take_list.xml" value="0.264" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/core/src/main/res/layout/wishlist_list.xml" value="0.4" />
         <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/StuffWasteSharing/favorite/src/main/res/layout/activity_favorite.xml" value="0.2" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/drawable/bg_blue.xml" value="0.121" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/drawable/bg_status_info.xml" value="0.121" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/drawable/bg_status_warning.xml" value="0.121" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/layout/item_row_user.xml" value="0.10989583333333333" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/layout/share_list.xml" value="0.16799999999999998" />
+        <entry key="..\:/code/AndroidStudioProjects/kotlin-bangkit/Stuffy/core/src/main/res/layout/take_list.xml" value="0.10989583333333333" />
       </map>
     </option>
   </component>

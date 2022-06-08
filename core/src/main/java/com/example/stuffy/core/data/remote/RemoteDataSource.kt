@@ -19,7 +19,7 @@ import retrofit2.http.Multipart
 class RemoteDataSource(private val apiService: ApiService) {
 
 
-    fun getProduct(): Flow<ApiResponse<List<ProductResponse>>> {
+     fun getProduct(): Flow<ApiResponse<List<ProductResponse>>> {
         return flow {
             try {
                 val response = apiService.getProduct()
