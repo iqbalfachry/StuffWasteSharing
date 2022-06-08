@@ -15,7 +15,7 @@ import com.example.stuffy.core.ui.CartAdapter
 import com.example.stuffy.databinding.ComingsoonBinding
 import com.example.stuffy.databinding.FragmentCartBinding
 import com.example.stuffy.presentation.confirmation.ConfirmationActivity
-import com.example.stuffy.presentation.settings.SettingsActivity
+
 
 
 class CartFragment : Fragment() {

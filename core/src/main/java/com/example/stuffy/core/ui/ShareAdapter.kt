@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.R
 import com.example.stuffy.core.databinding.ShareListBinding
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
+
 
 import com.example.stuffy.core.domain.model.Share
-import com.example.stuffy.core.utils.ConfirmationDiffCallback
+
 import com.example.stuffy.core.utils.ShareDiffCallback
 
-class ShareAdapter () :
+class ShareAdapter :
     RecyclerView.Adapter<ShareAdapter.ListViewHolder>() {
 
     private var favorite= ArrayList<Share>()

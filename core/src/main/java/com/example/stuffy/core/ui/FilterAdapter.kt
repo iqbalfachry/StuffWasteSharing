@@ -7,12 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.domain.model.Filter
 import com.example.stuffy.core.databinding.FilterColBinding
-import com.example.stuffy.core.domain.model.Product
+
 import com.example.stuffy.core.utils.CategoryDiffCallback
-import com.example.stuffy.core.utils.ListProductDiffCallback
 
 
-class FilterAdapter() :
+class FilterAdapter:
 RecyclerView.Adapter<FilterAdapter.ListViewHolder>() {
 
 

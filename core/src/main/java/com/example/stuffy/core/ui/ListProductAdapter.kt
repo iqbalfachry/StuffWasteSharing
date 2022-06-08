@@ -11,7 +11,7 @@ import com.example.stuffy.core.databinding.ItemRowUserBinding
 import com.example.stuffy.core.utils.ListProductDiffCallback
 
 
-class ListProductAdapter() :
+class ListProductAdapter :
     RecyclerView.Adapter<ListProductAdapter.ListViewHolder>() {
 
     var onItemClick: ((Product) -> Unit)? = null

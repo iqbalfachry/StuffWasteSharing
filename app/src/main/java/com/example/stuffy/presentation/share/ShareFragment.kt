@@ -12,7 +12,6 @@ import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +27,7 @@ import com.example.stuffy.core.utils.createTempFile
 import com.example.stuffy.core.utils.uriToFile
 import com.example.stuffy.databinding.FragmentShareBinding
 import com.example.stuffy.ml.TfLiteModel1
+
 
 import com.example.stuffy.presentation.main.MainActivity
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -129,9 +129,9 @@ class ShareFragment :  Fragment() {
                                             shareViewModel.createTransaction(
                                                 it.id,
                                                 it1, "Menunggu"
-                                            ).observe(viewLifecycleOwner) {
-                                                if (it != null) {
-                                                    when (it) {
+                                            ).observe(viewLifecycleOwner) { it2 ->
+                                                if (it2 != null) {
+                                                    when (it2) {
                                                         is Resource.Loading -> {
 
                                                         }
@@ -155,7 +155,7 @@ class ShareFragment :  Fragment() {
                                     ).also { intent ->
                                         startActivity(intent)
                                     }
-                                    activity?.overridePendingTransition(0, 0);
+                                    activity?.overridePendingTransition(0, 0)
                                 }
                                 is Resource.Error -> {
 

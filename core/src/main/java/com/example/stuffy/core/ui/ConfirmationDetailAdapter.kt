@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.databinding.ConfirmationTakerListBinding
 import com.example.stuffy.core.domain.model.ConfirmationTaker
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
-import com.example.stuffy.core.utils.ConfirmationDetailDiffCallback
-import com.example.stuffy.core.utils.ConfirmationDiffCallback
 
-class ConfirmationDetailAdapter () :
+import com.example.stuffy.core.utils.ConfirmationDetailDiffCallback
+
+
+class ConfirmationDetailAdapter  :
     RecyclerView.Adapter<ConfirmationDetailAdapter.ListViewHolder>() {
 
     private var filter= ArrayList<ConfirmationTaker>()

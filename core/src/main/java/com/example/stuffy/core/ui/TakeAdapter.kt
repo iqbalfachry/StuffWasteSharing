@@ -1,6 +1,6 @@
 package com.example.stuffy.core.ui
 
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stuffy.core.R
 import com.example.stuffy.core.databinding.TakeListBinding
-import com.example.stuffy.core.databinding.WishlistListBinding
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
-import com.example.stuffy.core.domain.model.Favorite
-import com.example.stuffy.core.domain.model.Share
+
 import com.example.stuffy.core.domain.model.Take
-import com.example.stuffy.core.utils.ShareDiffCallback
+
 import com.example.stuffy.core.utils.TakeDiffCallback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -67,12 +64,16 @@ class TakeAdapter :
                     if (it.status == "Diterima") {
                     rating.visibility = View.VISIBLE
                 }
-                    if (it.status == "Menunggu") {
-                        textView4.setBackgroundResource(R.drawable.bg_status_warning)
-                    } else if (it.status == "Diterima") {
-                        textView4.setBackgroundResource(R.drawable.bg_status_success)
-                    }else if (it.status == "Ditolak") {
-                        textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                    when (it.status) {
+                        "Menunggu" -> {
+                            textView4.setBackgroundResource(R.drawable.bg_status_warning)
+                        }
+                        "Diterima" -> {
+                            textView4.setBackgroundResource(R.drawable.bg_status_success)
+                        }
+                        "Ditolak" -> {
+                            textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                        }
                     }
                 }
             }

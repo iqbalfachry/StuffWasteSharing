@@ -1,24 +1,22 @@
 package com.example.stuffy.core.ui
 
-import android.content.Intent
-import android.text.TextUtils.replace
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.stuffy.core.R
-import com.example.stuffy.core.databinding.CartListBinding
-import com.example.stuffy.core.databinding.ConfirmationListBinding
-import com.example.stuffy.core.domain.model.Cart
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
-import com.example.stuffy.core.domain.model.Product
-import com.example.stuffy.core.utils.ConfirmationDiffCallback
-import com.example.stuffy.core.utils.ListProductDiffCallback
 
-class ConfirmationAdapter() :
+import com.example.stuffy.core.databinding.ConfirmationListBinding
+
+import com.example.stuffy.core.domain.model.ConfirmationTransaction
+
+import com.example.stuffy.core.utils.ConfirmationDiffCallback
+
+
+class ConfirmationAdapter :
     RecyclerView.Adapter<ConfirmationAdapter.ListViewHolder>() {
 
     private var filter = ArrayList<ConfirmationTransaction>()

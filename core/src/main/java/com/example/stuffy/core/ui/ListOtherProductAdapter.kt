@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.stuffy.core.databinding.ItemOtherUserBinding
 
 import com.example.stuffy.core.domain.model.Product
-import com.example.stuffy.core.databinding.ItemRowUserBinding
+
 
 
 class ListOtherProductAdapter(private val listUser: ArrayList<Product>) :
