@@ -62,27 +62,27 @@ class TakeAdapter :
                     it.status
                 }
                 filter.status?.map {
-                    if (it.status == "Selesai") {
-                        ambil.visibility = View.GONE
-                    rating.visibility = View.VISIBLE
 
-                } else if(it.status == "Terkonfirmasi"){
-                        rating.visibility = View.GONE
-                        ambil.visibility = View.VISIBLE
-
-                    }
                     when (it.status) {
                         "Menunggu" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_warning)
+                            ambil.visibility = View.GONE
+                            rating.visibility = View.GONE
                         }
                         "Selesai" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_success)
+                            ambil.visibility = View.GONE
+                            rating.visibility = View.VISIBLE
                         }
                         "Ditolak" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                            ambil.visibility = View.GONE
+                            rating.visibility = View.GONE
                         }
                         "Terkonfirmasi" -> {
                             textView4.setBackgroundResource(R.drawable.bg_status_info)
+                            rating.visibility = View.GONE
+                            ambil.visibility = View.VISIBLE
                         }
                     }
                 }

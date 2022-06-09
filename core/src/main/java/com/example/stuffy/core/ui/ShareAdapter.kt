@@ -58,21 +58,24 @@ class ShareAdapter :
                 }?.joinToString { it.name })
                 textView4.text = filter.status
                 textView5.text = filter.location
-                if (filter.status == "Akan diambil"){
-                  ambil.visibility = View.VISIBLE
-                }
+
+
                 when (filter.status) {
                     "Menunggu" -> {
                         textView4.setBackgroundResource(R.drawable.bg_status_warning)
+                        ambil.visibility = View.GONE
                     }
                     "Selesai" -> {
                         textView4.setBackgroundResource(R.drawable.bg_status_success)
+                        ambil.visibility = View.GONE
                     }
                     "Ditolak" -> {
                         textView4.setBackgroundResource(R.drawable.bg_status_danger)
+                        ambil.visibility = View.GONE
                     }
                     "Akan diambil" -> {
                         textView4.setBackgroundResource(R.drawable.bg_status_info)
+                        ambil.visibility = View.VISIBLE
                     }
                 }
 
