@@ -82,7 +82,7 @@ class TransactionTakeFragment : Fragment() {
         }
         takeAdapter.onButtonRatingClick = {
             val alert = RatingDialog()
-            alert.showDialog(activity,"Berikan ulasan dan rating anda")
+            alert.showDialog(activity,"Berikan ulasan dan rating anda",it)
         }
         takeAdapter.onButtonAmbilClick = {
             transactionTakeViewModel.updateTransactionStatus(it.id,"Akan diambil").observe(viewLifecycleOwner){

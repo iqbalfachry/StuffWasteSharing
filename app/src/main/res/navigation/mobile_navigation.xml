@@ -17,18 +17,29 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.stuffy.presentation.cart.CartFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_share"
+            app:destination="@id/navigation_share" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_share"
         android:name="com.example.stuffy.presentation.share.ShareFragment"
         android:label="@string/title_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_share" >
+        <action
+            android:id="@+id/action_navigation_share_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.stuffy.presentation.transaction.TransactionFragment"
