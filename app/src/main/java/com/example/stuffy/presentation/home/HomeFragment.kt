@@ -18,15 +18,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.stuffy.R
 import com.example.stuffy.core.data.Resource
 import com.example.stuffy.core.domain.model.Filter
-import com.example.stuffy.core.domain.model.Product
+
 import com.example.stuffy.core.ui.FilterAdapter
 
 import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentHomeBinding
 import com.example.stuffy.presentation.detail.DetailActivity
 import com.example.stuffy.presentation.main.MainActivity
-import com.example.stuffy.presentation.termcondition.TermConditionActivity
-import com.example.stuffy.presentation.transaction.TransactionConfirmationDetailFragment
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -67,7 +66,7 @@ class HomeFragment : Fragment() {
 binding?.refresh?.setOnRefreshListener {
 
     startActivity(Intent(activity, MainActivity::class.java))
-    activity?.overridePendingTransition(0, 0);
+    activity?.overridePendingTransition(0, 0)
 }
 
         showRecyclerList()

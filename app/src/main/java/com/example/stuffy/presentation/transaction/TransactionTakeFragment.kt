@@ -2,20 +2,15 @@ package com.example.stuffy.presentation.transaction
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stuffy.R
 import com.example.stuffy.core.data.Resource
-import com.example.stuffy.core.domain.model.ConfirmationTransaction
 import com.example.stuffy.core.domain.model.Take
 import com.example.stuffy.core.ui.*
-import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
-import com.example.stuffy.databinding.FragmentTransactionShareBinding
 import com.example.stuffy.databinding.FragmentTransactionTakeBinding
 import com.example.stuffy.presentation.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -46,9 +41,9 @@ class TransactionTakeFragment : Fragment() {
         binding?.recyclerview?.setHasFixedSize(true)
         auth = Firebase.auth
         auth.currentUser?.email?.let {
-            transactionTakeViewModel.transaction(it).observe(viewLifecycleOwner){
-                if (it != null) {
-                    when (it) {
+            transactionTakeViewModel.transaction(it).observe(viewLifecycleOwner){ it1 ->
+                if (it1 != null) {
+                    when (it1) {
                         is Resource.Loading -> {
 
                             binding?.recyclerview?.visibility = View.GONE
@@ -56,12 +51,12 @@ class TransactionTakeFragment : Fragment() {
                         is Resource.Success -> {
                             binding?.recyclerview?.visibility = View.VISIBLE
 
-                            it.data?.let { it1 -> takeAdapter.setData(it1) }
+                            it1.data?.let { it2 -> takeAdapter.setData(it2) }
 
                         }
                         is Resource.Error -> {
                             binding?.recyclerview?.visibility = View.VISIBLE
-                            Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity,it1.message,Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -85,9 +80,9 @@ class TransactionTakeFragment : Fragment() {
             alert.showDialog(activity,"Berikan ulasan dan rating anda",it)
         }
         takeAdapter.onButtonAmbilClick = {
-            transactionTakeViewModel.updateTransactionStatus(it.id,"Akan diambil").observe(viewLifecycleOwner){
-                if (it != null) {
-                    when (it) {
+            transactionTakeViewModel.updateTransactionStatus(it.id,"Akan diambil").observe(viewLifecycleOwner){ it1 ->
+                if (it1 != null) {
+                    when (it1) {
                         is Resource.Loading -> {
 
                         }
