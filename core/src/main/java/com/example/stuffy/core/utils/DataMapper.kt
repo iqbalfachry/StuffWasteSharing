@@ -183,4 +183,30 @@ object DataMapper {
             isFav = false
         )
 
+    fun mapProductResponseToEntity(input: ProductResponse)=
+
+            ProductEntity (
+            id =input.id,
+                name=input.name,
+                avatar= input.avatar,
+                location=input.location,
+                description = input.description,
+            )
+
+
+    fun mapListEntityToDomain(input: List<ProductEntity>):List<Product> =
+        input.map{
+    mapEntitytoDomain(it)
+    }
+
+    private fun mapEntitytoDomain(input: ProductEntity) =Product(
+        id =input.id,
+        name=input.name,
+        avatar= input.avatar,
+        location=input.location,
+        description = input.description,
+        isFav = false
+    )
+
+
 }

@@ -2,6 +2,7 @@ package com.example.stuffy.core.data
 
 
 import com.example.stuffy.core.data.local.LocalDataSource
+import com.example.stuffy.core.data.local.entity.ProductEntity
 import com.example.stuffy.core.data.remote.RemoteDataSource
 import com.example.stuffy.core.data.remote.network.ApiResponse
 import com.example.stuffy.core.data.remote.response.CategoryResponse
@@ -26,23 +27,33 @@ class StuffyRepositoryImpl(
 
 
     override fun getListMovie(): Flow<Resource<List<Product>>> =
-        object : RemoteResource<List<Product>, List<ProductResponse>>() {
+        object : NetworkBoundResource<List<Product>, List<ProductResponse>>() {
 
+            public override fun loadFromDB(): Flow<List<Product>> {
+                return localDataSource.getListMovie().map{
+                    DataMapper.mapListEntityToDomain(it)
+                }
+            }
 
-            override  fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
+            override fun shouldFetch(data: List<Product>?): Boolean {
+                return true
+            }
+            override suspend  fun createCall(): Flow<ApiResponse<List<ProductResponse>>> =
                 remoteDataSource.getProduct()
 
 
-            override fun convertCallResult(data: List<ProductResponse>): Flow<List<Product>> {
-                val result =
-                    DataMapper.mapListProductResponseToDomain(data)
+            override  suspend fun saveCallResult(data: List<ProductResponse>) {
+                val products = ArrayList<ProductEntity>()
+                data.map{
+                    val product = DataMapper.mapProductResponseToEntity(it)
+                    products.add(product)
+                }
 
-                return flow { emit(result) }
+
+             localDataSource.insertMovie(products)
             }
 
-            override fun emptyResult(): Flow<List<Product>> {
-                return flow { emit(emptyList()) }
-            }
+
         }.asFlow()
 
     override fun createProduct(

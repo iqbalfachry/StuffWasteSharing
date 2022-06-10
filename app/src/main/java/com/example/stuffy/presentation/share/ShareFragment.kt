@@ -149,13 +149,7 @@ class ShareFragment :  Fragment() {
                                         }
 
                                     }
-                                    Intent(
-                                        activity,
-                                        MainActivity::class.java
-                                    ).also { intent ->
-                                        startActivity(intent)
-                                    }
-                                    activity?.overridePendingTransition(0, 0)
+
                                 }
                                 is Resource.Error -> {
 
