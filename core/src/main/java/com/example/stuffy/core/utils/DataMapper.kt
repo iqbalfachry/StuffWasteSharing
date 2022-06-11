@@ -1,6 +1,9 @@
 package com.example.stuffy.core.utils
 
+import com.example.stuffy.core.data.local.entity.ConfirmationEntity
 import com.example.stuffy.core.data.local.entity.ProductEntity
+import com.example.stuffy.core.data.local.entity.TransactionEntity
+import com.example.stuffy.core.data.local.entity.UserEntity
 import com.example.stuffy.core.data.remote.response.CategoryResponse
 import com.example.stuffy.core.data.remote.response.ConfirmationResponse
 import com.example.stuffy.core.data.remote.response.ProductResponse
@@ -194,12 +197,12 @@ object DataMapper {
             )
 
 
-    fun mapListEntityToDomain(input: List<ProductEntity>):List<Product> =
+    fun mapListProductEntityToDomain(input: List<ProductEntity>):List<Product> =
         input.map{
-    mapEntitytoDomain(it)
+    mapProductEntitytoDomain(it)
     }
 
-    private fun mapEntitytoDomain(input: ProductEntity) =Product(
+    private fun mapProductEntitytoDomain(input: ProductEntity) =Product(
         id =input.id,
         name=input.name,
         avatar= input.avatar,
@@ -207,6 +210,68 @@ object DataMapper {
         description = input.description,
         isFav = false
     )
+
+    fun mapListTransactionEntityToDomain(input: List<TransactionEntity>):List<ConfirmationTransaction> =
+        input.map{
+            mapTransactionEntitytoDomain(it)
+        }
+
+    private fun mapTransactionEntitytoDomain(input: TransactionEntity) =ConfirmationTransaction(
+        id =input.id,
+        name=input.product.name,
+         image=input.product.avatar,
+size=input.confirmation.size.toString(),
+status=input.status,
+    confirmation= input.confirmation.map {confirmation->
+        ConfirmationTaker(
+            id = confirmation.taker.id,
+            image = confirmation.taker.avatar,
+            name = confirmation.taker.name,
+            note = confirmation.note,
+            status=confirmation.status,
+            email=confirmation.taker.email,
+            confirmationId = confirmation.id
+        )
+    }
+    )
+
+    fun mapTransactionResponseToEntity(input: TransactionResponse)=
+        TransactionEntity (
+            id =input.id,
+            product = ProductEntity(
+                id =input.product.id,
+                name = input.product.name,
+                avatar= input.product.avatar,
+            location=input.product.location,
+ description= input.product.description,
+
+     isFav= false
+
+            ),
+
+       sharer = UserEntity(
+           id= input.sharer.id,
+           email = input.sharer.email,
+           avatar = input.sharer.avatar,
+           name = input.sharer.name
+       ),
+         confirmation =input.confirmation.map {
+             ConfirmationEntity(
+                 id =it.id,
+             note =it.note,
+                 status = it.status,
+                 taker =  UserEntity(
+                     id= input.sharer.id,
+                     email = input.sharer.email,
+                     avatar = input.sharer.avatar,
+                     name = input.sharer.name
+                 ),
+             )
+
+         },
+         status =input.status,
+        )
+
 
 
 }

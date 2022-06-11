@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
     </fragment>
 
     <fragment
@@ -39,16 +42,45 @@
         <action
             android:id="@+id/action_navigation_share_to_navigation_notifications"
             app:destination="@id/navigation_notifications" />
+        <action
+            android:id="@+id/action_navigation_share_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.stuffy.presentation.transaction.TransactionFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_transaction" />
+        tools:layout="@layout/fragment_transaction" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_transactionConfirmationFragment"
+            app:destination="@id/transactionConfirmationFragment" />
+    </fragment>
     <activity
         android:id="@+id/menuActivity4"
         android:name="com.example.stuffy.presentation.menu.MenuActivity"
         android:label="activity_menu"
         tools:layout="@layout/activity_menu" />
+    <activity
+        android:id="@+id/confirmationActivity"
+        android:name="com.example.stuffy.presentation.confirmation.ConfirmationActivity"
+        android:label="activity_confirmation"
+        tools:layout="@layout/activity_confirmation" />
+    <fragment
+        android:id="@+id/transactionConfirmationFragment"
+        android:name="com.example.stuffy.presentation.transaction.TransactionConfirmationFragment"
+        android:label="fragment_transaction_confirmation"
+        tools:layout="@layout/fragment_transaction_confirmation" >
+        <action
+            android:id="@+id/action_transactionConfirmationFragment_to_transactionConfirmationDetailFragment"
+            app:destination="@id/transactionConfirmationDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionConfirmationDetailFragment"
+        android:name="com.example.stuffy.presentation.transaction.TransactionConfirmationDetailFragment"
+        android:label="TransactionConfirmationDetailFragment" >
+        <action
+            android:id="@+id/action_transactionConfirmationDetailFragment_self"
+            app:destination="@id/transactionConfirmationDetailFragment" />
+    </fragment>
 
 </navigation>

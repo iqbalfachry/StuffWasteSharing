@@ -149,7 +149,9 @@ class ShareFragment :  Fragment() {
                                         }
 
                                     }
-
+                                binding?.textView27?.setText("")
+                                    binding?.textView29?.setText("")
+                                    binding?.textView62?.setText("")
                                 }
                                 is Resource.Error -> {
 

@@ -3,6 +3,7 @@ package com.example.stuffy.core.data
 
 import com.example.stuffy.core.data.local.LocalDataSource
 import com.example.stuffy.core.data.local.entity.ProductEntity
+import com.example.stuffy.core.data.local.entity.TransactionEntity
 import com.example.stuffy.core.data.remote.RemoteDataSource
 import com.example.stuffy.core.data.remote.network.ApiResponse
 import com.example.stuffy.core.data.remote.response.CategoryResponse
@@ -30,8 +31,8 @@ class StuffyRepositoryImpl(
         object : NetworkBoundResource<List<Product>, List<ProductResponse>>() {
 
             public override fun loadFromDB(): Flow<List<Product>> {
-                return localDataSource.getListMovie().map{
-                    DataMapper.mapListEntityToDomain(it)
+                return localDataSource.getListProduct().map{
+                    DataMapper.mapListProductEntityToDomain(it)
                 }
             }
 
@@ -50,12 +51,40 @@ class StuffyRepositoryImpl(
                 }
 
 
-             localDataSource.insertMovie(products)
+             localDataSource.insertProduct(products)
             }
 
 
         }.asFlow()
+    override fun getTransactions(): Flow<Resource<List<ConfirmationTransaction>>> =
+        object : NetworkBoundResource<List<ConfirmationTransaction>, List<TransactionResponse>>() {
 
+
+            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+                remoteDataSource.getTransactions()
+
+
+            override suspend fun saveCallResult(data: List<TransactionResponse>) {
+                val transactions =ArrayList<TransactionEntity>()
+                    data.map {
+                        val transaction = DataMapper.mapTransactionResponseToEntity(it)
+                        transactions.add(transaction)
+                }
+                localDataSource.insertTransaction(transactions)
+            }
+
+            override fun loadFromDB(): Flow<List<ConfirmationTransaction>> {
+                return localDataSource.getListTransaction().map{
+                    DataMapper.mapListTransactionEntityToDomain(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<ConfirmationTransaction>?): Boolean {
+                return true
+            }
+
+
+        }.asFlow()
     override fun createProduct(
         files: MultipartBody.Part,
         description: RequestBody,
@@ -211,25 +240,7 @@ class StuffyRepositoryImpl(
             }
         }.asFlow()
 
-    override fun getTransactions(): Flow<Resource<List<ConfirmationTransaction>>> =
-        object : RemoteResource<List<ConfirmationTransaction>, List<TransactionResponse>>() {
 
-
-            override  fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
-                remoteDataSource.getTransactions()
-
-
-            override fun convertCallResult(data: List<TransactionResponse>): Flow<List<ConfirmationTransaction>> {
-                val result = data.map {
-                    DataMapper.mapTransactionResponseToDomain(it)
-                }
-                return flow { emit(result) }
-            }
-
-            override fun emptyResult(): Flow<List<ConfirmationTransaction>> {
-                return flow { emit(emptyList()) }
-            }
-        }.asFlow()
 
     override fun getTransactionsShare(): Flow<Resource<List<Share>>> =
         object : RemoteResource<List<Share>, List<TransactionResponse>>() {
