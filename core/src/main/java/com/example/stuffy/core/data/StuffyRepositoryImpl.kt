@@ -85,6 +85,62 @@ class StuffyRepositoryImpl(
 
 
         }.asFlow()
+    override fun getTransactionsShare(): Flow<Resource<List<Share>>> =
+        object : NetworkBoundResource<List<Share>, List<TransactionResponse>>() {
+
+
+            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+                remoteDataSource.getTransactions()
+
+
+            override suspend fun saveCallResult(data: List<TransactionResponse>) {
+                val transactions =ArrayList<TransactionEntity>()
+                data.map {
+                    val transaction = DataMapper.mapTransactionResponseToEntity(it)
+                    transactions.add(transaction)
+                }
+                localDataSource.insertTransaction(transactions)
+
+            }
+            override fun loadFromDB(): Flow<List<Share>> {
+                return localDataSource.getListTransaction().map{
+                    DataMapper.mapListShareEntityToDomain(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<Share>?): Boolean {
+                return true
+            }
+
+        }.asFlow()
+    override fun getTransactionsTake(email: String): Flow<Resource<List<Take>>> =
+        object : NetworkBoundResource<List<Take>, List<TransactionResponse>>() {
+
+
+            override suspend fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
+                remoteDataSource.getTransactionsById(email)
+
+
+            override suspend fun saveCallResult(data: List<TransactionResponse>) {
+                val transactions =ArrayList<TransactionEntity>()
+                data.map {
+                    val transaction = DataMapper.mapTransactionResponseToEntity(it)
+                    transactions.add(transaction)
+                }
+                localDataSource.insertTransaction(transactions)
+            }
+            override fun loadFromDB(): Flow<List<Take>> {
+                return localDataSource.getListTransactionById(email).map{
+                    DataMapper.mapListTakeEntityToDomain(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<Take>?): Boolean {
+                return true
+            }
+
+        }.asFlow()
+
     override fun createProduct(
         files: MultipartBody.Part,
         description: RequestBody,
@@ -242,25 +298,7 @@ class StuffyRepositoryImpl(
 
 
 
-    override fun getTransactionsShare(): Flow<Resource<List<Share>>> =
-        object : RemoteResource<List<Share>, List<TransactionResponse>>() {
 
-
-            override  fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
-                remoteDataSource.getTransactions()
-
-
-            override fun convertCallResult(data: List<TransactionResponse>): Flow<List<Share>> {
-                val result = data.map {
-                    DataMapper.mapTransactionResponseToDomainShare(it)
-                }
-                return flow { emit(result) }
-            }
-
-            override fun emptyResult(): Flow<List<Share>> {
-                return flow { emit(emptyList()) }
-            }
-        }.asFlow()
 
     override fun getFavoriteMovie(): Flow<List<Product>> {
         return localDataSource.getFavMovie().map { DataMapper.mapEntitiesToDomain(it) }
@@ -273,25 +311,6 @@ class StuffyRepositoryImpl(
         }
     }
 
-    override fun getTransactionsTake(email: String): Flow<Resource<List<Take>>> =
-        object : RemoteResource<List<Take>, List<TransactionResponse>>() {
-
-
-            override fun createCall(): Flow<ApiResponse<List<TransactionResponse>>> =
-                remoteDataSource.getTransactionsById(email)
-
-
-            override fun convertCallResult(data: List<TransactionResponse>): Flow<List<Take>> {
-                val result = data.map {
-                    DataMapper.mapTransactionResponseToDomainTake(it)
-                }
-                return flow { emit(result) }
-            }
-
-            override fun emptyResult(): Flow<List<Take>> {
-                return flow { emit(emptyList()) }
-            }
-        }.asFlow()
 
 
 }

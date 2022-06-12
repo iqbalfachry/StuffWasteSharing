@@ -14,7 +14,8 @@ interface ProductDao {
 
     @Query("SELECT * FROM `transaction`")
     fun getListTransaction(): Flow<List<TransactionEntity>>
-
+    @Query("SELECT * FROM `transaction` WHERE  json_extract(confirmation, '$[0].taker.email') = :email  ")
+    fun getListTransactionById(email:String): Flow<List<TransactionEntity>>
     @Query("SELECT * FROM confirmation")
     fun getListConfirmation(): Flow<List<ConfirmationEntity>>
 

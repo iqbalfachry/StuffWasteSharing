@@ -215,7 +215,51 @@ object DataMapper {
         input.map{
             mapTransactionEntitytoDomain(it)
         }
+    fun mapListShareEntityToDomain(input: List<TransactionEntity>):List<Share> =
+        input.map{
+            mapShareEntitytoDomain(it)
+        }
+    fun mapListTakeEntityToDomain(input: List<TransactionEntity>):List<Take> =
+        input.map{
+            mapTakeEntitytoDomain(it)
+        }
+    private fun mapTakeEntitytoDomain(input: TransactionEntity) =Take(
+          id = input.id,
+            image = input.product.avatar ,
+            name = input.product.name,
+            status = input.confirmation.map {confirmation->
+                ConfirmationTaker(
+                    id = confirmation.taker.id,
+                    image = confirmation.taker.avatar,
+                    name = confirmation.taker.name,
+                    note = confirmation.note,
+                    status=confirmation.status,
+                    email=confirmation.taker.email,
+                    confirmationId = confirmation.id
+                )
+            },
+            location = input.product.location ,
 
+
+    )
+    private fun mapShareEntitytoDomain(input: TransactionEntity) =Share(
+        id =input.id,
+        name=input.product.name,
+        image=input.product.avatar,
+       location = input.product.location,
+        status=input.status,
+        taker = input.confirmation.map { confirmation->
+            ConfirmationTaker(
+                id = confirmation.taker.id,
+                image = confirmation.taker.avatar,
+                name = confirmation.taker.name,
+                note = confirmation.note,
+                status=confirmation.status,
+                email=confirmation.taker.email,
+                confirmationId = confirmation.id
+            )
+        },
+    )
     private fun mapTransactionEntitytoDomain(input: TransactionEntity) =ConfirmationTransaction(
         id =input.id,
         name=input.product.name,
