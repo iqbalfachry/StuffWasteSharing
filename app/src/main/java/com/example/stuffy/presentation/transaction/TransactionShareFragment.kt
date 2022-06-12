@@ -45,6 +45,7 @@ class TransactionShareFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
         auth = Firebase.auth
+        showRecyclerList()
         transactionShareViewModel.transaction.observe(viewLifecycleOwner){
             if (it != null) {
                 when (it) {
@@ -66,7 +67,7 @@ class TransactionShareFragment : Fragment() {
             }
         }
 
-        showRecyclerList()
+
     }
 
     private fun showRecyclerList() {

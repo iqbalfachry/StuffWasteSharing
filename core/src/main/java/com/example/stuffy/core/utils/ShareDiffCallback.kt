@@ -22,6 +22,9 @@ class ShareDiffCallback(private val mOldList: ArrayList<Share>, private val mNew
             mOldList[oldItemPosition].id != mNewList[newItemPosition].id->{
                 false
             }
+            mOldList[oldItemPosition].status != mNewList[newItemPosition].status->{
+                false
+            }
             else->true
         }
     }

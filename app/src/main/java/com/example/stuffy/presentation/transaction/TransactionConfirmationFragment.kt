@@ -40,6 +40,7 @@ class TransactionConfirmationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
+        showRecyclerList()
         transactionConfirmationViewModel.transaction.observe(viewLifecycleOwner){
             if (it != null) {
                 when (it) {
@@ -61,7 +62,7 @@ class TransactionConfirmationFragment : Fragment() {
             }
         }
 
-        showRecyclerList()
+
     }
 
 

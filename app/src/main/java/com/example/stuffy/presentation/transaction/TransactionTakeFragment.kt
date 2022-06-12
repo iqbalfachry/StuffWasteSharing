@@ -40,6 +40,7 @@ class TransactionTakeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
         auth = Firebase.auth
+        showRecyclerList()
         auth.currentUser?.email?.let {
             transactionTakeViewModel.transaction(it).observe(viewLifecycleOwner){ it1 ->
                 if (it1 != null) {
@@ -62,7 +63,7 @@ class TransactionTakeFragment : Fragment() {
                 }
             }
         }
-        showRecyclerList()
+
     }
 
     private fun showRecyclerList() {
@@ -87,21 +88,21 @@ class TransactionTakeFragment : Fragment() {
 
                         }
                         is Resource.Success -> {
-
+                            Toast.makeText(activity, "sedang diambil", Toast.LENGTH_SHORT).show()
+                            Intent(
+                                activity,
+                                MainActivity::class.java
+                            ).also { intent ->
+                                startActivity(intent)
+                            }
+                            activity?.overridePendingTransition(0, 0)
 
                         }
                         is Resource.Error -> {
 
                         }
                     }
-                    Toast.makeText(activity, "sedang diambil", Toast.LENGTH_SHORT).show()
-                    Intent(
-                        activity,
-                        MainActivity::class.java
-                    ).also { intent ->
-                        startActivity(intent)
-                    }
-                    activity?.overridePendingTransition(0, 0)
+
                 }
             }
         }

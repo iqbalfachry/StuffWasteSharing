@@ -18,6 +18,9 @@ class TakeDiffCallback(private val mOldList: ArrayList<Take>, private val mNewLi
             mOldList[oldItemPosition].id != mNewList[newItemPosition].id->{
                 false
             }
+            mOldList[oldItemPosition].status != mNewList[newItemPosition].status->{
+                false
+            }
             else->true
         }
     }
