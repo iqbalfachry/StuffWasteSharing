@@ -1,9 +1,6 @@
 package com.example.stuffy.core.data.remote.network
 
-import com.example.stuffy.core.data.remote.response.CategoryResponse
-import com.example.stuffy.core.data.remote.response.ConfirmationResponse
-import com.example.stuffy.core.data.remote.response.ProductResponse
-import com.example.stuffy.core.data.remote.response.TransactionResponse
+import com.example.stuffy.core.data.remote.response.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -28,6 +25,13 @@ interface ApiService {
         @Field("email") email: String,
         @Field("status")status: String,
     ):TransactionResponse
+    @FormUrlEncoded
+    @POST("signup")
+    suspend fun  createUser(
+        @Field("productId") productId: String,
+        @Field("email") email: String,
+        @Field("status")status: String,
+    ): UserResponse
     @GET("transactions")
     suspend fun getTransactions():List<TransactionResponse>
     @GET("transactions/{id}")

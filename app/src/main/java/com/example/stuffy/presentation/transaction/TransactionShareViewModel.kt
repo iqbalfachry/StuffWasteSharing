@@ -6,8 +6,8 @@ import com.example.stuffy.core.domain.useCase.StuffyUseCase
 
 
 class TransactionShareViewModel(private val stuffyUseCase: StuffyUseCase):  ViewModel() {
-   val transaction =
-        stuffyUseCase.getTransactionsShare().asLiveData()
+    fun transaction(email:String) =
+        stuffyUseCase.getTransactionsShare(email).asLiveData()
     fun updateConfirmationStatus(id:String,status:String) =
         stuffyUseCase.updateConfirmationStatus(id,status).asLiveData()
     fun updateTransactionStatus(id:String,status:String) =

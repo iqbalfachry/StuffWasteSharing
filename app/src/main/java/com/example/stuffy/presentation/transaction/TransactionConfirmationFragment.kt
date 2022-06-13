@@ -18,6 +18,9 @@ import com.example.stuffy.core.ui.ConfirmationAdapter
 import com.example.stuffy.core.ui.ListProductAdapter
 import com.example.stuffy.databinding.FragmentTransactionConfirmationBinding
 import com.example.stuffy.presentation.share.ShareViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -27,6 +30,7 @@ class TransactionConfirmationFragment : Fragment() {
     private val transactionConfirmationViewModel : TransactionConfirmationViewModel by viewModel()
     private val binding get() = _binding
     private lateinit var confirmationAdapter: ConfirmationAdapter
+    private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,8 +44,10 @@ class TransactionConfirmationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recyclerview?.setHasFixedSize(true)
+        auth = Firebase.auth
         showRecyclerList()
-        transactionConfirmationViewModel.transaction.observe(viewLifecycleOwner){
+        auth.currentUser?.email?.let {
+        transactionConfirmationViewModel.transaction(it).observe(viewLifecycleOwner){
             if (it != null) {
                 when (it) {
                     is Resource.Loading -> {
@@ -60,7 +66,7 @@ class TransactionConfirmationFragment : Fragment() {
                     }
                 }
             }
-        }
+        }}
 
 
     }

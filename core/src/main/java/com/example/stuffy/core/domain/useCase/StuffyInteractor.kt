@@ -22,8 +22,8 @@ class StuffyInteractor(private val stuffyRepository: StuffyRepository) : StuffyU
     ) =
         stuffyRepository.createProduct(files, description, name, location)
 
-    override fun getTransactions() =
-        stuffyRepository.getTransactions()
+    override fun getTransactions(email: String) =
+        stuffyRepository.getTransactions(email)
 
    override fun getTransactionsTake(email:String): Flow<Resource<List<Take>>> = stuffyRepository.getTransactionsTake(email)
 
@@ -53,5 +53,5 @@ class StuffyInteractor(private val stuffyRepository: StuffyRepository) : StuffyU
         status: String
     ): Flow<Resource<ConfirmationTransaction>> =stuffyRepository.updateTransactionStatus(id, status)
 
-    override fun getTransactionsShare(): Flow<Resource<List<Share>>> =  stuffyRepository.getTransactionsShare()
+    override fun getTransactionsShare(email:String): Flow<Resource<List<Share>>> =  stuffyRepository.getTransactionsShare(email)
 }

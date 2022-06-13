@@ -12,8 +12,8 @@ interface StuffyUseCase {
     fun getCategory(): Flow<Resource<List<Filter>>>
     fun getFavMovie(): Flow<List<Product>>
     fun createProduct(files: MultipartBody.Part, description: RequestBody, name: RequestBody, location: RequestBody): Flow<Resource<Product>>
-    fun getTransactions(): Flow<Resource<List<ConfirmationTransaction>>>
-    fun getTransactionsShare(): Flow<Resource<List<Share>>>
+    fun getTransactions(email: String): Flow<Resource<List<ConfirmationTransaction>>>
+    fun getTransactionsShare(email:String): Flow<Resource<List<Share>>>
     fun getTransactionsTake(email:String): Flow<Resource<List<Take>>>
     fun setFavMovie(movie: Product, state: Boolean)
     fun createTransaction(productId: String,

@@ -14,6 +14,7 @@ class LocalDataSource(private val productDao: ProductDao) {
     fun getListProduct(): Flow<List<ProductEntity>> = productDao.getListProduct()
     fun getListTransaction(): Flow<List<TransactionEntity>> = productDao.getListTransaction()
     fun getListTransactionById(email:String): Flow<List<TransactionEntity>> = productDao.getListTransactionById(email)
+    fun getListTransactionByIdSharer(email:String): Flow<List<TransactionEntity>> = productDao.getListTransactionByIdSharer(email)
     fun getListConfirmation(): Flow<List<ConfirmationEntity>> = productDao.getListConfirmation()
     fun getFavMovie(): Flow<List<ProductEntity>> = productDao.getFavMovie()
 

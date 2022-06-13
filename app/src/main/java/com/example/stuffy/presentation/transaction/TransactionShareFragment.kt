@@ -46,27 +46,28 @@ class TransactionShareFragment : Fragment() {
         binding?.recyclerview?.setHasFixedSize(true)
         auth = Firebase.auth
         showRecyclerList()
-        transactionShareViewModel.transaction.observe(viewLifecycleOwner){
-            if (it != null) {
-                when (it) {
-                    is Resource.Loading -> {
+        auth.currentUser?.email?.let {
+            transactionShareViewModel.transaction(it).observe(viewLifecycleOwner) {
+                if (it != null) {
+                    when (it) {
+                        is Resource.Loading -> {
 
-                        binding?.recyclerview?.visibility = View.GONE
-                    }
-                    is Resource.Success -> {
-                        binding?.recyclerview?.visibility = View.VISIBLE
+                            binding?.recyclerview?.visibility = View.GONE
+                        }
+                        is Resource.Success -> {
+                            binding?.recyclerview?.visibility = View.VISIBLE
 
-                        it.data?.let { it1 -> shareAdapter.setData(it1) }
+                            it.data?.let { it1 -> shareAdapter.setData(it1) }
 
-                    }
-                    is Resource.Error -> {
-                        binding?.recyclerview?.visibility = View.VISIBLE
-                        Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                        }
+                        is Resource.Error -> {
+                            binding?.recyclerview?.visibility = View.VISIBLE
+                            Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
         }
-
 
     }
 

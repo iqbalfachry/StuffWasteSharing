@@ -56,7 +56,7 @@ class StuffyRepositoryImpl(
 
 
         }.asFlow()
-    override fun getTransactions(): Flow<Resource<List<ConfirmationTransaction>>> =
+    override fun getTransactions(email: String): Flow<Resource<List<ConfirmationTransaction>>> =
         object : NetworkBoundResource<List<ConfirmationTransaction>, List<TransactionResponse>>() {
 
 
@@ -74,7 +74,7 @@ class StuffyRepositoryImpl(
             }
 
             override fun loadFromDB(): Flow<List<ConfirmationTransaction>> {
-                return localDataSource.getListTransaction().map{
+                return localDataSource.getListTransactionByIdSharer(email).map{
                     DataMapper.mapListTransactionEntityToDomain(it)
                 }
             }
@@ -85,7 +85,7 @@ class StuffyRepositoryImpl(
 
 
         }.asFlow()
-    override fun getTransactionsShare(): Flow<Resource<List<Share>>> =
+    override fun getTransactionsShare(email:String): Flow<Resource<List<Share>>> =
         object : NetworkBoundResource<List<Share>, List<TransactionResponse>>() {
 
 
@@ -103,7 +103,7 @@ class StuffyRepositoryImpl(
 
             }
             override fun loadFromDB(): Flow<List<Share>> {
-                return localDataSource.getListTransaction().map{
+                return localDataSource.getListTransactionByIdSharer(email).map{
                     DataMapper.mapListShareEntityToDomain(it)
                 }
             }

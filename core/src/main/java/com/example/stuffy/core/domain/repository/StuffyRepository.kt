@@ -18,7 +18,7 @@ interface StuffyRepository {
 
     fun getCategory(): Flow<Resource<List<Filter>>>
     fun getFavoriteMovie(): Flow<List<Product>>
-    fun getTransactions(): Flow<Resource<List<ConfirmationTransaction>>>
+    fun getTransactions(email: String): Flow<Resource<List<ConfirmationTransaction>>>
     fun createTransaction(
         productId: String,
         email: String,
@@ -32,7 +32,7 @@ interface StuffyRepository {
     ): Flow<Resource<ConfirmationTaker>>
 
     fun setFavoriteMovie(movie: Product, state: Boolean)
-    fun getTransactionsShare(): Flow<Resource<List<Share>>>
+    fun getTransactionsShare(email: String): Flow<Resource<List<Share>>>
     fun getTransactionsTake(email: String): Flow<Resource<List<Take>>>
     fun updateConfirmationStatus(
         id: String,
